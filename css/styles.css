@@ -1,0 +1,310 @@
+/* Custom Styles for UniTutor Platform */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary-color: #059669;
+  --primary-hover: #047857;
+  --accent-gold: #f59e0b;
+  --dark-bg: #061512;
+  --dark-card: #0d231e;
+  --dark-border: #1a3d35;
+  --dark-text: #f0fdf4;
+  --dark-muted: #86efac;
+}
+
+/* Global Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: visible;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.5;
+}
+
+/* Responsive Images, SVG, Video Media */
+img, svg, video, iframe, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Text Container Bounds & Word Break Protection */
+p, h1, h2, h3, h4, h5, h6, span, a, label {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Enforce Sticky Navbar Positioning */
+#navbar-container,
+#app-navbar.sticky,
+header.sticky {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+  width: 100%;
+}
+
+/* Prevent nested sticky conflict when header is inside navbar-container */
+#navbar-container #app-navbar {
+  position: relative !important;
+  top: auto !important;
+}
+
+/* Scrolled elevation shadow */
+header.scrolled,
+#navbar-container.scrolled #app-navbar,
+#app-navbar.scrolled {
+  box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Active Link & Button State Indicator */
+.nav-link-active {
+  color: #059669 !important;
+  font-weight: 800 !important;
+  position: relative;
+}
+
+.nav-link-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 12px;
+  right: 12px;
+  height: 2.5px;
+  background-color: #059669;
+  border-radius: 9999px;
+}
+
+html.dark .nav-link-active {
+  color: #34d399 !important;
+}
+
+html.dark .nav-link-active::after {
+  background-color: #34d399;
+}
+
+/* Dark Mode Overrides */
+html.dark body {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+html.dark .bg-theme-card {
+  background-color: var(--dark-card) !important;
+}
+
+html.dark .border-theme-border {
+  border-color: var(--dark-border) !important;
+}
+
+/* RTL Layout Direction & RTL Spacing Fixes */
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .text-left {
+  text-align: right !important;
+}
+
+html[dir="rtl"] .space-x-1 > :not([hidden]) ~ :not([hidden]),
+html[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]),
+html[dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]),
+html[dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+/* Action Button Style */
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background-color: #f8fafc;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  line-height: 1;
+  min-height: 36px;
+  touch-action: manipulation;
+}
+
+.action-btn:hover {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+html.dark .action-btn {
+  background-color: #163830;
+  border-color: #1a3d35;
+  color: #e2e8f0;
+}
+
+html.dark .action-btn:hover {
+  background-color: #1d4a40;
+  border-color: #245247;
+  color: #ffffff;
+}
+
+/* Modal Backdrop */
+.modal-backdrop {
+  background-color: rgba(6, 21, 18, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+/* Right-side Mobile Slide-Over Drawer */
+#mobile-menu-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 85vw;
+  height: 100vh;
+  z-index: 10000;
+  background-color: #ffffff;
+  box-shadow: -10px 0 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem;
+  overflow-y: auto;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(100%);
+}
+
+html.dark #mobile-menu-container {
+  background-color: #0d231e;
+  border-left: 1px solid #1a3d35;
+}
+
+/* Open State Animation */
+#mobile-menu.open #mobile-menu-container {
+  transform: translateX(0);
+}
+
+html[dir="rtl"] #mobile-menu-container {
+  right: auto;
+  left: 0;
+  box-shadow: 10px 0 25px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+}
+
+html[dir="rtl"] #mobile-menu.open #mobile-menu-container {
+  transform: translateX(0);
+}
+
+/* Mobile Menu Backdrop Overlay */
+.mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(6, 21, 18, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#mobile-menu.open .mobile-backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---------------------------------------------------- */
+/* RESPONSIVE BREAKPOINTS (320px, 480px, 768px, 1024px) */
+/* ---------------------------------------------------- */
+
+/* Mobile Breakpoint: 320px - 479px (Extra Small Screens) */
+@media (min-width: 320px) {
+  html {
+    font-size: 14px;
+  }
+
+  .one-line-nav {
+    white-space: normal;
+  }
+}
+
+/* Mobile Breakpoint: 480px - 767px (Small Screens & Mobile Landscape) */
+@media (min-width: 480px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+/* Tablet Breakpoint: 768px - 1023px */
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
+  .one-line-nav {
+    white-space: nowrap;
+  }
+}
+
+/* Desktop Breakpoint: 1024px+ */
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Small Device Layout Adjustments (< 640px) */
+@media (max-width: 639px) {
+  /* Prevent Button/Input Horizontal Overflow */
+  button, input, select, textarea {
+    max-width: 100%;
+  }
+
+  /* Padding Adjustments for Mobile Cards */
+  .p-8, .p-10 {
+    padding: 1.25rem !important;
+  }
+
+  .sm\:p-10 {
+    padding: 1.25rem !important;
+  }
+
+  .py-12 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Fixed Top-Right Controls on Mobile */
+  .fixed.top-5.right-5 {
+    top: 0.75rem !important;
+    right: 0.75rem !important;
+  }
+}
+
+/* Ultra Small Device Adjustments (< 380px) */
+@media (max-width: 379px) {
+  .text-2xl {
+    font-size: 1.25rem !important;
+  }
+
+  .text-xl {
+    font-size: 1.1rem !important;
+  }
+
+  .p-8, .p-10, .p-6 {
+    padding: 0.875rem !important;
+  }
+}
+
+

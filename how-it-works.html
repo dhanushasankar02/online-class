@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniTutor - How It Works & Platform Guide</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            theme: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            },
+            amberGold: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-[#061512] dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-300">
+
+  <!-- Sticky Dynamic Header Container -->
+  <div id="navbar-container" class="sticky top-0 z-[9999] w-full">
+    <header id="app-navbar" class="w-full bg-white/95 dark:bg-[#0d231e]/95 backdrop-blur-md border-b border-emerald-100 dark:border-[#1a3d35] transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 one-line-nav">
+          
+          <!-- Brand Logo with Emblem -->
+          <a href="index.html" class="flex items-center gap-2.5 shrink-0 group">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-theme-600 via-theme-500 to-amberGold-500 flex items-center justify-center text-white shadow-md shadow-theme-600/30 group-hover:scale-105 transition-transform logo-glow">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-lg font-black tracking-tight text-slate-900 dark:text-white">UniTutor<span class="text-amberGold-500">.</span></span>
+              <span class="block text-[9px] font-extrabold text-theme-600 dark:text-theme-400 tracking-wider uppercase leading-none">University Online</span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation Menu -->
+          <nav class="hidden lg:flex items-center space-x-1 lg:space-x-2 text-sm font-bold">
+            
+            <!-- Home Dropdown -->
+            <div class="relative group">
+              <button type="button" class="inline-flex items-center gap-1 px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+                <span>Home</span>
+                <span class="text-[10px] text-slate-400 group-hover:rotate-180 transition-transform">▾</span>
+              </button>
+              
+              <div class="absolute left-0 mt-1 w-48 rounded-xl bg-white dark:bg-[#0d231e] shadow-xl border border-emerald-100 dark:border-[#1a3d35] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 p-1.5 space-y-1 text-xs">
+                <a href="index.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-theme-50 dark:hover:bg-[#163830]">
+                  Home 1 
+                </a>
+                <a href="home2.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830]">
+                  Home 2 
+                </a>
+              </div>
+            </div>
+
+            <!-- Subjects -->
+            <a href="subjects.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              Subjects
+            </a>
+
+            <!-- Find a Tutor -->
+            <a href="tutors.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              Find a Tutor
+            </a>
+
+            <!-- How It Works (Active) -->
+            <a href="how-it-works.html" class="nav-link-active px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              How It Works
+            </a>
+
+            <!-- Pricing -->
+            <a href="pricing.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              Pricing
+            </a>
+
+            <!-- Dashboard Dropdown -->
+            <div class="relative group">
+              <button type="button" class="inline-flex items-center gap-1 px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+                <span>Dashboard</span>
+                <span class="text-[10px] text-slate-400 group-hover:rotate-180 transition-transform">▾</span>
+              </button>
+              
+              <div class="absolute left-0 mt-1 w-52 rounded-xl bg-white dark:bg-[#0d231e] shadow-xl border border-emerald-100 dark:border-[#1a3d35] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 p-1.5 space-y-1 text-xs">
+                <a href="student-dashboard.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-theme-50 dark:hover:bg-[#163830]">
+                  User Dashboard 
+                </a>
+                <a href="admin-dashboard.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830]">
+                  Admin Dashboard
+                </a>
+              </div>
+            </div>
+
+          </nav>
+
+          <!-- Right Side Controls -->
+          <div class="flex items-center space-x-2 shrink-0">
+            
+            <!-- RTL Layout Switcher Button (Desktop) -->
+            <button class="action-btn hidden lg:inline-flex" id="btn-rtl-toggle" onclick="toggleRTL()" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction">
+              <span style="font-size: 11px; font-weight: 700; letter-spacing: -0.5px;">⇄ RTL</span>
+            </button>
+
+            <!-- Dark Mode Switcher ICON Button (Desktop) -->
+            <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 transition p-2">
+              <svg id="sun-icon" class="w-4 h-4 hidden dark:block text-amberGold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+              <svg id="moon-icon" class="w-4 h-4 block dark:hidden text-theme-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+              </svg>
+            </button>
+
+            <!-- Clean Login Portal Button (Desktop) -->
+            <div id="user-auth-area" class="hidden lg:block">
+              <button onclick="openLoginModal()" type="button" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105">
+                Login Portal
+              </button>
+            </div>
+
+            <!-- Mobile Hamburger Toggle Icon Button -->
+            <button onclick="toggleMobileMenu()" type="button" aria-label="Open Mobile Menu" class="lg:hidden p-2 text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] rounded-xl border border-slate-200 dark:border-[#1a3d35] transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Right Side Off-Canvas Menu Drawer -->
+      <div id="mobile-menu" class="hidden lg:hidden">
+        <!-- Overlay Backdrop -->
+        <div onclick="toggleMobileMenu(false)" class="mobile-backdrop"></div>
+        
+        <!-- Right Drawer Container -->
+        <div id="mobile-menu-container">
+          <!-- Drawer Header -->
+          <div class="flex items-center justify-between pb-4 border-b border-emerald-100 dark:border-[#1a3d35]">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-theme-600 to-amberGold-500 flex items-center justify-center text-white text-xs font-black shadow">
+                UT
+              </div>
+              <span class="font-black text-sm text-slate-900 dark:text-white">Navigation</span>
+            </div>
+            <button onclick="toggleMobileMenu(false)" type="button" aria-label="Close Menu" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#163830] transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="py-4 space-y-1 text-sm font-bold flex-grow overflow-y-auto">
+            
+            <!-- Home Collapsible Submenu -->
+            <div class="rounded-xl overflow-hidden">
+              <button type="button" onclick="toggleMobileSubmenu('mobile-home-submenu', this)" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition font-bold">
+                <span>Home</span>
+                <svg class="w-4 h-4 submenu-arrow transition-transform duration-200 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div id="mobile-home-submenu" class="mobile-submenu hidden pl-4 pr-1 py-1 space-y-1 bg-emerald-50/50 dark:bg-[#061512]/50 rounded-xl my-1 border border-emerald-100/50 dark:border-[#1a3d35]">
+                <a href="index.html" class="block px-3 py-2 text-xs rounded-lg text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  Home 1 
+                </a>
+                <a href="home2.html" class="block px-3 py-2 text-xs rounded-lg text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  Home 2 
+                </a>
+              </div>
+            </div>
+
+            <a href="subjects.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">Subjects Directory</a>
+            <a href="tutors.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">Find a Tutor</a>
+            <a href="how-it-works.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">How It Works</a>
+            <a href="pricing.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">Pricing</a>
+
+            <!-- Dashboard Collapsible Submenu -->
+            <div class="rounded-xl overflow-hidden">
+              <button type="button" onclick="toggleMobileSubmenu('mobile-dashboard-submenu', this)" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition font-bold">
+                <span>Dashboard</span>
+                <svg class="w-4 h-4 submenu-arrow transition-transform duration-200 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div id="mobile-dashboard-submenu" class="mobile-submenu hidden pl-4 pr-1 py-1 space-y-1 bg-emerald-50/50 dark:bg-[#061512]/50 rounded-xl my-1 border border-emerald-100/50 dark:border-[#1a3d35]">
+                <a href="student-dashboard.html" class="block px-3 py-2 text-xs rounded-lg text-theme-600 dark:text-theme-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  User Dashboard 
+                <a href="admin-dashboard.html" class="block px-3 py-2 text-xs rounded-lg text-amberGold-600 dark:text-amberGold-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  Admin Dashboard
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Utility Controls inside Mobile Menu (RTL, Dark Mode, Login) -->
+          <div class="pt-4 border-t border-emerald-100 dark:border-[#1a3d35] space-y-3">
+            <div class="grid grid-cols-2 gap-2">
+              <!-- Mobile RTL Button -->
+              <button onclick="toggleRTL()" type="button" class="action-btn w-full py-2 px-3 justify-center text-xs font-bold gap-1">
+                <span>⇄ RTL</span>
+              </button>
+              
+              <!-- Mobile Dark Mode Button -->
+              <button onclick="toggleDarkMode()" type="button" class="action-btn w-full py-2 px-3 justify-center text-xs font-bold gap-1">
+                <span class="dark:hidden">🌙 Dark</span>
+                <span class="hidden dark:inline">☀️ Light</span>
+              </button>
+            </div>
+
+            <!-- Mobile Login Portal Button -->
+            <a href="login.html" class="w-full text-center py-2.5 px-4 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 rounded-xl shadow-md block transition hover:opacity-95">
+              Login Portal →
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- MAIN CONTENT: HOW IT WORKS PAGE (7 EXCLUSIVE SECTIONS, CENTERED TOPICS) -->
+  <main class="flex-grow">
+    
+    <!-- ============================================================== -->
+    <!-- SECTION 1: FULL SCREEN BACKGROUND IMAGE HERO (CENTERED TOPIC)  -->
+    <!-- ============================================================== -->
+    <section class="relative py-16 sm:py-24 lg:py-28 flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden text-center" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1920');">
+      <!-- Dark Gradient Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-[#061512]/90 to-[#061512]"></div>
+
+      <div class="max-w-5xl mx-auto px-4 relative z-10 py-8 sm:py-16 text-center space-y-6">
+        
+        <span class="inline-block text-xs font-black uppercase tracking-widest text-emerald-400">
+          ⚡ Simple 4-Step Student Journey
+        </span>
+
+        <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto">
+          How UniTutor Works: From Module Struggle to <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-theme-300 to-amberGold-400">Exam First</span>
+        </h1>
+
+        <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto font-medium">
+          Discover our seamless onboarding, 15-minute tutor matching, live interactive whiteboard, and 99.2% exam pass guarantee.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4 pt-4">
+          <a href="tutors.html" class="px-8 py-3.5 bg-theme-600 hover:bg-theme-700 text-white font-black text-xs rounded-2xl shadow-lg transition hover:scale-105">
+            Match with a Tutor Now →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 2 [CARD TYPE SECTION]: 4-PHASE STUDENT ROADMAP CARDS   -->
+    <!-- ============================================================== -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Centered Topic Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-2">
+        <span class="text-xs font-black uppercase tracking-widest text-theme-600 dark:text-theme-400">Step-by-Step</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">The 4-Phase Learning Process</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm font-medium">How we take you from curriculum uncertainty to top exam marks.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Phase 1 -->
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] space-y-4 hover:border-theme-500 transition">
+          <div class="w-10 h-10 rounded-xl bg-theme-100 dark:bg-theme-900 text-theme-700 dark:text-theme-300 flex items-center justify-center font-mono font-black text-sm">
+            01
+          </div>
+          <h3 class="font-black text-lg text-slate-900 dark:text-white">Syllabus Matching</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+            Upload your university module handbook or past paper. Our AI matches specialist tutors in 15 mins.
+          </p>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] space-y-4 hover:border-amberGold-500 transition">
+          <div class="w-10 h-10 rounded-xl bg-amberGold-500/20 text-amberGold-500 flex items-center justify-center font-mono font-black text-sm">
+            02
+          </div>
+          <h3 class="font-black text-lg text-slate-900 dark:text-white">Free Consultation</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+            Meet your verified PhD/Ranker mentor for a 15-min trial session to audit tricky syllabus topics.
+          </p>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] space-y-4 hover:border-purple-500 transition">
+          <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 flex items-center justify-center font-mono font-black text-sm">
+            03
+          </div>
+          <h3 class="font-black text-lg text-slate-900 dark:text-white">1-on-1 Deep Drills</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+            Solve past paper marking schemes together live on interactive LaTeX whiteboards and code sandboxes.
+          </p>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] space-y-4 hover:border-emerald-500 transition">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-300 flex items-center justify-center font-mono font-black text-sm">
+            04
+          </div>
+          <h3 class="font-black text-lg text-slate-900 dark:text-white">Exam Vault & Notes</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+            Access 24/7 cloud recordings of every session, annotated PDFs, and step-by-step past paper solutions.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 3: PLATFORM SECURITY & ESCROW PROTECTION (CENTERED)   -->
+    <!-- ============================================================== -->
+    <section class="py-20 bg-emerald-50/50 dark:bg-[#081b17]">
+      <div class="max-w-6xl mx-auto px-4 space-y-10">
+        
+        <!-- Centered Topic Header -->
+        <div class="text-center max-w-2xl mx-auto space-y-2">
+          <span class="text-xs font-black uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Trust & Safety</span>
+          <h2 class="text-3xl font-black text-slate-900 dark:text-white">Escrow Payment & Satisfaction Security</h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Your funds are protected until your tutoring session is completed.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div class="p-6 space-y-2">
+            <div class="text-3xl">🔒</div>
+            <h3 class="font-black text-base text-slate-900 dark:text-white">Escrow Payment Hold</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Funds are held safely and only released after your session finishes.</p>
+          </div>
+          <div class="p-6 space-y-2">
+            <div class="text-3xl">💯</div>
+            <h3 class="font-black text-base text-slate-900 dark:text-white">100% Free First Session</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">If you aren't satisfied with your match, receive a 100% full refund.</p>
+          </div>
+          <div class="p-6 space-y-2">
+            <div class="text-3xl">📜</div>
+            <h3 class="font-black text-base text-slate-900 dark:text-white">Verified Qualifications</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">100% authenticated degree certificates from accredited universities.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 4: LIVE LESSON TECHNOLOGY SUITE (CENTERED)             -->
+    <!-- ============================================================== -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Centered Topic Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-xs font-black uppercase tracking-widest text-amberGold-500">Tech Platform</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">Built Specifically for University Rigor</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm font-medium">Zero downloads required. Works directly in any modern browser.</p>
+      </div>
+
+      <div class="divide-y divide-slate-200 dark:divide-[#1a3d35] text-xs">
+        <div class="py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="space-y-1 text-center md:text-left">
+            <h3 class="font-black text-base text-slate-900 dark:text-white">HD WebRTC Video & Audio Engine</h3>
+            <p class="text-slate-500 dark:text-slate-400">Crystal clear voice and screen sharing optimized for low-latency code & math explanation.</p>
+          </div>
+          <span class="px-3 py-1 rounded-full bg-emerald-50 dark:bg-[#163830] text-theme-700 dark:text-theme-300 font-bold shrink-0">100% In-Browser</span>
+        </div>
+
+        <div class="py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="space-y-1 text-center md:text-left">
+            <h3 class="font-black text-base text-slate-900 dark:text-white">Interactive Multi-User Whiteboard</h3>
+            <p class="text-slate-500 dark:text-slate-400">Draw vector diagrams, enter LaTeX math formulas, and write code snippets simultaneously.</p>
+          </div>
+          <span class="px-3 py-1 rounded-full bg-emerald-50 dark:bg-[#163830] text-theme-700 dark:text-theme-300 font-bold shrink-0">Stylus Ready</span>
+        </div>
+
+        <div class="py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="space-y-1 text-center md:text-left">
+            <h3 class="font-black text-base text-slate-900 dark:text-white">Automated Cloud Recording & Notes Vault</h3>
+            <p class="text-slate-500 dark:text-slate-400">Review full video recordings and download annotated PDFs anytime before exams.</p>
+          </div>
+          <span class="px-3 py-1 rounded-full bg-emerald-50 dark:bg-[#163830] text-theme-700 dark:text-theme-300 font-bold shrink-0">Unlimited Cloud Access</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 5: STUDENT EXAM REVISION TIMELINE (CENTERED)           -->
+    <!-- ============================================================== -->
+    <section class="py-20 bg-slate-950 text-white">
+      <div class="max-w-5xl mx-auto px-4 space-y-12">
+        
+        <!-- Centered Topic Header -->
+        <div class="text-center max-w-2xl mx-auto space-y-2">
+          <span class="text-xs font-black uppercase tracking-widest text-emerald-400">Transformation Timeline</span>
+          <h2 class="text-3xl font-black">Your 14-Day Revision Schedule</h2>
+          <p class="text-slate-400 text-sm font-medium">How structured 1-on-1 prep transforms your exam preparedness.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+          <div class="p-6 bg-slate-900 rounded-2xl border border-slate-800 space-y-2">
+            <span class="text-xs font-mono font-bold text-amberGold-400">DAY 01</span>
+            <h3 class="font-black text-base text-white">Upload & Audit</h3>
+            <p class="text-xs text-slate-400">Syllabus breakdown and target grade consultation.</p>
+          </div>
+          <div class="p-6 bg-slate-900 rounded-2xl border border-slate-800 space-y-2">
+            <span class="text-xs font-mono font-bold text-amberGold-400">DAY 04</span>
+            <h3 class="font-black text-base text-white">Marking Scheme Drills</h3>
+            <p class="text-xs text-slate-400">Master exact examiner scoring rubrics & key proofs.</p>
+          </div>
+          <div class="p-6 bg-slate-900 rounded-2xl border border-slate-800 space-y-2">
+            <span class="text-xs font-mono font-bold text-amberGold-400">DAY 09</span>
+            <h3 class="font-black text-base text-white">Timed Mock Exam</h3>
+            <p class="text-xs text-slate-400">Complete full past paper under timed exam conditions.</p>
+          </div>
+          <div class="p-6 bg-slate-900 rounded-2xl border border-slate-800 space-y-2">
+            <span class="text-xs font-mono font-bold text-emerald-400">DAY 14</span>
+            <h3 class="font-black text-base text-white">99.2% Exam Ready</h3>
+            <p class="text-xs text-slate-400">Enter exam hall with complete confidence & verified skills.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 6 [CARD TYPE SECTION]: DISCIPLINE ADAPTATION CARDS     -->
+    <!-- ============================================================== -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Centered Topic Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-xs font-black uppercase tracking-widest text-purple-600 dark:text-purple-300">Customized Methodology</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">Adapted to Your Field of Study</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm font-medium">How tutoring methods tailor specifically to STEM, Business, and Law.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- STEM Card -->
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] space-y-4 hover:border-theme-500 transition">
+          <div class="text-3xl">💻</div>
+          <h3 class="font-black text-lg text-slate-900 dark:text-white">STEM & Computer Science</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+            Focus on algorithmic complexity (Big-O), memory pointer diagrams, live Python/C++ compilers, and calculus proofs.
+          </p>
+        </div>
+
+        <!-- Business Card -->
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] space-y-4 hover:border-amberGold-500 transition">
+          <div class="text-3xl">📈</div>
+          <h3 class="font-black text-lg text-slate-900 dark:text-white">Business & Finance</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+            Focus on Excel DCF financial modeling, econometrics regression analysis, balance sheet adjustments, and WACC.
+          </p>
+        </div>
+
+        <!-- Law Card -->
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] space-y-4 hover:border-purple-500 transition">
+          <div class="text-3xl">⚖️</div>
+          <h3 class="font-black text-lg text-slate-900 dark:text-white">Law & Humanities</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+            Focus on OSCOLA citation standards, judicial precedent essay structuring, tort liability problem questions, and moot court.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 7: START FREE TRIAL CTA (CENTERED TOPIC)               -->
+    <!-- ============================================================== -->
+    <section class="py-20 bg-gradient-to-b from-slate-900 to-[#061512] text-white text-center">
+      <div class="max-w-4xl mx-auto px-4 space-y-8">
+        
+        <!-- Centered Topic Header -->
+        <div class="text-center max-w-2xl mx-auto space-y-3">
+          <span class="px-4 py-1.5 rounded-full bg-amberGold-500/20 text-amberGold-400 border border-amberGold-500/30 text-xs font-black uppercase tracking-wider">
+            Ready to Begin?
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black">Book Your Free 15-Minute Consultation</h2>
+          <p class="text-slate-400 text-sm font-medium">Get matched with a top university ranker or PhD tutor today with zero obligation.</p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+          <a href="tutors.html" class="px-8 py-3.5 bg-theme-600 hover:bg-theme-700 text-white text-xs font-black rounded-xl shadow transition hover:scale-105">
+            Browse Verified Tutors Now →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Dynamic Footer Component Container -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/mock-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

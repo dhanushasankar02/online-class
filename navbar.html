@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniTutor - Sticky Activated Single Line Navbar & Footer</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            theme: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            },
+            amberGold: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Embedded Single-File CSS Custom Styling -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
+    :root {
+      --primary-color: #059669;
+      --primary-hover: #047857;
+      --accent-gold: #f59e0b;
+      --dark-bg: #061512;
+      --dark-card: #0d231e;
+      --dark-border: #1a3d35;
+      --dark-text: #f0fdf4;
+      --dark-muted: #86efac;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    html, body {
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: visible;
+    }
+
+    /* Enforce Sticky Navbar Positioning */
+    #navbar-container,
+    #app-navbar.sticky,
+    header.sticky {
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 9999 !important;
+      width: 100%;
+    }
+
+    /* Prevent nested sticky conflict when header is inside navbar-container */
+    #navbar-container #app-navbar {
+      position: relative !important;
+      top: auto !important;
+    }
+
+    /* Dark Mode Overrides */
+    html.dark body {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    html.dark .bg-theme-card {
+      background-color: var(--dark-card) !important;
+    }
+
+    html.dark .border-theme-border {
+      border-color: var(--dark-border) !important;
+    }
+
+    /* RTL Layout Direction Overrides */
+    html[dir="rtl"] {
+      direction: rtl;
+      text-align: right;
+    }
+
+    /* Single Line Flex Alignment */
+    .one-line-nav {
+      white-space: nowrap;
+    }
+
+    /* Sticky Header Scrolled Shadow Effect */
+    header.scrolled {
+      box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Active Link State Indicator */
+    .nav-link-active {
+      color: #059669 !important;
+      font-weight: 800 !important;
+      position: relative;
+    }
+
+    .nav-link-active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 12px;
+      right: 12px;
+      height: 2.5px;
+      background-color: #059669;
+      border-radius: 9999px;
+    }
+
+    html.dark .nav-link-active {
+      color: #34d399 !important;
+    }
+
+    html.dark .nav-link-active::after {
+      background-color: #34d399;
+    }
+
+    /* Utility Icon Buttons Styling */
+    .utility-icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+      border-radius: 0.75rem;
+      transition: all 0.2s ease;
+    }
+
+    /* Logo Badge Pulse Glow */
+    .logo-glow {
+      animation: logoGlow 2.5s infinite;
+    }
+
+    @keyframes logoGlow {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 0 6px rgba(5, 150, 105, 0);
+      }
+    }
+
+    /* Modal Backdrop Blur */
+    .modal-backdrop {
+      background-color: rgba(6, 21, 18, 0.8);
+      backdrop-filter: blur(8px);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-[#061512] dark:text-slate-100 min-h-screen flex flex-col justify-between transition-colors duration-300">
+
+  <!-- ========================================== -->
+  <!-- 1. STICKY SINGLE-LINE HEADER NAVBAR        -->
+  <!-- ========================================== -->
+  <header id="app-navbar" class="sticky top-0 z-[9999] w-full bg-white/95 dark:bg-[#0d231e]/95 backdrop-blur-md border-b border-emerald-100 dark:border-[#1a3d35] transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 one-line-nav">
+        
+        <!-- Brand Logo with Emblem -->
+        <a href="index.html" class="flex items-center gap-2.5 shrink-0 group">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-theme-600 via-theme-500 to-amberGold-500 flex items-center justify-center text-white shadow-md shadow-theme-600/30 group-hover:scale-105 transition-transform logo-glow">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l9-5-9-5-9 5 9 5z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="text-lg font-black tracking-tight text-slate-900 dark:text-white">UniTutor<span class="text-amberGold-500">.</span></span>
+            <span class="block text-[9px] font-extrabold text-theme-600 dark:text-theme-400 tracking-wider uppercase leading-none">University Online</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden lg:flex items-center space-x-1 lg:space-x-2 text-sm font-bold">
+          
+          <!-- Home Dropdown -->
+          <div class="relative group">
+            <button type="button" class="inline-flex items-center gap-1 px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              <span>Home</span>
+              <span class="text-[10px] text-slate-400 group-hover:rotate-180 transition-transform">▾</span>
+            </button>
+            
+            <div class="absolute left-0 mt-1 w-48 rounded-xl bg-white dark:bg-[#0d231e] shadow-xl border border-emerald-100 dark:border-[#1a3d35] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 p-1.5 space-y-1 text-xs">
+              <a href="index.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-theme-50 dark:hover:bg-[#163830]">
+                Home 1 (Verified Tutors)
+              </a>
+              <a href="home2.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830]">
+                Home 2 (Exam Success)
+              </a>
+            </div>
+          </div>
+
+          <!-- Subjects -->
+          <a href="subjects.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+            Subjects
+          </a>
+
+          <!-- Find a Tutor -->
+          <a href="tutors.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+            Find a Tutor
+          </a>
+
+          <!-- How It Works -->
+          <a href="how-it-works.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+            How It Works
+          </a>
+
+          <!-- Pricing -->
+          <a href="pricing.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+            Pricing
+          </a>
+
+          <!-- Dashboard Dropdown -->
+          <div class="relative group">
+            <button type="button" class="inline-flex items-center gap-1 px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              <span>Dashboard</span>
+              <span class="text-[10px] text-slate-400 group-hover:rotate-180 transition-transform">▾</span>
+            </button>
+            
+            <div class="absolute left-0 mt-1 w-52 rounded-xl bg-white dark:bg-[#0d231e] shadow-xl border border-emerald-100 dark:border-[#1a3d35] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 p-1.5 space-y-1 text-xs">
+              <a href="student-dashboard.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-theme-50 dark:hover:bg-[#163830]">
+                User Dashboard (Student)
+              </a>
+              <a href="admin-dashboard.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830]">
+                Admin Dashboard
+              </a>
+            </div>
+          </div>
+
+        </nav>
+
+        <!-- Right Side Controls -->
+        <div class="flex items-center space-x-2 shrink-0">
+          
+          <!-- RTL Layout Switcher Button (Desktop) -->
+          <button class="action-btn hidden lg:inline-flex" id="btn-rtl-toggle" onclick="toggleRTL()" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction">
+            <span style="font-size: 11px; font-weight: 700; letter-spacing: -0.5px;">⇄ RTL</span>
+          </button>
+
+          <!-- Dark Mode Switcher ICON Button (Desktop) -->
+          <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 transition p-2">
+            <svg id="sun-icon" class="w-4 h-4 hidden dark:block text-amberGold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+            <svg id="moon-icon" class="w-4 h-4 block dark:hidden text-theme-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+          </button>
+
+          <!-- Clean Login Portal Button (Desktop) -->
+          <div id="user-auth-area" class="hidden lg:block">
+            <a href="login.html" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105 inline-block">
+              Login Portal
+            </a>
+          </div>
+
+          <!-- Mobile Hamburger Toggle Icon Button -->
+          <button onclick="toggleMobileMenu()" type="button" aria-label="Open Mobile Menu" class="lg:hidden p-2 text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] rounded-xl border border-slate-200 dark:border-[#1a3d35] transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Right Side Off-Canvas Menu Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden">
+      <!-- Overlay Backdrop -->
+      <div onclick="toggleMobileMenu(false)" class="mobile-backdrop"></div>
+      
+      <!-- Right Drawer Container -->
+      <div id="mobile-menu-container">
+        <!-- Drawer Header -->
+        <div class="flex items-center justify-between pb-4 border-b border-emerald-100 dark:border-[#1a3d35]">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-theme-600 to-amberGold-500 flex items-center justify-center text-white text-xs font-black shadow">
+              UT
+            </div>
+            <span class="font-black text-sm text-slate-900 dark:text-white">Navigation</span>
+          </div>
+          <button onclick="toggleMobileMenu(false)" type="button" aria-label="Close Menu" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#163830] transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="py-4 space-y-1 text-sm font-bold flex-grow overflow-y-auto">
+          
+          <!-- Home Collapsible Submenu -->
+          <div class="rounded-xl overflow-hidden">
+            <button type="button" onclick="toggleMobileSubmenu('mobile-home-submenu', this)" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition font-bold">
+              <span>Home</span>
+              <svg class="w-4 h-4 submenu-arrow transition-transform duration-200 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="mobile-home-submenu" class="mobile-submenu hidden pl-4 pr-1 py-1 space-y-1 bg-emerald-50/50 dark:bg-[#061512]/50 rounded-xl my-1 border border-emerald-100/50 dark:border-[#1a3d35]">
+              <a href="index.html" class="block px-3 py-2 text-xs rounded-lg text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                Home 1 (Verified Tutors)
+              </a>
+              <a href="home2.html" class="block px-3 py-2 text-xs rounded-lg text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                Home 2 (Exam Success)
+              </a>
+            </div>
+          </div>
+
+          <a href="subjects.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">Subjects Directory</a>
+          <a href="tutors.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">Find a Tutor</a>
+          <a href="how-it-works.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">How It Works</a>
+          <a href="pricing.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">Pricing</a>
+
+          <!-- Dashboard Collapsible Submenu -->
+          <div class="rounded-xl overflow-hidden">
+            <button type="button" onclick="toggleMobileSubmenu('mobile-dashboard-submenu', this)" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition font-bold">
+              <span>Dashboard</span>
+              <svg class="w-4 h-4 submenu-arrow transition-transform duration-200 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="mobile-dashboard-submenu" class="mobile-submenu hidden pl-4 pr-1 py-1 space-y-1 bg-emerald-50/50 dark:bg-[#061512]/50 rounded-xl my-1 border border-emerald-100/50 dark:border-[#1a3d35]">
+              <a href="student-dashboard.html" class="block px-3 py-2 text-xs rounded-lg text-theme-600 dark:text-theme-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                User Dashboard (Student)
+              </a>
+              <a href="admin-dashboard.html" class="block px-3 py-2 text-xs rounded-lg text-amberGold-600 dark:text-amberGold-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                Admin Dashboard
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Utility Controls inside Mobile Menu (RTL, Dark Mode, Login) -->
+        <div class="pt-4 border-t border-emerald-100 dark:border-[#1a3d35] space-y-3">
+          <div class="grid grid-cols-2 gap-2">
+            <!-- Mobile RTL Button -->
+            <button onclick="toggleRTL()" type="button" class="action-btn w-full py-2 px-3 justify-center text-xs font-bold gap-1">
+              <span>⇄ RTL</span>
+            </button>
+            
+            <!-- Mobile Dark Mode Button -->
+            <button onclick="toggleDarkMode()" type="button" class="action-btn w-full py-2 px-3 justify-center text-xs font-bold gap-1">
+              <span class="dark:hidden">🌙 Dark</span>
+              <span class="hidden dark:inline">☀️ Light</span>
+            </button>
+          </div>
+
+          <!-- Mobile Login Portal Button -->
+          <a href="login.html" class="w-full text-center py-2.5 px-4 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 rounded-xl shadow-md block transition hover:opacity-95">
+            Login Portal →
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ========================================== -->
+  <!-- 2. DEMO HERO PLACEHOLDER                   -->
+  <!-- ========================================== -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center space-y-6">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-theme-100 dark:bg-theme-900/40 text-theme-700 dark:text-theme-300 text-xs font-black uppercase tracking-wider">
+      Strict Sticky Header Active
+    </div>
+
+    <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
+      Online University Tutoring Platform
+    </h1>
+
+    <p class="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto text-base font-medium">
+      This navbar (<code class="px-2 py-1 bg-emerald-100 dark:bg-emerald-950 rounded text-theme-600 dark:text-theme-400 font-mono text-sm">navbar.html</code>) features strict sticky positioning (<code class="font-mono text-xs">position: sticky !important; top: 0 !important; z-index: 9999 !important;</code>).
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-4 pt-4">
+      <button onclick="openLoginModal()" class="px-6 py-2.5 bg-theme-600 hover:bg-theme-700 text-white font-extrabold text-xs rounded-xl shadow transition">
+        Open Login Portal Modal
+      </button>
+      <button onclick="toggleDarkMode()" class="px-6 py-2.5 bg-emerald-100 dark:bg-[#163830] text-theme-800 dark:text-emerald-200 font-bold text-xs rounded-xl transition">
+        Toggle Dark Mode
+      </button>
+      <button onclick="toggleRTL()" class="px-6 py-2.5 bg-emerald-100 dark:bg-[#163830] text-theme-800 dark:text-emerald-200 font-bold text-xs rounded-xl transition">
+        Toggle RTL Direction
+      </button>
+    </div>
+  </main>
+
+
+  <!-- ========================================== -->
+  <!-- 3. INTERACTIVE LOGIN PORTAL MODAL          -->
+  <!-- ========================================== -->
+  <div id="login-modal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-[#0d231e] rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-emerald-100 dark:border-[#1a3d35] relative transform transition-all">
+      
+      <!-- Close Modal Button -->
+      <button onclick="closeLoginModal()" type="button" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-2 rounded-full hover:bg-emerald-50 dark:hover:bg-[#163830]">
+        ✕
+      </button>
+
+      <div class="text-center mb-6">
+        <h3 class="text-2xl font-black text-slate-900 dark:text-white">University Portal Sign In</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Access sessions, notes & payment receipts</p>
+      </div>
+
+      <!-- Demo Role Quick Switcher -->
+      <div class="bg-emerald-50 dark:bg-[#163830] p-1.5 rounded-2xl flex items-center gap-1 mb-5 text-xs font-bold border border-emerald-100 dark:border-[#1a3d35]">
+        <button onclick="selectDemoRole('Student')" id="role-btn-student" type="button" class="flex-1 py-2 rounded-xl text-center transition bg-white dark:bg-theme-600 text-theme-600 dark:text-white shadow-sm">
+          Student Demo
+        </button>
+        <button onclick="selectDemoRole('Tutor')" id="role-btn-tutor" type="button" class="flex-1 py-2 rounded-xl text-center transition text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
+          Tutor Demo
+        </button>
+        <button onclick="selectDemoRole('Admin')" id="role-btn-admin" type="button" class="flex-1 py-2 rounded-xl text-center transition text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
+          Admin Demo
+        </button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-extrabold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1">Email Address</label>
+          <input type="email" id="login-email" placeholder="student@university.edu" required class="w-full px-4 py-2.5 rounded-xl border border-emerald-200 dark:border-[#1a3d35] bg-slate-50 dark:bg-[#061512] text-sm focus:ring-2 focus:ring-theme-500 focus:outline-none dark:text-white">
+        </div>
+
+        <div>
+          <label class="block text-xs font-extrabold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1">Password</label>
+          <input type="password" id="login-password" value="••••••••••••" required class="w-full px-4 py-2.5 rounded-xl border border-emerald-200 dark:border-[#1a3d35] bg-slate-50 dark:bg-[#061512] text-sm focus:ring-2 focus:ring-theme-500 focus:outline-none dark:text-white">
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" checked class="rounded text-theme-600 focus:ring-theme-500">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="text-theme-600 dark:text-theme-400 hover:underline font-bold">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-theme-600 hover:bg-theme-700 text-white font-extrabold text-sm shadow transition">
+          Sign In to Portal
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ========================================== -->
+  <!-- 4. FOOTER COMPONENT                        -->
+  <!-- ========================================== -->
+  <footer id="app-footer" class="bg-[#061512] text-white border-t border-[#1a3d35] transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        
+        <div class="lg:col-span-2 space-y-3">
+          <a href="index.html" class="flex items-center gap-2.5 shrink-0 group">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-theme-600 via-theme-500 to-amberGold-500 flex items-center justify-center text-white shadow-md shadow-theme-600/30 group-hover:scale-105 transition-transform logo-glow">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-lg font-black tracking-tight text-white">UniTutor<span class="text-amberGold-500">.</span></span>
+              <span class="block text-[9px] font-extrabold text-theme-400 tracking-wider uppercase leading-none">University Online</span>
+            </div>
+          </a>
+          <p class="text-slate-400 text-xs leading-relaxed pr-4">
+            1-on-1 online tutoring platform for university students across Engineering, Commerce, Law, and Science disciplines.
+          </p>
+
+          <!-- 4 Social Media Icons Directly Below Paragraph -->
+          <div class="flex items-center gap-3 pt-2">
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 rounded-full bg-white/10 hover:bg-theme-600 text-slate-300 hover:text-white flex items-center justify-center transition hover:scale-110">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+            </a>
+            <!-- Twitter / X -->
+            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter X" class="w-9 h-9 rounded-full bg-white/10 hover:bg-theme-600 text-slate-300 hover:text-white flex items-center justify-center transition hover:scale-110">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/10 hover:bg-theme-600 text-slate-300 hover:text-white flex items-center justify-center transition hover:scale-110">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-white/10 hover:bg-theme-600 text-slate-300 hover:text-white flex items-center justify-center transition hover:scale-110">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-black uppercase tracking-widest text-slate-200 mb-3">Navigation</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="index.html" class="hover:text-theme-400 transition">Home 1 (Verified Tutors)</a></li>
+            <li><a href="home2.html" class="hover:text-theme-400 transition">Home 2 (Exam Success)</a></li>
+            <li><a href="subjects.html" class="hover:text-theme-400 transition">Subjects Catalog</a></li>
+            <li><a href="tutors.html" class="hover:text-theme-400 transition">Find a Tutor</a></li>
+            <li><a href="how-it-works.html" class="hover:text-theme-400 transition">How It Works</a></li>
+            <li><a href="pricing.html" class="hover:text-theme-400 transition">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-black uppercase tracking-widest text-slate-200 mb-3">Disciplines</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="tutors.html?subject=Engineering" class="hover:text-amberGold-400 transition">Engineering & CS</a></li>
+            <li><a href="tutors.html?subject=Commerce" class="hover:text-amberGold-400 transition">Commerce & Finance</a></li>
+            <li><a href="tutors.html?subject=Law" class="hover:text-amberGold-400 transition">Law & Moot Court</a></li>
+            <li><a href="tutors.html?subject=Science" class="hover:text-amberGold-400 transition">Physics & Calculus</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-black uppercase tracking-widest text-slate-200 mb-3">Portals</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="student-dashboard.html" class="hover:text-theme-400 font-bold transition">User Dashboard</a></li>
+            <li><a href="admin-dashboard.html" class="hover:text-amberGold-400 font-bold transition">Admin Dashboard</a></li>
+            <li><a href="#" onclick="openLoginModal(); return false;" class="hover:text-theme-400 transition">Student Login Portal</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-10 pt-6 border-t border-[#1a3d35] flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div>© 2026 UniTutor Platform Inc. All rights reserved.</div>
+        <div class="flex items-center gap-4">
+          <span>Sticky Enforced Header</span>
+          <span>•</span>
+          <span>Single Line Layout</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ========================================== -->
+  <!-- 5. EMBEDDED SINGLE-FILE JAVASCRIPT LOGIC   -->
+  <!-- ========================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initThemeAndDirection();
+      initStickyScrollEffect();
+      activateCurrentNavPage();
+      updateUserAuthStateUI();
+      initMobileMenuBehavior();
+    });
+
+    function initThemeAndDirection() {
+      const savedTheme = localStorage.getItem('unitutor_theme') || 'light';
+      const savedDir = localStorage.getItem('unitutor_dir') || 'ltr';
+
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+
+      document.documentElement.setAttribute('dir', savedDir);
+
+      updateRTLUI(savedDir);
+    }
+
+    function updateRTLUI(dir) {
+      const rtlBadges = document.querySelectorAll('#rtl-badge');
+      rtlBadges.forEach(b => { b.textContent = dir.toUpperCase(); });
+
+      const btnRtlToggles = document.querySelectorAll('#btn-rtl-toggle, #rtl-toggle-btn');
+      btnRtlToggles.forEach(btn => {
+        const span = btn.querySelector('span');
+        if (span) {
+          span.textContent = dir === 'rtl' ? '⇄ LTR' : '⇄ RTL';
+        }
+      });
+    }
+
+    function initStickyScrollEffect() {
+      const header = document.getElementById('app-navbar');
+      const container = document.getElementById('navbar-container');
+
+      const handleScroll = () => {
+        const isScrolled = window.scrollY > 20;
+        if (header) header.classList.toggle('scrolled', isScrolled);
+        if (container) container.classList.toggle('scrolled', isScrolled);
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      handleScroll();
+    }
+
+    function activateCurrentNavPage() {
+      const rawPath = window.location.pathname.split('/').pop();
+      const page = (rawPath && rawPath !== '' && rawPath !== '/') ? rawPath : 'index.html';
+      
+      const allTargets = document.querySelectorAll('#app-navbar nav a, #app-navbar nav button, #mobile-menu a');
+      allTargets.forEach(el => el.classList.remove('nav-link-active'));
+
+      const links = document.querySelectorAll('#app-navbar nav a, #mobile-menu a');
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const cleanHref = href.split('?')[0].split('#')[0];
+
+        if (cleanHref === page || (page === 'index.html' && (cleanHref === 'index.html' || cleanHref === './' || cleanHref === ''))) {
+          link.classList.add('nav-link-active');
+
+          const dropdownGroup = link.closest('.group');
+          if (dropdownGroup) {
+            const triggerBtn = dropdownGroup.querySelector('button');
+            if (triggerBtn) {
+              triggerBtn.classList.add('nav-link-active');
+            }
+          }
+        }
+      });
+    }
+
+    function toggleDarkMode() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('unitutor_theme', isDark ? 'dark' : 'light');
+      showToast(`Switched to ${isDark ? 'Dark' : 'Light'} Theme`, 'info');
+    }
+
+    function toggleRTL() {
+      const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
+      const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
+
+      document.documentElement.setAttribute('dir', newDir);
+      localStorage.setItem('unitutor_dir', newDir);
+
+      updateRTLUI(newDir);
+
+      showToast(`Text Direction set to ${newDir.toUpperCase()}`, 'info');
+    }
+
+    function toggleMobileMenu(forceState) {
+      const menu = document.getElementById('mobile-menu');
+      if (!menu) return;
+
+      const isOpen = menu.classList.contains('open');
+      const shouldOpen = forceState !== undefined ? forceState : !isOpen;
+
+      if (shouldOpen) {
+        menu.classList.remove('hidden');
+        void menu.offsetWidth;
+        menu.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      } else {
+        menu.classList.remove('open');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+          if (!menu.classList.contains('open')) {
+            menu.classList.add('hidden');
+          }
+        }, 300);
+      }
+    }
+
+    function initMobileMenuBehavior() {
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) {
+          const menu = document.getElementById('mobile-menu');
+          if (menu && menu.classList.contains('open')) {
+            toggleMobileMenu(false);
+          } else {
+            document.body.style.overflow = '';
+          }
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          const menu = document.getElementById('mobile-menu');
+          if (menu && menu.classList.contains('open')) {
+            toggleMobileMenu(false);
+          }
+          if (typeof closeLoginModal === 'function') {
+            closeLoginModal();
+          }
+        }
+      });
+
+      const mobileLinks = document.querySelectorAll('#mobile-menu a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          toggleMobileMenu(false);
+        });
+      });
+    }
+
+    function openLoginModal() {
+      const modal = document.getElementById('login-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeLoginModal() {
+      const modal = document.getElementById('login-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function selectDemoRole(role) {
+      const emailInput = document.getElementById('login-email');
+      const btnStudent = document.getElementById('role-btn-student');
+      const btnTutor = document.getElementById('role-btn-tutor');
+      const btnAdmin = document.getElementById('role-btn-admin');
+
+      const activeClasses = ['bg-white', 'dark:bg-theme-600', 'text-theme-600', 'dark:text-white', 'shadow-sm'];
+      const inactiveClasses = ['text-slate-500', 'hover:text-slate-700', 'dark:hover:text-slate-300'];
+
+      [btnStudent, btnTutor, btnAdmin].forEach(b => {
+        if (b) {
+          b.classList.remove(...activeClasses);
+          b.classList.add(...inactiveClasses);
+        }
+      });
+
+      if (role === 'Student') {
+        if (emailInput) emailInput.value = 'student@university.edu';
+        if (btnStudent) {
+          btnStudent.classList.add(...activeClasses);
+          btnStudent.classList.remove(...inactiveClasses);
+        }
+      } else if (role === 'Tutor') {
+        if (emailInput) emailInput.value = 'aris.thorne@oxford.edu';
+        if (btnTutor) {
+          btnTutor.classList.add(...activeClasses);
+          btnTutor.classList.remove(...inactiveClasses);
+        }
+      } else if (role === 'Admin') {
+        if (emailInput) emailInput.value = 'admin@unitutor.edu';
+        if (btnAdmin) {
+          btnAdmin.classList.add(...activeClasses);
+          btnAdmin.classList.remove(...inactiveClasses);
+        }
+      }
+    }
+
+    function handleLogin(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      const emailInput = document.getElementById('login-email');
+      const email = emailInput ? emailInput.value.trim() : '';
+
+      let role = "Student";
+      if (email.includes('thorne') || email.includes('tutor') || email.includes('oxford')) {
+        role = "Tutor";
+      } else if (email.includes('admin')) {
+        role = "Admin";
+      }
+
+      const prefix = email.split('@')[0];
+      const parts = prefix.split(/[\._\-]/).filter(Boolean);
+      let name = "Student Account";
+      if (role === "Tutor") name = "Dr. Aris Thorne";
+      else if (role === "Admin") name = "Platform Administrator";
+      else if (parts.length > 0) {
+        name = parts.map(p => p.charAt(0).toUpperCase() + p.slice(1).toLowerCase()).join(' ');
+      }
+
+      localStorage.setItem('unitutor_user', JSON.stringify({ name, email, role }));
+      showToast(`Logged in as ${name} (${role})`, 'success');
+      closeLoginModal();
+      updateUserAuthStateUI();
+    }
+
+    function handleLogout() {
+      localStorage.removeItem('unitutor_user');
+      showToast('Logged out', 'info');
+      updateUserAuthStateUI();
+    }
+
+    function updateUserAuthStateUI() {
+      const container = document.getElementById('user-auth-area');
+      if (!container) return;
+
+      const savedUser = localStorage.getItem('unitutor_user');
+      if (savedUser) {
+        try {
+          const u = JSON.parse(savedUser);
+          const dashUrl = u.role === 'Admin' ? 'admin-dashboard.html' : 'student-dashboard.html';
+          container.innerHTML = `
+            <div class="flex items-center gap-2">
+              <a href="${dashUrl}" class="px-3.5 py-1.5 text-xs font-extrabold text-slate-800 dark:text-slate-100 hover:text-theme-600 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] rounded-xl transition inline-flex items-center gap-1.5 shadow-sm">
+                <span>👤</span> <span>${u.name || 'Dashboard'}</span>
+              </a>
+              <button onclick="handleLogout()" type="button" class="p-1.5 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition" title="Logout">
+                🚪
+              </button>
+            </div>
+          `;
+          return;
+        } catch (e) {}
+      }
+
+      container.innerHTML = `
+        <button onclick="openLoginModal()" type="button" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105">
+          Login Portal
+        </button>
+      `;
+    }
+
+    function showToast(msg, type = 'info') {
+      let box = document.getElementById('toast-box');
+      if (!box) {
+        box = document.createElement('div');
+        box.id = 'toast-box';
+        box.className = 'fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none';
+        document.body.appendChild(box);
+      }
+
+      const toast = document.createElement('div');
+      const bg = type === 'success' ? 'bg-theme-600' : 'bg-slate-900 dark:bg-emerald-950';
+      toast.className = `${bg} text-white px-4 py-2.5 rounded-xl shadow-2xl text-xs font-bold flex items-center gap-2 pointer-events-auto transform translate-y-4 opacity-0 transition-all duration-300 border border-white/10`;
+      toast.innerHTML = `<span>${msg}</span>`;
+
+      box.appendChild(toast);
+      requestAnimationFrame(() => toast.classList.remove('translate-y-4', 'opacity-0'));
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-4', 'opacity-0');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

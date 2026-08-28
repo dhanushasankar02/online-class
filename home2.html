@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniTutor - Exam Prep & Revision</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            theme: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            },
+            amberGold: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-[#061512] dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-300">
+
+  <!-- Sticky Dynamic Header Container -->
+  <div id="navbar-container" class="sticky top-0 z-[9999] w-full">
+    <header id="app-navbar" class="w-full bg-white/95 dark:bg-[#0d231e]/95 backdrop-blur-md border-b border-emerald-100 dark:border-[#1a3d35] transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 one-line-nav">
+          
+          <!-- Brand Logo with Emblem -->
+          <a href="index.html" class="flex items-center gap-2.5 shrink-0 group">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-theme-600 via-theme-500 to-amberGold-500 flex items-center justify-center text-white shadow-md shadow-theme-600/30 group-hover:scale-105 transition-transform logo-glow">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-lg font-black tracking-tight text-slate-900 dark:text-white">UniTutor<span class="text-amberGold-500">.</span></span>
+              <span class="block text-[9px] font-extrabold text-theme-600 dark:text-theme-400 tracking-wider uppercase leading-none">University Online</span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation Menu -->
+          <nav class="hidden lg:flex items-center space-x-1 lg:space-x-2 text-sm font-bold">
+            
+            <!-- Home Dropdown -->
+            <div class="relative group">
+              <button type="button" class="nav-link-active inline-flex items-center gap-1 px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+                <span>Home</span>
+                <span class="text-[10px] text-slate-400 group-hover:rotate-180 transition-transform">▾</span>
+              </button>
+              
+              <div class="absolute left-0 mt-1 w-48 rounded-xl bg-white dark:bg-[#0d231e] shadow-xl border border-emerald-100 dark:border-[#1a3d35] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 p-1.5 space-y-1 text-xs">
+                <a href="index.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-theme-50 dark:hover:bg-[#163830]">
+                  Home 1 
+                </a>
+                <a href="home2.html" class="nav-link-active block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830]">
+                  Home 2
+                </a>
+              </div>
+            </div>
+
+            <!-- Subjects -->
+            <a href="subjects.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              Subjects
+            </a>
+
+            <!-- Find a Tutor -->
+            <a href="tutors.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              Find a Tutor
+            </a>
+
+            <!-- How It Works -->
+            <a href="how-it-works.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              How It Works
+            </a>
+
+            <!-- Pricing -->
+            <a href="pricing.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              Pricing
+            </a>
+
+            <!-- Dashboard Dropdown -->
+            <div class="relative group">
+              <button type="button" class="inline-flex items-center gap-1 px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+                <span>Dashboard</span>
+                <span class="text-[10px] text-slate-400 group-hover:rotate-180 transition-transform">▾</span>
+              </button>
+              
+              <div class="absolute left-0 mt-1 w-52 rounded-xl bg-white dark:bg-[#0d231e] shadow-xl border border-emerald-100 dark:border-[#1a3d35] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 p-1.5 space-y-1 text-xs">
+                <a href="student-dashboard.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-theme-50 dark:hover:bg-[#163830]">
+                  User Dashboard 
+                </a>
+                <a href="admin-dashboard.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830]">
+                  Admin Dashboard
+                </a>
+              </div>
+            </div>
+
+          </nav>
+
+          <!-- Right Side Controls -->
+          <div class="flex items-center space-x-2 shrink-0">
+            
+            <!-- RTL Layout Switcher Button (Desktop) -->
+            <button class="action-btn hidden lg:inline-flex" id="btn-rtl-toggle" onclick="toggleRTL()" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction">
+              <span style="font-size: 11px; font-weight: 700; letter-spacing: -0.5px;">⇄ RTL</span>
+            </button>
+
+            <!-- Dark Mode Switcher ICON Button (Desktop) -->
+            <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 transition p-2">
+              <svg id="sun-icon" class="w-4 h-4 hidden dark:block text-amberGold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+              <svg id="moon-icon" class="w-4 h-4 block dark:hidden text-theme-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+              </svg>
+            </button>
+
+            <!-- Clean Login Portal Button (Desktop) -->
+            <div id="user-auth-area" class="hidden lg:block">
+              <button onclick="openLoginModal()" type="button" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105">
+                Login Portal
+              </button>
+            </div>
+
+            <!-- Mobile Hamburger Toggle Icon Button -->
+            <button onclick="toggleMobileMenu()" type="button" aria-label="Open Mobile Menu" class="lg:hidden p-2 text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] rounded-xl border border-slate-200 dark:border-[#1a3d35] transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Right Side Off-Canvas Menu Drawer -->
+      <div id="mobile-menu" class="hidden lg:hidden">
+        <!-- Overlay Backdrop -->
+        <div onclick="toggleMobileMenu(false)" class="mobile-backdrop"></div>
+        
+        <!-- Right Drawer Container -->
+        <div id="mobile-menu-container">
+          <!-- Drawer Header -->
+          <div class="flex items-center justify-between pb-4 border-b border-emerald-100 dark:border-[#1a3d35]">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-theme-600 to-amberGold-500 flex items-center justify-center text-white text-xs font-black shadow">
+                UT
+              </div>
+              <span class="font-black text-sm text-slate-900 dark:text-white">Navigation</span>
+            </div>
+            <button onclick="toggleMobileMenu(false)" type="button" aria-label="Close Menu" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#163830] transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="py-4 space-y-1 text-sm font-bold flex-grow overflow-y-auto">
+            
+            <!-- Home Collapsible Submenu -->
+            <div class="rounded-xl overflow-hidden">
+              <button type="button" onclick="toggleMobileSubmenu('mobile-home-submenu', this)" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition font-bold">
+                <span>Home</span>
+                <svg class="w-4 h-4 submenu-arrow transition-transform duration-200 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div id="mobile-home-submenu" class="mobile-submenu hidden pl-4 pr-1 py-1 space-y-1 bg-emerald-50/50 dark:bg-[#061512]/50 rounded-xl my-1 border border-emerald-100/50 dark:border-[#1a3d35]">
+                <a href="index.html" class="block px-3 py-2 text-xs rounded-lg text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  Home 1 
+                </a>
+                <a href="home2.html" class="block px-3 py-2 text-xs rounded-lg text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  Home 2 
+                </a>
+              </div>
+            </div>
+
+            <a href="subjects.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">Subjects Directory</a>
+            <a href="tutors.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">Find a Tutor</a>
+            <a href="how-it-works.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">How It Works</a>
+            <a href="pricing.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">Pricing</a>
+
+            <!-- Dashboard Collapsible Submenu -->
+            <div class="rounded-xl overflow-hidden">
+              <button type="button" onclick="toggleMobileSubmenu('mobile-dashboard-submenu', this)" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition font-bold">
+                <span>Dashboard</span>
+                <svg class="w-4 h-4 submenu-arrow transition-transform duration-200 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div id="mobile-dashboard-submenu" class="mobile-submenu hidden pl-4 pr-1 py-1 space-y-1 bg-emerald-50/50 dark:bg-[#061512]/50 rounded-xl my-1 border border-emerald-100/50 dark:border-[#1a3d35]">
+                <a href="student-dashboard.html" class="block px-3 py-2 text-xs rounded-lg text-theme-600 dark:text-theme-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  User Dashboard 
+                </a>
+                <a href="admin-dashboard.html" class="block px-3 py-2 text-xs rounded-lg text-amberGold-600 dark:text-amberGold-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  Admin Dashboard
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Utility Controls inside Mobile Menu (RTL, Dark Mode, Login) -->
+          <div class="pt-4 border-t border-emerald-100 dark:border-[#1a3d35] space-y-3">
+            <div class="grid grid-cols-2 gap-2">
+              <!-- Mobile RTL Button -->
+              <button onclick="toggleRTL()" type="button" class="action-btn w-full py-2 px-3 justify-center text-xs font-bold gap-1">
+                <span>⇄ RTL</span>
+              </button>
+              
+              <!-- Mobile Dark Mode Button -->
+              <button onclick="toggleDarkMode()" type="button" class="action-btn w-full py-2 px-3 justify-center text-xs font-bold gap-1">
+                <span class="dark:hidden">🌙 Dark</span>
+                <span class="hidden dark:inline">☀️ Light</span>
+              </button>
+            </div>
+
+            <!-- Mobile Login Portal Button -->
+            <a href="login.html" class="w-full text-center py-2.5 px-4 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 rounded-xl shadow-md block transition hover:opacity-95">
+              Login Portal →
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- MAIN CONTENT: HOME 2 - CLEAN & MINIMAL EXAM SUCCESS PAGE -->
+  <main class="flex-grow">
+    
+    <!-- ============================================================== -->
+    <!-- SECTION 1: CLEAN MINIMAL HERO                                  -->
+    <!-- ============================================================== -->
+    <section class="py-20 bg-gradient-to-b from-slate-900 to-[#061512] text-white text-center border-b border-emerald-900/30">
+      <div class="max-w-4xl mx-auto px-4 space-y-6">
+        
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wider border border-emerald-500/30">
+          ⚡ University Exam Revision Hub
+        </span>
+
+        <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight">
+          Pass Your University Exams <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-amberGold-400 to-emerald-200">
+            With Top-Ranker 1-on-1 Tutors
+          </span>
+        </h1>
+
+        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-medium">
+          Focused past-paper drills and marking scheme solutions for midterms and finals.
+        </p>
+
+        <!-- Clean Search Bar -->
+        <div class="max-w-xl mx-auto bg-white/10 p-2 rounded-2xl border border-white/20 backdrop-blur-md flex items-center gap-2">
+          <input type="text" id="hero2-clean-query" placeholder="Enter course code e.g. CS101, Calculus..." class="w-full bg-transparent px-4 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none font-semibold">
+          <button onclick="handleCleanSearch()" type="button" class="px-6 py-2.5 bg-theme-600 hover:bg-theme-700 text-white text-xs font-bold rounded-xl shadow transition shrink-0">
+            Find Tutor
+          </button>
+        </div>
+
+        <!-- Clean Stats Row -->
+        <div class="pt-6 flex flex-wrap justify-center gap-8 text-xs font-extrabold text-slate-300">
+          <span>✓ 99.2% Exam Pass Rate</span>
+          <span>✓ 1,200+ Verified PhD Tutors</span>
+          <span>✓ &lt; 15m Response Time</span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 2: 4-STEP REVISION PLAN (MINIMAL GRID)                -->
+    <!-- ============================================================== -->
+    <section class="py-16 max-w-6xl mx-auto px-4">
+      <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">4-Step Exam Revision System</h2>
+        <p class="text-slate-500 dark:text-slate-400 text-xs">Simple methodology engineered for fast grade boosts.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-white dark:bg-[#0d231e] p-6 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-2">
+          <span class="text-xs font-black text-theme-600 dark:text-theme-400">Step 01</span>
+          <h3 class="font-extrabold text-base text-slate-900 dark:text-white">Paper Audit</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Identify syllabus gaps in under 30 mins.</p>
+        </div>
+
+        <div class="bg-white dark:bg-[#0d231e] p-6 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-2">
+          <span class="text-xs font-black text-amberGold-500">Step 02</span>
+          <h3 class="font-extrabold text-base text-slate-900 dark:text-white">Marking Schemes</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Master exact examiner key points.</p>
+        </div>
+
+        <div class="bg-white dark:bg-[#0d231e] p-6 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-2">
+          <span class="text-xs font-black text-purple-500">Step 03</span>
+          <h3 class="font-extrabold text-base text-slate-900 dark:text-white">Timed Mocks</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Practice under real timed conditions.</p>
+        </div>
+
+        <div class="bg-white dark:bg-[#0d231e] p-6 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-2">
+          <span class="text-xs font-black text-emerald-500">Step 04</span>
+          <h3 class="font-extrabold text-base text-slate-900 dark:text-white">Notes PDF</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Download 2-page summary cheat-sheets.</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 3: CLEAN GRADE IMPROVEMENT ESTIMATOR                   -->
+    <!-- ============================================================== -->
+    <section class="py-16 bg-emerald-50/50 dark:bg-[#081b17]">
+      <div class="max-w-4xl mx-auto px-4">
+        <div class="bg-white dark:bg-[#0d231e] p-8 rounded-3xl border border-emerald-100 dark:border-[#1a3d35] shadow-lg space-y-6">
+          
+          <div class="text-center max-w-lg mx-auto space-y-1">
+            <h2 class="text-2xl font-black text-slate-900 dark:text-white">Grade Improvement Estimator</h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400">See your recommended revision hours.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  <span>Current Grade:</span>
+                  <span id="clean-calc-cur" class="text-theme-600 dark:text-theme-400 font-bold">50%</span>
+                </div>
+                <input type="range" id="clean-slider-cur" min="30" max="75" value="50" oninput="runCleanCalc()" class="w-full accent-theme-600">
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  <span>Target Grade:</span>
+                  <span id="clean-calc-tar" class="text-amberGold-500 font-bold">85%</span>
+                </div>
+                <input type="range" id="clean-slider-tar" min="60" max="98" value="85" oninput="runCleanCalc()" class="w-full accent-amberGold-500">
+              </div>
+            </div>
+
+            <div class="bg-slate-900 text-white p-6 rounded-2xl text-center space-y-3">
+              <div class="text-xs text-slate-400 font-medium">Recommended Prep Plan</div>
+              <div class="flex justify-center gap-6">
+                <div>
+                  <div id="clean-res-hours" class="text-3xl font-black text-amberGold-400">7 Hours</div>
+                  <div class="text-[10px] text-slate-400">Revision Time</div>
+                </div>
+                <div>
+                  <div id="clean-res-lift" class="text-3xl font-black text-emerald-400">+35%</div>
+                  <div class="text-[10px] text-slate-400">Predicted Score Lift</div>
+                </div>
+              </div>
+              <a href="tutors.html" class="block w-full py-2.5 bg-theme-600 hover:bg-theme-700 text-white text-xs font-bold rounded-xl transition">
+                Browse Tutors →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 4: EXAM PAPER REPOSITORY (CLEAN CARDS)                 -->
+    <!-- ============================================================== -->
+    <section class="py-16 max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h2 class="text-2xl font-black text-slate-900 dark:text-white">Solved Past Paper Guides</h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Step-by-step solutions for top modules.</p>
+        </div>
+        <a href="subjects.html" class="text-xs font-bold text-theme-600 dark:text-theme-400 hover:underline">View All →</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-white dark:bg-[#0d231e] p-5 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3">
+          <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-emerald-50 dark:bg-[#163830] text-theme-600 dark:text-theme-400">Engineering</span>
+          <h3 class="font-bold text-sm text-slate-900 dark:text-white">CS101 Algorithms Paper</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Full recursion & memory solutions.</p>
+          <a href="tutors.html?q=CS101" class="block text-xs font-bold text-theme-600 dark:text-theme-400 pt-2">Get Prep →</a>
+        </div>
+
+        <div class="bg-white dark:bg-[#0d231e] p-5 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3">
+          <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-amberGold-500/10 text-amberGold-600 dark:text-amberGold-400">Commerce</span>
+          <h3 class="font-bold text-sm text-slate-900 dark:text-white">FIN301 Corporate DCF</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Excel model & valuation breakdown.</p>
+          <a href="tutors.html?q=Finance" class="block text-xs font-bold text-amberGold-600 dark:text-amberGold-400 pt-2">Get Prep →</a>
+        </div>
+
+        <div class="bg-white dark:bg-[#0d231e] p-5 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3">
+          <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400">Law</span>
+          <h3 class="font-bold text-sm text-slate-900 dark:text-white">LAW202 Tort Law Precedents</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">OSCOLA citation & essay structure.</p>
+          <a href="tutors.html?q=Law" class="block text-xs font-bold text-purple-600 dark:text-purple-400 pt-2">Get Prep →</a>
+        </div>
+
+        <div class="bg-white dark:bg-[#0d231e] p-5 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3">
+          <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-emerald-50 dark:bg-[#163830] text-theme-600 dark:text-theme-400">Science</span>
+          <h3 class="font-bold text-sm text-slate-900 dark:text-white">MATH201 Multivariable Calculus</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Green's & Stokes' Theorem proofs.</p>
+          <a href="tutors.html?q=Calculus" class="block text-xs font-bold text-theme-600 dark:text-theme-400 pt-2">Get Prep →</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 5: ONLINE TUTORS GRID (MINIMALIST)                     -->
+    <!-- ============================================================== -->
+    <section class="py-16 bg-emerald-50/50 dark:bg-[#081b17]">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center max-w-lg mx-auto mb-10 space-y-1">
+          <h2 class="text-2xl font-black text-slate-900 dark:text-white">Available Tutors Online</h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Ready for instant 1-on-1 exam sessions.</p>
+        </div>
+
+        <div id="clean-tutors-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 6: FREQUENTLY ASKED REVISION QUESTIONS (INTERACTIVE)    -->
+    <!-- ============================================================== -->
+    <section class="py-16 max-w-4xl mx-auto px-4">
+      <div class="text-center max-w-lg mx-auto mb-10 space-y-1">
+        <h2 class="text-2xl font-black text-slate-900 dark:text-white">Exam Revision FAQ</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Everything you need to know about emergency 1-on-1 prep.</p>
+      </div>
+
+      <div class="space-y-3">
+        <!-- FAQ 1 -->
+        <div class="bg-white dark:bg-[#0d231e] rounded-2xl border border-emerald-100 dark:border-[#1a3d35] overflow-hidden">
+          <button onclick="toggleFaq(1)" type="button" class="w-full px-6 py-4 text-left flex items-center justify-between text-xs font-black text-slate-900 dark:text-white">
+            <span>How fast can I get matched with a tutor if my exam is tomorrow?</span>
+            <span id="faq-icon-1" class="text-theme-600 dark:text-theme-400 text-base font-bold">+</span>
+          </button>
+          <div id="faq-ans-1" class="hidden px-6 pb-4 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            Our speed dispatch matcher connects you with verified online tutors within 15 minutes, 24/7. You can start a live video session immediately.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-white dark:bg-[#0d231e] rounded-2xl border border-emerald-100 dark:border-[#1a3d35] overflow-hidden">
+          <button onclick="toggleFaq(2)" type="button" class="w-full px-6 py-4 text-left flex items-center justify-between text-xs font-black text-slate-900 dark:text-white">
+            <span>Do tutors cover exact university marking schemes and past papers?</span>
+            <span id="faq-icon-2" class="text-theme-600 dark:text-theme-400 text-base font-bold">+</span>
+          </button>
+          <div id="faq-ans-2" class="hidden px-6 pb-4 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            Yes. All tutors are degree verified rankers or PhD researchers who break down past exam papers step-by-step to show exactly where examiners grant full marks.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-white dark:bg-[#0d231e] rounded-2xl border border-emerald-100 dark:border-[#1a3d35] overflow-hidden">
+          <button onclick="toggleFaq(3)" type="button" class="w-full px-6 py-4 text-left flex items-center justify-between text-xs font-black text-slate-900 dark:text-white">
+            <span>How does the 99.2% Exam Pass Guarantee work?</span>
+            <span id="faq-icon-3" class="text-theme-600 dark:text-theme-400 text-base font-bold">+</span>
+          </button>
+          <div id="faq-ans-3" class="hidden px-6 pb-4 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            If you complete 5+ hours of tutoring and do not pass your university exam, we provide a 100% money-back refund or free retake tutoring credits.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 7: PASS GUARANTEE & CLEAN CTA                         -->
+    <!-- ============================================================== -->
+    <section class="py-16 bg-slate-900 text-white">
+      <div class="max-w-4xl mx-auto px-4 text-center space-y-6">
+        <h2 class="text-3xl font-black">99.2% Exam Pass Guarantee</h2>
+        <p class="text-slate-300 text-xs max-w-xl mx-auto leading-relaxed">
+          If you don't pass your university module after 5 hours of tutoring, receive a 100% full refund or free retake sessions.
+        </p>
+        <a href="tutors.html" class="inline-block px-8 py-3.5 bg-theme-600 hover:bg-theme-700 text-white text-xs font-black rounded-xl shadow transition">
+          Book Exam Prep Session →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Dynamic Footer Component Container -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/mock-data.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCleanTutors();
+      runCleanCalc();
+    });
+
+    function handleCleanSearch() {
+      const q = document.getElementById('hero2-clean-query').value;
+      window.location.href = `tutors.html?q=${encodeURIComponent(q)}`;
+    }
+
+    function toggleFaq(id) {
+      const ans = document.getElementById(`faq-ans-${id}`);
+      const icon = document.getElementById(`faq-icon-${id}`);
+      if (ans) {
+        if (ans.classList.contains('hidden')) {
+          ans.classList.remove('hidden');
+          if (icon) icon.textContent = '−';
+        } else {
+          ans.classList.add('hidden');
+          if (icon) icon.textContent = '+';
+        }
+      }
+    }
+
+    function runCleanCalc() {
+      const cur = parseInt(document.getElementById('clean-slider-cur').value);
+      const tar = parseInt(document.getElementById('clean-slider-tar').value);
+
+      document.getElementById('clean-calc-cur').textContent = `${cur}%`;
+      document.getElementById('clean-calc-tar').textContent = `${tar}%`;
+
+      const diff = Math.max(0, tar - cur);
+      const hours = Math.ceil(diff / 5);
+      
+      document.getElementById('clean-res-hours').textContent = `${hours} Hours`;
+      document.getElementById('clean-res-lift').textContent = `+${diff}%`;
+    }
+
+    function renderCleanTutors() {
+      const container = document.getElementById('clean-tutors-grid');
+      if (!container) return;
+
+      const data = JSON.parse(localStorage.getItem('unitutor_data')) || INITIAL_MOCK_DATA;
+      const tutors = data.tutors.slice(0, 3);
+
+      container.innerHTML = tutors.map(tut => `
+        <div class="bg-white dark:bg-[#0d231e] rounded-2xl p-6 shadow-sm border border-emerald-100 dark:border-[#1a3d35] flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <img src="${tut.avatar}" alt="${tut.name}" class="w-12 h-12 rounded-xl object-cover">
+              <div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">${tut.name}</h4>
+                <p class="text-xs text-theme-600 dark:text-theme-400 font-semibold">${tut.qualification}</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">${tut.bio}</p>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-emerald-100 dark:border-[#1a3d35] flex items-center justify-between">
+            <span class="text-sm font-black text-slate-900 dark:text-white">$${tut.hourlyRate}/hr</span>
+            <a href="tutors.html?id=${tut.id}" class="px-3.5 py-1.5 bg-theme-600 hover:bg-theme-700 text-white text-xs font-bold rounded-lg transition">
+              Book
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>

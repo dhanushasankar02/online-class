@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniTutor - University Subjects & Modules Directory</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            theme: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            },
+            amberGold: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-[#061512] dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-300">
+
+  <!-- Sticky Dynamic Header Container -->
+  <div id="navbar-container" class="sticky top-0 z-[9999] w-full">
+    <header id="app-navbar" class="w-full bg-white/95 dark:bg-[#0d231e]/95 backdrop-blur-md border-b border-emerald-100 dark:border-[#1a3d35] transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 one-line-nav">
+          
+          <!-- Brand Logo with Emblem -->
+          <a href="index.html" class="flex items-center gap-2.5 shrink-0 group">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-theme-600 via-theme-500 to-amberGold-500 flex items-center justify-center text-white shadow-md shadow-theme-600/30 group-hover:scale-105 transition-transform logo-glow">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-lg font-black tracking-tight text-slate-900 dark:text-white">UniTutor<span class="text-amberGold-500">.</span></span>
+              <span class="block text-[9px] font-extrabold text-theme-600 dark:text-theme-400 tracking-wider uppercase leading-none">University Online</span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation Menu -->
+          <nav class="hidden lg:flex items-center space-x-1 lg:space-x-2 text-sm font-bold">
+            
+            <!-- Home Dropdown -->
+            <div class="relative group">
+              <button type="button" class="inline-flex items-center gap-1 px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+                <span>Home</span>
+                <span class="text-[10px] text-slate-400 group-hover:rotate-180 transition-transform">▾</span>
+              </button>
+              
+              <div class="absolute left-0 mt-1 w-48 rounded-xl bg-white dark:bg-[#0d231e] shadow-xl border border-emerald-100 dark:border-[#1a3d35] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 p-1.5 space-y-1 text-xs">
+                <a href="index.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-theme-50 dark:hover:bg-[#163830]">
+                  Home 1 
+                </a>
+                <a href="home2.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830]">
+                  Home 2 
+                </a>
+              </div>
+            </div>
+
+            <!-- Subjects (Active) -->
+            <a href="subjects.html" class="nav-link-active px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              Subjects
+            </a>
+
+            <!-- Find a Tutor -->
+            <a href="tutors.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              Find a Tutor
+            </a>
+
+            <!-- How It Works -->
+            <a href="how-it-works.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              How It Works
+            </a>
+
+            <!-- Pricing -->
+            <a href="pricing.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              Pricing
+            </a>
+
+            <!-- Dashboard Dropdown -->
+            <div class="relative group">
+              <button type="button" class="inline-flex items-center gap-1 px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+                <span>Dashboard</span>
+                <span class="text-[10px] text-slate-400 group-hover:rotate-180 transition-transform">▾</span>
+              </button>
+              
+              <div class="absolute left-0 mt-1 w-52 rounded-xl bg-white dark:bg-[#0d231e] shadow-xl border border-emerald-100 dark:border-[#1a3d35] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 p-1.5 space-y-1 text-xs">
+                <a href="student-dashboard.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-theme-50 dark:hover:bg-[#163830]">
+                  User Dashboard 
+                </a>
+                <a href="admin-dashboard.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830]">
+                  Admin Dashboard
+                </a>
+              </div>
+            </div>
+
+          </nav>
+
+          <!-- Right Side Controls -->
+          <div class="flex items-center space-x-2 shrink-0">
+            
+            <!-- RTL Layout Switcher Button (Desktop) -->
+            <button class="action-btn hidden lg:inline-flex" id="btn-rtl-toggle" onclick="toggleRTL()" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction">
+              <span style="font-size: 11px; font-weight: 700; letter-spacing: -0.5px;">⇄ RTL</span>
+            </button>
+
+            <!-- Dark Mode Switcher ICON Button (Desktop) -->
+            <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 transition p-2">
+              <svg id="sun-icon" class="w-4 h-4 hidden dark:block text-amberGold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+              <svg id="moon-icon" class="w-4 h-4 block dark:hidden text-theme-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+              </svg>
+            </button>
+
+            <!-- Clean Login Portal Button (Desktop) -->
+            <div id="user-auth-area" class="hidden lg:block">
+              <button onclick="openLoginModal()" type="button" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105">
+                Login Portal
+              </button>
+            </div>
+
+            <!-- Mobile Hamburger Toggle Icon Button -->
+            <button onclick="toggleMobileMenu()" type="button" aria-label="Open Mobile Menu" class="lg:hidden p-2 text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] rounded-xl border border-slate-200 dark:border-[#1a3d35] transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Right Side Off-Canvas Menu Drawer -->
+      <div id="mobile-menu" class="hidden lg:hidden">
+        <!-- Overlay Backdrop -->
+        <div onclick="toggleMobileMenu(false)" class="mobile-backdrop"></div>
+        
+        <!-- Right Drawer Container -->
+        <div id="mobile-menu-container">
+          <!-- Drawer Header -->
+          <div class="flex items-center justify-between pb-4 border-b border-emerald-100 dark:border-[#1a3d35]">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-theme-600 to-amberGold-500 flex items-center justify-center text-white text-xs font-black shadow">
+                UT
+              </div>
+              <span class="font-black text-sm text-slate-900 dark:text-white">Navigation</span>
+            </div>
+            <button onclick="toggleMobileMenu(false)" type="button" aria-label="Close Menu" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#163830] transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="py-4 space-y-1 text-sm font-bold flex-grow overflow-y-auto">
+            
+            <!-- Home Collapsible Submenu -->
+            <div class="rounded-xl overflow-hidden">
+              <button type="button" onclick="toggleMobileSubmenu('mobile-home-submenu', this)" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition font-bold">
+                <span>Home</span>
+                <svg class="w-4 h-4 submenu-arrow transition-transform duration-200 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div id="mobile-home-submenu" class="mobile-submenu hidden pl-4 pr-1 py-1 space-y-1 bg-emerald-50/50 dark:bg-[#061512]/50 rounded-xl my-1 border border-emerald-100/50 dark:border-[#1a3d35]">
+                <a href="index.html" class="block px-3 py-2 text-xs rounded-lg text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  Home 1 
+                </a>
+                <a href="home2.html" class="block px-3 py-2 text-xs rounded-lg text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  Home 2 
+                </a>
+              </div>
+            </div>
+
+            <a href="subjects.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">Subjects Directory</a>
+            <a href="tutors.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">Find a Tutor</a>
+            <a href="how-it-works.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">How It Works</a>
+            <a href="pricing.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">Pricing</a>
+
+            <!-- Dashboard Collapsible Submenu -->
+            <div class="rounded-xl overflow-hidden">
+              <button type="button" onclick="toggleMobileSubmenu('mobile-dashboard-submenu', this)" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition font-bold">
+                <span>Dashboard</span>
+                <svg class="w-4 h-4 submenu-arrow transition-transform duration-200 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div id="mobile-dashboard-submenu" class="mobile-submenu hidden pl-4 pr-1 py-1 space-y-1 bg-emerald-50/50 dark:bg-[#061512]/50 rounded-xl my-1 border border-emerald-100/50 dark:border-[#1a3d35]">
+                <a href="student-dashboard.html" class="block px-3 py-2 text-xs rounded-lg text-theme-600 dark:text-theme-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  User Dashboard 
+                </a>
+                <a href="admin-dashboard.html" class="block px-3 py-2 text-xs rounded-lg text-amberGold-600 dark:text-amberGold-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  Admin Dashboard
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Utility Controls inside Mobile Menu (RTL, Dark Mode, Login) -->
+          <div class="pt-4 border-t border-emerald-100 dark:border-[#1a3d35] space-y-3">
+            <div class="grid grid-cols-2 gap-2">
+              <!-- Mobile RTL Button -->
+              <button onclick="toggleRTL()" type="button" class="action-btn w-full py-2 px-3 justify-center text-xs font-bold gap-1">
+                <span>⇄ RTL</span>
+              </button>
+              
+              <!-- Mobile Dark Mode Button -->
+              <button onclick="toggleDarkMode()" type="button" class="action-btn w-full py-2 px-3 justify-center text-xs font-bold gap-1">
+                <span class="dark:hidden">🌙 Dark</span>
+                <span class="hidden dark:inline">☀️ Light</span>
+              </button>
+            </div>
+
+            <!-- Mobile Login Portal Button -->
+            <a href="login.html" class="w-full text-center py-2.5 px-4 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 rounded-xl shadow-md block transition hover:opacity-95">
+              Login Portal →
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- MAIN CONTENT: SUBJECTS CATALOG (ALL TOPICS PERFECTLY CENTERED) -->
+  <main class="flex-grow">
+    
+    <!-- ============================================================== -->
+    <!-- SECTION 1: FULL SCREEN BACKGROUND IMAGE HERO (CENTERED TOPIC)  -->
+    <!-- ============================================================== -->
+    <section class="relative py-16 sm:py-24 lg:py-28 flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden text-center" style="background-image: url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&q=80&w=1920');">
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-[#061512]/90 to-[#061512]"></div>
+
+      <div class="max-w-5xl mx-auto px-4 relative z-10 py-8 sm:py-16 text-center space-y-6">
+        
+        <span class="inline-block text-xs font-black uppercase tracking-widest text-emerald-400">
+          📚 Official Academic Directory 2026
+        </span>
+
+        <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto">
+          Explore 250+ University Modules Across 4 Core Faculties
+        </h1>
+
+        <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto font-medium">
+          Verified PhD tutors & top rankers for Engineering, Commerce, Law, and Science disciplines.
+        </p>
+
+        <!-- Clean Glass Search Bar -->
+        <div class="max-w-2xl mx-auto flex items-center gap-3 pt-4">
+          <input type="text" id="subj-search-input" onkeyup="filterSubjectsLive()" placeholder="Type course code e.g. CS101, LAW202..." class="flex-1 bg-white/10 border border-white/20 px-5 py-3.5 rounded-2xl text-xs text-white placeholder-slate-400 font-semibold focus:outline-none focus:border-theme-500 backdrop-blur-md">
+          <button onclick="filterSubjectsLive()" type="button" class="px-6 py-3.5 bg-theme-600 hover:bg-theme-700 text-white text-xs font-black rounded-2xl shadow transition shrink-0">
+            Search
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 2 [CARD TYPE SECTION 1]: FACULTY MODULES (CENTERED)    -->
+    <!-- ============================================================== -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Centered Topic Header -->
+      <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
+        <span class="text-xs font-black uppercase tracking-widest text-theme-600 dark:text-theme-400">Module Directory</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">Faculty Course Modules</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm font-medium">Browse verified course modules categorized by faculty discipline.</p>
+
+        <!-- Centered Filter Tabs -->
+        <div class="flex flex-wrap items-center justify-center gap-2 pt-4">
+          <button onclick="selectFacultyTab('All')" id="tab-fac-All" class="px-4 py-2 rounded-xl bg-theme-600 text-white shadow-md">All Faculties</button>
+          <button onclick="selectFacultyTab('Engineering')" id="tab-fac-Engineering" class="px-4 py-2 rounded-xl bg-white dark:bg-[#0d231e] text-slate-700 dark:text-slate-300 border border-emerald-100 dark:border-[#1a3d35]">Engineering</button>
+          <button onclick="selectFacultyTab('Commerce')" id="tab-fac-Commerce" class="px-4 py-2 rounded-xl bg-white dark:bg-[#0d231e] text-slate-700 dark:text-slate-300 border border-emerald-100 dark:border-[#1a3d35]">Commerce</button>
+          <button onclick="selectFacultyTab('Law')" id="tab-fac-Law" class="px-4 py-2 rounded-xl bg-white dark:bg-[#0d231e] text-slate-700 dark:text-slate-300 border border-emerald-100 dark:border-[#1a3d35]">Law</button>
+          <button onclick="selectFacultyTab('Science')" id="tab-fac-Science" class="px-4 py-2 rounded-xl bg-white dark:bg-[#0d231e] text-slate-700 dark:text-slate-300 border border-emerald-100 dark:border-[#1a3d35]">Science</button>
+        </div>
+      </div>
+
+      <!-- Module Cards Grid -->
+      <div id="faculty-modules-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered as Cards by JS -->
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 3: MODULE DIAGNOSTIC MATRIX (CENTERED TOPIC)          -->
+    <!-- ============================================================== -->
+    <section class="py-20 bg-emerald-50/50 dark:bg-[#081b17]">
+      <div class="max-w-5xl mx-auto px-4 space-y-8">
+        
+        <!-- Centered Topic Header -->
+        <div class="text-center max-w-2xl mx-auto space-y-2">
+          <span class="text-xs font-black uppercase tracking-widest text-amberGold-500">Syllabus Matrix</span>
+          <h2 class="text-3xl font-black text-slate-900 dark:text-white">Module Difficulty Diagnostic</h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Inspect historical fail rates and tricky syllabus topics.</p>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 py-6 border-y border-emerald-200 dark:border-[#1a3d35]">
+          <div class="w-full md:w-1/2 space-y-2">
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300">Select Module Code:</label>
+            <select id="diag-module-select" onchange="runModuleDiagnostic()" class="w-full px-4 py-3 bg-white dark:bg-[#0d231e] rounded-xl text-xs font-bold text-slate-900 dark:text-white border border-slate-300 dark:border-[#1a3d35]">
+              <option value="CS101">CS101 - Data Structures & Recursion</option>
+              <option value="FIN301">FIN301 - Corporate Financial Valuation</option>
+              <option value="LAW202">LAW202 - Constitutional & Contract Law</option>
+              <option value="MATH201">MATH201 - Multivariable Calculus</option>
+            </select>
+          </div>
+
+          <div class="w-full md:w-1/2 space-y-2 text-xs">
+            <div class="flex justify-between py-1 border-b border-slate-200 dark:border-[#1a3d35]">
+              <span class="text-slate-500 dark:text-slate-400">Typical Fail Rate Without Tutor:</span>
+              <span id="diag-fail-rate" class="font-bold text-red-500">36%</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-slate-200 dark:border-[#1a3d35]">
+              <span class="text-slate-500 dark:text-slate-400">Pass Guarantee with Tutor:</span>
+              <span class="font-bold text-theme-600 dark:text-theme-400">99.2%</span>
+            </div>
+            <div class="py-1">
+              <span class="text-slate-500 dark:text-slate-400 block mb-1">Key Tricky Topics:</span>
+              <span id="diag-topics" class="font-bold text-slate-900 dark:text-white font-mono text-[11px]">1. Binary Trees • 2. Memory Pointers</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 4 [CARD TYPE SECTION 2]: SEARCH VAULT (CENTERED TOPIC)-->
+    <!-- ============================================================== -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <!-- Centered Topic Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="text-xs font-black uppercase tracking-widest text-purple-600 dark:text-purple-300">Vault Directory</span>
+        <h2 class="text-3xl font-black text-slate-900 dark:text-white">Search Vault & Topic Cards</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm font-medium">Filter topics by past papers, lab code, and exam guarantees.</p>
+
+        <!-- Centered Tag Filter Pills -->
+        <div class="flex items-center justify-center gap-2 pt-2 text-xs font-bold">
+          <button onclick="setTagFilter('All')" class="px-3.5 py-1.5 rounded-lg bg-emerald-50 dark:bg-[#163830] text-theme-700 dark:text-theme-300">All Tags</button>
+          <button onclick="setTagFilter('Past Papers')" class="px-3.5 py-1.5 rounded-lg bg-white dark:bg-[#0d231e] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-[#1a3d35]">Past Papers</button>
+          <button onclick="setTagFilter('Lab Code')" class="px-3.5 py-1.5 rounded-lg bg-white dark:bg-[#0d231e] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-[#1a3d35]">Lab Code</button>
+        </div>
+      </div>
+
+      <div id="vault-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Rendered as Cards by JS -->
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 5: MODULE CREDITS & CAREER ALIGNMENT (CENTERED TOPIC)  -->
+    <!-- ============================================================== -->
+    <section class="py-20 max-w-6xl mx-auto px-4 space-y-8 border-t border-slate-200 dark:border-[#1a3d35]">
+      
+      <!-- Centered Topic Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-xs font-black uppercase tracking-widest text-theme-600 dark:text-theme-400">Academic Structure</span>
+        <h2 class="text-3xl font-black text-slate-900 dark:text-white">Degree Module Credits & Career Alignment</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm font-medium">Understand how your course module credits map to university GPA weightages.</p>
+      </div>
+
+      <div class="divide-y divide-slate-200 dark:divide-[#1a3d35] text-xs">
+        <div class="py-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <div class="font-bold text-sm text-slate-900 dark:text-white">Algorithms & System Architecture</div>
+            <p class="text-slate-500 dark:text-slate-400">Core for Software Engineering & Quant Trading • 20 UK Credits / 7.5 ECTS</p>
+          </div>
+          <span class="font-bold text-theme-600 dark:text-theme-400 shrink-0">High GPA Weight (25%)</span>
+        </div>
+
+        <div class="py-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <div class="font-bold text-sm text-slate-900 dark:text-white">Corporate DCF & Financial Valuation</div>
+            <p class="text-slate-500 dark:text-slate-400">Investment Banking & Equity Research Prerequisite • 20 UK Credits / 7.5 ECTS</p>
+          </div>
+          <span class="font-bold text-amberGold-500 shrink-0">High GPA Weight (20%)</span>
+        </div>
+
+        <div class="py-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <div class="font-bold text-sm text-slate-900 dark:text-white">Constitutional & Contract Liability</div>
+            <p class="text-slate-500 dark:text-slate-400">Magic Circle & Bar Exam Requirement • 30 UK Credits / 10 ECTS</p>
+          </div>
+          <span class="font-bold text-purple-500 shrink-0">Major GPA Weight (30%)</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 6: SUPPORTED UNIVERSITIES MAPPING (CENTERED TOPIC)     -->
+    <!-- ============================================================== -->
+    <section class="py-20 bg-slate-900 text-white text-center">
+      <div class="max-w-4xl mx-auto px-4 space-y-6">
+        
+        <!-- Centered Topic Header -->
+        <div class="text-center max-w-2xl mx-auto space-y-2">
+          <span class="text-xs font-black uppercase tracking-widest text-emerald-400">Global Recognition</span>
+          <h2 class="text-3xl font-black">Global University Degree Alignment</h2>
+          <p class="text-xs text-slate-400 max-w-xl mx-auto">
+            Our module syllabi map 1-to-1 with UK Russell Group, US Ivy League, and Australian Group of 8 degree standards.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-6 text-xs font-bold text-emerald-400 pt-2">
+          <span>• Oxford & Cambridge</span>
+          <span>• Imperial & LSE</span>
+          <span>• Stanford & Harvard</span>
+          <span>• Melbourne & Sydney</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 7: CUSTOM MODULE REQUEST FORM (CENTERED TOPIC)         -->
+    <!-- ============================================================== -->
+    <section class="py-20 max-w-2xl mx-auto px-4 text-center space-y-8">
+      
+      <!-- Centered Topic Header -->
+      <div class="text-center max-w-lg mx-auto space-y-2">
+        <span class="text-xs font-black uppercase tracking-widest text-amberGold-500">Custom Matcher</span>
+        <h2 class="text-3xl font-black text-slate-900 dark:text-white">Can't Find Your Course Code?</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Request a custom 1-on-1 tutor match for any university module.</p>
+      </div>
+
+      <form onsubmit="handleCustomSyllabusSubmit(event)" class="space-y-4 text-left">
+        <input type="text" required placeholder="University Name e.g. Edinburgh" class="w-full px-4 py-3.5 rounded-xl bg-white dark:bg-[#0d231e] border border-slate-300 dark:border-[#1a3d35] text-xs focus:outline-none dark:text-white font-semibold">
+        <input type="text" required placeholder="Course Code e.g. INF2B Algorithms" class="w-full px-4 py-3.5 rounded-xl bg-white dark:bg-[#0d231e] border border-slate-300 dark:border-[#1a3d35] text-xs focus:outline-none dark:text-white font-semibold">
+        <button type="submit" class="w-full py-3.5 bg-theme-600 hover:bg-theme-700 text-white text-xs font-bold rounded-xl transition">
+          Submit Custom Match Request →
+        </button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Dynamic Footer Component Container -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/mock-data.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    const ALL_SUBJECT_DATA = [
+      { code: "CS101", title: "Algorithms & Data Structures", faculty: "Engineering", level: "Undergraduate", rating: 4.9, tutors: 42, tags: ["Past Papers", "Lab Code"] },
+      { code: "CS204", title: "Machine Learning & Deep Neural Nets", faculty: "Engineering", level: "Postgraduate", rating: 4.95, tutors: 28, tags: ["Lab Code"] },
+      { code: "FIN301", title: "Corporate Financial Valuation & DCF", faculty: "Commerce", level: "Undergraduate", rating: 4.88, tutors: 35, tags: ["Past Papers"] },
+      { code: "FIN402", title: "Options Pricing & Econometrics", faculty: "Commerce", level: "Postgraduate", rating: 4.92, tutors: 19, tags: ["Past Papers"] },
+      { code: "LAW202", title: "Constitutional Law & Tort Liability", faculty: "Law", level: "Undergraduate", rating: 4.85, tutors: 31, tags: ["Past Papers"] },
+      { code: "MATH201", title: "Multivariable Calculus & Differential Eq.", faculty: "Science", level: "Undergraduate", rating: 4.91, tutors: 38, tags: ["Past Papers", "Lab Code"] },
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderFacultyModules('All');
+      renderVaultCards('All');
+      runModuleDiagnostic();
+    });
+
+    function selectFacultyTab(fac) {
+      ['All', 'Engineering', 'Commerce', 'Law', 'Science'].forEach(f => {
+        const btn = document.getElementById(`tab-fac-${f}`);
+        if (btn) {
+          btn.className = f === fac
+            ? "px-4 py-2 rounded-xl bg-theme-600 text-white shadow-md"
+            : "px-4 py-2 rounded-xl bg-white dark:bg-[#0d231e] text-slate-700 dark:text-slate-300 border border-emerald-100 dark:border-[#1a3d35]";
+        }
+      });
+
+      renderFacultyModules(fac);
+    }
+
+    function renderFacultyModules(facFilter) {
+      const grid = document.getElementById('faculty-modules-grid');
+      if (!grid) return;
+
+      const filtered = facFilter === 'All' ? ALL_SUBJECT_DATA : ALL_SUBJECT_DATA.filter(s => s.faculty === facFilter);
+
+      grid.innerHTML = filtered.map(item => `
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] space-y-4 hover:border-theme-500 transition flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-[#163830] text-theme-700 dark:text-theme-300 text-[10px] font-black uppercase">${item.code}</span>
+              <span class="text-xs font-bold text-amberGold-500">★ ${item.rating}</span>
+            </div>
+            <h3 class="font-black text-base text-slate-900 dark:text-white">${item.title}</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Faculty of ${item.faculty} • ${item.level}</p>
+          </div>
+
+          <div class="pt-4 border-t border-emerald-100 dark:border-[#1a3d35] flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">${item.tutors} Verified Tutors</span>
+            <a href="tutors.html?q=${encodeURIComponent(item.code)}" class="px-4 py-2 bg-theme-600 hover:bg-theme-700 text-white font-extrabold text-xs rounded-xl shadow transition">
+              Browse Tutors →
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterSubjectsLive() {
+      const query = document.getElementById('subj-search-input').value.toLowerCase();
+      const grid = document.getElementById('faculty-modules-grid');
+      if (!grid) return;
+
+      const filtered = ALL_SUBJECT_DATA.filter(item => 
+        item.code.toLowerCase().includes(query) || item.title.toLowerCase().includes(query)
+      );
+
+      grid.innerHTML = filtered.map(item => `
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] space-y-4 hover:border-theme-500 transition flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-[#163830] text-theme-700 dark:text-theme-300 text-[10px] font-black uppercase">${item.code}</span>
+              <span class="text-xs font-bold text-amberGold-500">★ ${item.rating}</span>
+            </div>
+            <h3 class="font-black text-base text-slate-900 dark:text-white">${item.title}</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Faculty of ${item.faculty} • ${item.level}</p>
+          </div>
+
+          <div class="pt-4 border-t border-emerald-100 dark:border-[#1a3d35] flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">${item.tutors} Verified Tutors</span>
+            <a href="tutors.html?q=${encodeURIComponent(item.code)}" class="px-4 py-2 bg-theme-600 hover:bg-theme-700 text-white font-extrabold text-xs rounded-xl shadow transition">
+              Browse Tutors →
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function runModuleDiagnostic() {
+      const val = document.getElementById('diag-module-select').value;
+      const failRate = document.getElementById('diag-fail-rate');
+      const topics = document.getElementById('diag-topics');
+
+      if (val === 'CS101') {
+        failRate.textContent = "36%";
+        topics.textContent = "1. Binary Search Trees • 2. Memory Pointers";
+      } else if (val === 'FIN301') {
+        failRate.textContent = "39%";
+        topics.textContent = "1. WACC Calculation • 2. Terminal Value";
+      } else if (val === 'LAW202') {
+        failRate.textContent = "32%";
+        topics.textContent = "1. OSCOLA Citation • 2. Duty of Care";
+      } else if (val === 'MATH201') {
+        failRate.textContent = "42%";
+        topics.textContent = "1. Green's Theorem • 2. Partial Derivatives";
+      }
+    }
+
+    function renderVaultCards(tagFilter) {
+      const grid = document.getElementById('vault-cards-grid');
+      if (!grid) return;
+
+      const items = tagFilter === 'All' ? ALL_SUBJECT_DATA : ALL_SUBJECT_DATA.filter(s => s.tags.includes(tagFilter));
+
+      grid.innerHTML = items.map(item => `
+        <div class="bg-white dark:bg-[#0d231e] rounded-2xl p-5 shadow-sm border border-emerald-100 dark:border-[#1a3d35] space-y-3 hover:border-purple-500 transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-black text-theme-600 dark:text-theme-400 font-mono">${item.code}</span>
+            <span class="text-[10px] text-slate-400 font-bold">${item.faculty}</span>
+          </div>
+          <h4 class="font-bold text-sm text-slate-900 dark:text-white">${item.title}</h4>
+          <div class="flex flex-wrap gap-1">
+            ${item.tags.map(t => `<span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-[#163830] text-[9px] font-bold text-theme-700 dark:text-theme-300">${t}</span>`).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function setTagFilter(tag) {
+      renderVaultCards(tag);
+    }
+
+    function handleCustomSyllabusSubmit(e) {
+      e.preventDefault();
+      if (window.showToast) window.showToast("Request submitted successfully!", "success");
+    }
+  </script>
+</body>
+</html>

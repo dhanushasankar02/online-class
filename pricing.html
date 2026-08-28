@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniTutor - Transparent Pricing & Academic Bundles</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            theme: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            },
+            amberGold: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-[#061512] dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-300">
+
+  <!-- Sticky Dynamic Header Container -->
+  <div id="navbar-container" class="sticky top-0 z-[9999] w-full">
+    <header id="app-navbar" class="w-full bg-white/95 dark:bg-[#0d231e]/95 backdrop-blur-md border-b border-emerald-100 dark:border-[#1a3d35] transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 one-line-nav">
+          
+          <!-- Brand Logo with Emblem -->
+          <a href="index.html" class="flex items-center gap-2.5 shrink-0 group">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-theme-600 via-theme-500 to-amberGold-500 flex items-center justify-center text-white shadow-md shadow-theme-600/30 group-hover:scale-105 transition-transform logo-glow">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-lg font-black tracking-tight text-slate-900 dark:text-white">UniTutor<span class="text-amberGold-500">.</span></span>
+              <span class="block text-[9px] font-extrabold text-theme-600 dark:text-theme-400 tracking-wider uppercase leading-none">University Online</span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation Menu -->
+          <nav class="hidden lg:flex items-center space-x-1 lg:space-x-2 text-sm font-bold">
+            
+            <!-- Home Dropdown -->
+            <div class="relative group">
+              <button type="button" class="inline-flex items-center gap-1 px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+                <span>Home</span>
+                <span class="text-[10px] text-slate-400 group-hover:rotate-180 transition-transform">▾</span>
+              </button>
+              
+              <div class="absolute left-0 mt-1 w-48 rounded-xl bg-white dark:bg-[#0d231e] shadow-xl border border-emerald-100 dark:border-[#1a3d35] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 p-1.5 space-y-1 text-xs">
+                <a href="index.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-theme-50 dark:hover:bg-[#163830]">
+                  Home 1 
+                </a>
+                <a href="home2.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830]">
+                  Home 2
+                </a>
+              </div>
+            </div>
+
+            <!-- Subjects -->
+            <a href="subjects.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              Subjects
+            </a>
+
+            <!-- Find a Tutor -->
+            <a href="tutors.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              Find a Tutor
+            </a>
+
+            <!-- How It Works -->
+            <a href="how-it-works.html" class="px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              How It Works
+            </a>
+
+            <!-- Pricing (Active) -->
+            <a href="pricing.html" class="nav-link-active px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+              Pricing
+            </a>
+
+            <!-- Dashboard Dropdown -->
+            <div class="relative group">
+              <button type="button" class="inline-flex items-center gap-1 px-3 py-1.5 text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 rounded-lg hover:bg-emerald-50 dark:hover:bg-[#163830] transition">
+                <span>Dashboard</span>
+                <span class="text-[10px] text-slate-400 group-hover:rotate-180 transition-transform">▾</span>
+              </button>
+              
+              <div class="absolute left-0 mt-1 w-52 rounded-xl bg-white dark:bg-[#0d231e] shadow-xl border border-emerald-100 dark:border-[#1a3d35] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 p-1.5 space-y-1 text-xs">
+                <a href="student-dashboard.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-theme-50 dark:hover:bg-[#163830]">
+                  User Dashboard 
+                </a>
+                <a href="admin-dashboard.html" class="block px-3 py-2 rounded-lg font-bold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830]">
+                  Admin Dashboard
+                </a>
+              </div>
+            </div>
+
+          </nav>
+
+          <!-- Right Side Controls -->
+          <div class="flex items-center space-x-2 shrink-0">
+            
+            <!-- RTL Layout Switcher Button (Desktop) -->
+            <button class="action-btn hidden lg:inline-flex" id="btn-rtl-toggle" onclick="toggleRTL()" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction">
+              <span style="font-size: 11px; font-weight: 700; letter-spacing: -0.5px;">⇄ RTL</span>
+            </button>
+
+            <!-- Dark Mode Switcher ICON Button (Desktop) -->
+            <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 transition p-2">
+              <svg id="sun-icon" class="w-4 h-4 hidden dark:block text-amberGold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+              <svg id="moon-icon" class="w-4 h-4 block dark:hidden text-theme-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+              </svg>
+            </button>
+
+            <!-- Clean Login Portal Button (Desktop) -->
+            <div id="user-auth-area" class="hidden lg:block">
+              <button onclick="openLoginModal()" type="button" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105">
+                Login Portal
+              </button>
+            </div>
+
+            <!-- Mobile Hamburger Toggle Icon Button -->
+            <button onclick="toggleMobileMenu()" type="button" aria-label="Open Mobile Menu" class="lg:hidden p-2 text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] rounded-xl border border-slate-200 dark:border-[#1a3d35] transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Right Side Off-Canvas Menu Drawer -->
+      <div id="mobile-menu" class="hidden lg:hidden">
+        <!-- Overlay Backdrop -->
+        <div onclick="toggleMobileMenu(false)" class="mobile-backdrop"></div>
+        
+        <!-- Right Drawer Container -->
+        <div id="mobile-menu-container">
+          <!-- Drawer Header -->
+          <div class="flex items-center justify-between pb-4 border-b border-emerald-100 dark:border-[#1a3d35]">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-theme-600 to-amberGold-500 flex items-center justify-center text-white text-xs font-black shadow">
+                UT
+              </div>
+              <span class="font-black text-sm text-slate-900 dark:text-white">Navigation</span>
+            </div>
+            <button onclick="toggleMobileMenu(false)" type="button" aria-label="Close Menu" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#163830] transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="py-4 space-y-1 text-sm font-bold flex-grow overflow-y-auto">
+            
+            <!-- Home Collapsible Submenu -->
+            <div class="rounded-xl overflow-hidden">
+              <button type="button" onclick="toggleMobileSubmenu('mobile-home-submenu', this)" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition font-bold">
+                <span>Home</span>
+                <svg class="w-4 h-4 submenu-arrow transition-transform duration-200 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div id="mobile-home-submenu" class="mobile-submenu hidden pl-4 pr-1 py-1 space-y-1 bg-emerald-50/50 dark:bg-[#061512]/50 rounded-xl my-1 border border-emerald-100/50 dark:border-[#1a3d35]">
+                <a href="index.html" class="block px-3 py-2 text-xs rounded-lg text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  Home 1 
+                </a>
+                <a href="home2.html" class="block px-3 py-2 text-xs rounded-lg text-slate-700 dark:text-slate-200 hover:text-theme-600 dark:hover:text-theme-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  Home 2 
+                </a>
+              </div>
+            </div>
+
+            <a href="subjects.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">Subjects Directory</a>
+            <a href="tutors.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">Find a Tutor</a>
+            <a href="how-it-works.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">How It Works</a>
+            <a href="pricing.html" class="block px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition">Pricing</a>
+
+            <!-- Dashboard Collapsible Submenu -->
+            <div class="rounded-xl overflow-hidden">
+              <button type="button" onclick="toggleMobileSubmenu('mobile-dashboard-submenu', this)" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-[#163830] transition font-bold">
+                <span>Dashboard</span>
+                <svg class="w-4 h-4 submenu-arrow transition-transform duration-200 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div id="mobile-dashboard-submenu" class="mobile-submenu hidden pl-4 pr-1 py-1 space-y-1 bg-emerald-50/50 dark:bg-[#061512]/50 rounded-xl my-1 border border-emerald-100/50 dark:border-[#1a3d35]">
+                <a href="student-dashboard.html" class="block px-3 py-2 text-xs rounded-lg text-theme-600 dark:text-theme-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  User Dashboard 
+                </a>
+                <a href="admin-dashboard.html" class="block px-3 py-2 text-xs rounded-lg text-amberGold-600 dark:text-amberGold-400 hover:bg-white dark:hover:bg-[#163830] transition font-bold">
+                  Admin Dashboard
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Utility Controls inside Mobile Menu (RTL, Dark Mode, Login) -->
+          <div class="pt-4 border-t border-emerald-100 dark:border-[#1a3d35] space-y-3">
+            <div class="grid grid-cols-2 gap-2">
+              <!-- Mobile RTL Button -->
+              <button onclick="toggleRTL()" type="button" class="action-btn w-full py-2 px-3 justify-center text-xs font-bold gap-1">
+                <span>⇄ RTL</span>
+              </button>
+              
+              <!-- Mobile Dark Mode Button -->
+              <button onclick="toggleDarkMode()" type="button" class="action-btn w-full py-2 px-3 justify-center text-xs font-bold gap-1">
+                <span class="dark:hidden">🌙 Dark</span>
+                <span class="hidden dark:inline">☀️ Light</span>
+              </button>
+            </div>
+
+            <!-- Mobile Login Portal Button -->
+            <a href="login.html" class="w-full text-center py-2.5 px-4 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 rounded-xl shadow-md block transition hover:opacity-95">
+              Login Portal →
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- MAIN CONTENT: PRICING PAGE (7 EXCLUSIVE SECTIONS, CENTERED TOPICS) -->
+  <main class="flex-grow">
+    
+    <!-- ============================================================== -->
+    <!-- SECTION 1: HERO SECTION WITH TRANSPARENT PRICING              -->
+    <!-- ============================================================== -->
+    <section class="relative py-16 sm:py-24 lg:py-28 flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden text-center" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1920');">
+      <!-- Dark Gradient Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-[#061512]/90 to-[#061512]"></div>
+
+      <div class="max-w-5xl mx-auto px-4 relative z-10 py-8 sm:py-16 text-center space-y-6">
+        
+        <span class="inline-block text-xs font-black uppercase tracking-widest text-emerald-400">
+          💎 Transparent Academic Billing 2026
+        </span>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto">
+          Simple Pricing with <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-theme-300 to-amberGold-400">99.2% Pass Guarantee</span>
+        </h1>
+
+        <p class="text-slate-300 text-sm sm:text-lg max-w-xl mx-auto font-medium">
+          Zero subscription traps or platform sign-up fees. Pay as you go or save up to 25% with multi-session revision packages.
+        </p>
+
+        <!-- Billing Cycle Switcher Pills -->
+        <div class="inline-flex items-center gap-2 p-1.5 bg-black/50 border border-white/20 rounded-2xl backdrop-blur-md text-xs font-bold text-white">
+          <button onclick="setPricingBilling('hourly')" id="btn-bill-hourly" class="px-5 py-2 rounded-xl bg-theme-600 text-white transition">Pay As You Go</button>
+          <button onclick="setPricingBilling('bundle')" id="btn-bill-bundle" class="px-5 py-2 rounded-xl text-slate-300 hover:text-white transition">Package Bundles (Save 20%)</button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 2 [CARD TYPE SECTION]: 3-TIER PRICING CARDS            -->
+    <!-- ============================================================== -->
+    <section class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Centered Topic Header -->
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-2">
+        <span class="text-xs font-black uppercase tracking-widest text-theme-600 dark:text-theme-400">Flexible Plans</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white">Choose Your Revision Package</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-medium">All plans include HD virtual whiteboard and past paper marking scheme access.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+        
+        <!-- Plan 1: Single Session -->
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 sm:p-8 shadow-xl border border-emerald-100 dark:border-[#1a3d35] flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[10px] font-black uppercase">Pay As You Go</span>
+            <h3 class="text-xl font-black text-slate-900 dark:text-white">Single Session</h3>
+            <div class="flex items-baseline gap-1">
+              <span id="plan1-price" class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">$45</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400 font-bold">/ hour</span>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+              Ideal for emergency exam questions or 1-on-1 problem set walkthroughs.
+            </p>
+            <ul class="space-y-2.5 text-xs text-slate-600 dark:text-slate-300 font-semibold border-t border-emerald-100 dark:border-[#1a3d35] pt-4">
+              <li class="flex items-center gap-2">✓ 1 Hour 1-on-1 Live Session</li>
+              <li class="flex items-center gap-2">✓ Interactive LaTeX Whiteboard</li>
+              <li class="flex items-center gap-2">✓ HD Session Video Recording</li>
+              <li class="flex items-center gap-2">✓ Escrow Money Protection</li>
+            </ul>
+          </div>
+
+          <button onclick="handleSelectPlan('Pay As You Go')" type="button" class="w-full py-3.5 bg-theme-600 hover:bg-theme-700 text-white font-extrabold text-xs rounded-xl shadow-md transition-all duration-200 hover:scale-105">
+            Book Single Session →
+          </button>
+        </div>
+
+        <!-- Plan 2: Exam Sprint (Popular Badge) -->
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 sm:p-8 shadow-2xl border-2 border-theme-500 flex flex-col justify-between space-y-6 relative">
+          <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-theme-600 text-white text-[10px] font-black uppercase tracking-wider shadow">
+            Most Popular
+          </span>
+
+          <div class="space-y-4 pt-2">
+            <span class="px-3 py-1 rounded-full bg-theme-100 dark:bg-theme-900 text-theme-700 dark:text-theme-300 text-[10px] font-black uppercase">Exam Sprint Bundle</span>
+            <h3 class="text-xl font-black text-slate-900 dark:text-white">5-Hour Revision Pack</h3>
+            <div class="flex items-baseline gap-1">
+              <span id="plan2-price" class="text-3xl sm:text-4xl font-black text-theme-600 dark:text-theme-400">$38</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400 font-bold">/ hour ($190 total)</span>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+              Save 15% on dedicated exam revision with full past paper marking scheme audits.
+            </p>
+            <ul class="space-y-2.5 text-xs text-slate-600 dark:text-slate-300 font-semibold border-t border-emerald-100 dark:border-[#1a3d35] pt-4">
+              <li class="flex items-center gap-2 text-theme-600 dark:text-theme-400">✓ 5 Hours of 1-on-1 Prep</li>
+              <li class="flex items-center gap-2">✓ Full Past Paper Marking Audit</li>
+              <li class="flex items-center gap-2">✓ 99.2% Exam Pass Guarantee</li>
+              <li class="flex items-center gap-2">✓ Priority Tutor Dispatch</li>
+            </ul>
+          </div>
+
+          <button onclick="handleSelectPlan('Exam Sprint')" type="button" class="w-full py-3.5 bg-gradient-to-r from-theme-600 via-emerald-600 to-theme-700 hover:from-theme-700 hover:to-emerald-800 text-white font-extrabold text-xs rounded-xl shadow-lg shadow-theme-600/30 transition-all duration-200 hover:scale-105">
+            Get Exam Sprint Pack →
+          </button>
+        </div>
+
+        <!-- Plan 3: Term Mastery -->
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 sm:p-8 shadow-xl border border-emerald-100 dark:border-[#1a3d35] flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <span class="px-3 py-1 rounded-full bg-amberGold-500/20 text-amberGold-600 dark:text-amberGold-400 text-[10px] font-black uppercase">Term Pass Mastery</span>
+            <h3 class="text-xl font-black text-slate-900 dark:text-white">15-Hour Term Pack</h3>
+            <div class="flex items-baseline gap-1">
+              <span id="plan3-price" class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">$32</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400 font-bold">/ hour ($480 total)</span>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+              Save 25% for complete term coverage, coursework mentorship, and exam prep.
+            </p>
+            <ul class="space-y-2.5 text-xs text-slate-600 dark:text-slate-300 font-semibold border-t border-emerald-100 dark:border-[#1a3d35] pt-4">
+              <li class="flex items-center gap-2">✓ 15 Hours 1-on-1 Mastery</li>
+              <li class="flex items-center gap-2">✓ Dedicated Academic Lead</li>
+              <li class="flex items-center gap-2">✓ Unlimited Past Paper Solutions</li>
+              <li class="flex items-center gap-2">✓ 24/7 Async Homework Chat</li>
+            </ul>
+          </div>
+
+          <button onclick="handleSelectPlan('Term Pass')" type="button" class="w-full py-3.5 bg-amberGold-500 hover:bg-amberGold-600 text-white font-extrabold text-xs rounded-xl shadow-md transition-all duration-200 hover:scale-105">
+            Get Term Mastery Pack →
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 3: PLAN FEATURE COMPARISON MATRIX (CENTERED TOPIC)    -->
+    <!-- ============================================================== -->
+    <section class="py-16 sm:py-20 bg-emerald-50/50 dark:bg-[#081b17]">
+      <div class="max-w-6xl mx-auto px-4 space-y-8 sm:space-y-10">
+        
+        <!-- Centered Topic Header -->
+        <div class="text-center max-w-3xl mx-auto space-y-2">
+          <span class="text-xs font-black uppercase tracking-widest text-theme-600 dark:text-theme-400">Detailed Comparison</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">Plan Feature Breakdown</h2>
+          <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-medium">Compare feature availability across all pricing tiers.</p>
+        </div>
+
+        <div class="overflow-x-auto rounded-3xl border border-slate-200 dark:border-[#1a3d35] p-4 sm:p-6 bg-white dark:bg-[#0d231e] shadow-sm">
+          <div class="min-w-[580px] divide-y divide-slate-200 dark:divide-[#1a3d35] text-xs">
+            <div class="py-3 sm:py-4 grid grid-cols-4 font-black text-slate-900 dark:text-white">
+              <div>Feature</div>
+              <div class="text-center">Single Session</div>
+              <div class="text-center text-theme-600 dark:text-theme-400">Exam Sprint (5h)</div>
+              <div class="text-center text-amberGold-500">Term Pass (15h)</div>
+            </div>
+
+            <div class="py-3 sm:py-4 grid grid-cols-4 text-slate-600 dark:text-slate-300">
+              <div class="font-bold">Hourly Rate</div>
+              <div class="text-center">$45/hr</div>
+              <div class="text-center font-bold text-theme-600">$38/hr</div>
+              <div class="text-center font-bold text-amberGold-500">$32/hr</div>
+            </div>
+
+            <div class="py-3 sm:py-4 grid grid-cols-4 text-slate-600 dark:text-slate-300">
+              <div class="font-bold">Past Paper Marking Audit</div>
+              <div class="text-center">Basic</div>
+              <div class="text-center text-emerald-500">✓ Full</div>
+              <div class="text-center text-emerald-500">✓ Unlimited</div>
+            </div>
+
+            <div class="py-3 sm:py-4 grid grid-cols-4 text-slate-600 dark:text-slate-300">
+              <div class="font-bold">99.2% Pass Guarantee</div>
+              <div class="text-center text-slate-400">—</div>
+              <div class="text-center text-emerald-500">✓ Included</div>
+              <div class="text-center text-emerald-500">✓ Included</div>
+            </div>
+
+            <div class="py-3 sm:py-4 grid grid-cols-4 text-slate-600 dark:text-slate-300">
+              <div class="font-bold">Async Chat Support</div>
+              <div class="text-center text-slate-400">—</div>
+              <div class="text-center text-slate-400">—</div>
+              <div class="text-center text-emerald-500">✓ 24/7 Access</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 4: FINANCIAL HARDSHIP SUBSIDY FUND (CENTERED TOPIC)    -->
+    <!-- ============================================================== -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <!-- Centered Topic Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-xs font-black uppercase tracking-widest text-amberGold-500">Equal Opportunity</span>
+        <h2 class="text-3xl font-black text-slate-900 dark:text-white">Student Financial Aid & Grants</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm font-medium">30% tuition hardship subsidies for qualifying university undergraduates.</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto p-8 rounded-3xl border border-amberGold-500/30 bg-amberGold-500/5 text-center space-y-4">
+        <h3 class="font-black text-xl text-slate-900 dark:text-white">Apply for 30% Tuition Hardship Assistance</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl mx-auto font-medium">
+          We believe financial constraints should never block academic success. Eligible students receiving university bursaries qualify for an instant 30% rate reduction.
+        </p>
+        <button onclick="handleApplyHardship()" type="button" class="px-6 py-3 bg-amberGold-500 hover:bg-amberGold-600 text-white font-extrabold text-xs rounded-xl shadow transition">
+          Submit Hardship Aid Application →
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 5: 1-ON-1 VS GROUP TUTORING RATE COMPARISON (CENTERED)  -->
+    <!-- ============================================================== -->
+    <section class="py-20 bg-slate-950 text-white">
+      <div class="max-w-5xl mx-auto px-4 space-y-12">
+        
+        <!-- Centered Topic Header -->
+        <div class="text-center max-w-2xl mx-auto space-y-2">
+          <span class="text-xs font-black uppercase tracking-widest text-emerald-400">Value Guide</span>
+          <h2 class="text-3xl font-black">1-on-1 vs Small Group Tutoring</h2>
+          <p class="text-slate-400 text-sm font-medium">Split costs with classmates or choose private custom coaching.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <div class="p-8 bg-slate-900 rounded-3xl border border-slate-800 space-y-4">
+            <div class="flex justify-between items-center">
+              <h3 class="font-black text-xl text-white">Private 1-on-1 Tutoring</h3>
+              <span class="text-amberGold-400 font-bold text-sm">$45 / hr</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              100% customized focus on your specific university syllabus, weak topics, and assignment code.
+            </p>
+            <div class="text-[11px] font-bold text-emerald-400">Best for: Fast Grade Transformations</div>
+          </div>
+
+          <div class="p-8 bg-slate-900 rounded-3xl border border-slate-800 space-y-4">
+            <div class="flex justify-between items-center">
+              <h3 class="font-black text-xl text-white">Small Group Study Bootcamps</h3>
+              <span class="text-emerald-400 font-bold text-sm">$20 / hr per student</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Form a study group of 3-4 classmates from your same module to split costs and solve past papers together.
+            </p>
+            <div class="text-[11px] font-bold text-amberGold-400">Best for: Collaborative Group Revision</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 6 [CARD TYPE SECTION]: PRICING & REFUND FAQ CARDS      -->
+    <!-- ============================================================== -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Centered Topic Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-xs font-black uppercase tracking-widest text-purple-600 dark:text-purple-300">Billing FAQ</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">Frequently Asked Billing Questions</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm font-medium">Clear answers regarding payments, refunds, and guarantees.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] space-y-3">
+          <h3 class="font-black text-base text-slate-900 dark:text-white">Are there any signup or platform fees?</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+            Zero hidden fees. You only pay for the exact tutoring hours you book with your tutor.
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] space-y-3">
+          <h3 class="font-black text-base text-slate-900 dark:text-white">What if I need to reschedule a session?</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+            Reschedule anytime up to 24 hours before your session starts with zero cancellation penalties.
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] space-y-3">
+          <h3 class="font-black text-base text-slate-900 dark:text-white">How does the 100% Pass Guarantee work?</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+            If you complete 5+ hours of tutoring and do not pass your university module, receive a full refund or free retake sessions.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- SECTION 7: 20% DISCOUNT PROMO CODE CTA (CENTERED TOPIC)       -->
+    <!-- ============================================================== -->
+    <section class="py-20 bg-gradient-to-b from-slate-900 to-[#061512] text-white text-center">
+      <div class="max-w-4xl mx-auto px-4 space-y-8">
+        
+        <!-- Centered Topic Header -->
+        <div class="text-center max-w-2xl mx-auto space-y-3">
+          <span class="px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-black uppercase tracking-wider">
+            First-Time Student Special
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black">Get 20% Off Your First Tutoring Session</h2>
+          <p class="text-slate-400 text-sm font-medium">Use promo code <span class="font-mono text-amberGold-400 font-bold">EXAM2026</span> at checkout to claim your instant discount.</p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+          <a href="tutors.html" class="px-8 py-3.5 bg-theme-600 hover:bg-theme-700 text-white text-xs font-black rounded-xl shadow transition hover:scale-105">
+            Book Session with Promo Code →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Dynamic Footer Component Container -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/mock-data.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    function setPricingBilling(mode) {
+      const btnHourly = document.getElementById('btn-bill-hourly');
+      const btnBundle = document.getElementById('btn-bill-bundle');
+      
+      const p1 = document.getElementById('plan1-price');
+      const p2 = document.getElementById('plan2-price');
+      const p3 = document.getElementById('plan3-price');
+
+      if (mode === 'bundle') {
+        btnBundle.className = "px-5 py-2 rounded-xl bg-theme-600 text-white transition";
+        btnHourly.className = "px-5 py-2 rounded-xl text-slate-300 hover:text-white transition";
+
+        if (p1) p1.textContent = "$36";
+        if (p2) p2.textContent = "$30";
+        if (p3) p3.textContent = "$25";
+      } else {
+        btnHourly.className = "px-5 py-2 rounded-xl bg-theme-600 text-white transition";
+        btnBundle.className = "px-5 py-2 rounded-xl text-slate-300 hover:text-white transition";
+
+        if (p1) p1.textContent = "$45";
+        if (p2) p2.textContent = "$38";
+        if (p3) p3.textContent = "$32";
+      }
+    }
+
+    function handleSelectPlan(planName) {
+      if (window.showToast) window.showToast(`Selected ${planName} Plan. Proceeding to tutor match...`, "success");
+      setTimeout(() => {
+        window.location.href = "tutors.html";
+      }, 1000);
+    }
+
+    function handleApplyHardship() {
+      if (window.showToast) window.showToast("Financial Aid form opened. Academic team will review in 24h.", "info");
+    }
+  </script>
+</body>
+</html>

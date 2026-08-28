@@ -312,7 +312,7 @@ window.handleLogin = function (e) {
     if (role === 'Admin') {
       window.location.href = 'admin-dashboard.html';
     } else {
-      window.location.href = 'student-dashboard.html';
+      window.location.href = 'user-dashboard.html';
     }
   }, 600);
 };
@@ -325,7 +325,7 @@ function updateUserAuthStateUI() {
   if (savedUser) {
     try {
       const u = JSON.parse(savedUser);
-      const dashUrl = u.role === 'Admin' ? 'admin-dashboard.html' : 'student-dashboard.html';
+      const dashUrl = u.role === 'Admin' ? 'admin-dashboard.html' : 'user-dashboard.html';
       userArea.innerHTML = `
         <div class="flex items-center gap-2">
           <a href="${dashUrl}" class="px-3.5 py-1.5 text-xs font-extrabold text-slate-800 dark:text-slate-100 hover:text-theme-600 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] rounded-xl transition inline-flex items-center gap-1.5 shadow-sm">

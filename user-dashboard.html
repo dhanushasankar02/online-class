@@ -102,8 +102,8 @@
       <div class="flex items-center gap-3 px-2">
         <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=150" class="w-8 h-8 rounded-full object-cover">
         <div class="truncate">
-          <div class="font-bold text-white truncate">Alex Morgan</div>
-          <div class="text-[10px] text-slate-400 truncate">Computer Science • Year 2</div>
+          <div id="student-name" class="font-bold text-white truncate">Alex Morgan</div>
+          <div id="student-role" class="text-[10px] text-slate-400 truncate">Computer Science • Year 2</div>
         </div>
       </div>
 
@@ -368,6 +368,16 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const savedUser = localStorage.getItem('unitutor_user');
+      if (savedUser) {
+        try {
+          const u = JSON.parse(savedUser);
+          const nameEl = document.getElementById('student-name');
+          const roleEl = document.getElementById('student-role');
+          if (nameEl && u.name) nameEl.textContent = u.name;
+          if (roleEl && u.role) roleEl.textContent = `${u.role} Account`;
+        } catch (e) {}
+      }
       const urlParams = new URLSearchParams(window.location.search);
       const requestedTab = urlParams.get('tab') || 'sessions';
       switchStudentTab(requestedTab);

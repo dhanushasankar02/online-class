@@ -48,8 +48,11 @@
       <!-- Brand Logo & Mobile Close -->
       <div class="flex items-center justify-between">
         <a href="index.html" class="flex items-center gap-2.5 group">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-theme-600 to-amberGold-500 flex items-center justify-center text-white font-black shadow">
-            U
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-theme-600 via-theme-500 to-amberGold-500 flex items-center justify-center text-white shadow-md shadow-theme-600/30 group-hover:scale-105 transition-transform logo-glow">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l9-5-9-5-9 5 9 5z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+            </svg>
           </div>
           <div>
             <span class="text-base font-black tracking-tight text-white">UniTutor<span class="text-amberGold-500">.</span></span>
@@ -105,7 +108,7 @@
       </div>
 
       <button onclick="handleStudentLogout()" type="button" class="block w-full text-center py-2.5 rounded-xl bg-red-600/20 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-[11px] font-extrabold transition">
-        🚪 Logout of Portal
+         Logout of Portal
       </button>
     </div>
   </aside>
@@ -113,13 +116,26 @@
   <!-- Main Content Area -->
   <div class="flex-grow flex flex-col min-w-0">
     <header class="sticky top-0 z-30 h-16 bg-white dark:bg-[#0d231e] border-b border-slate-200 dark:border-[#1a3d35] px-3 sm:px-6 flex items-center justify-between shrink-0 gap-2">
-      <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+      <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
         <!-- Mobile Sidebar Hamburger Toggle -->
         <button onclick="toggleStudentSidebar()" type="button" aria-label="Toggle Sidebar Menu" class="md:hidden p-2 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-[#163830] rounded-lg shrink-0">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
 
-        <h1 class="text-sm sm:text-base font-black text-slate-900 dark:text-white truncate">Student Study Portal</h1>
+        <!-- Brand Logo with Emblem (Visible in Top Header) -->
+        <a href="index.html" class="flex items-center gap-2 shrink-0 group">
+          <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-theme-600 via-theme-500 to-amberGold-500 flex items-center justify-center text-white shadow-sm shadow-theme-600/30 group-hover:scale-105 transition-transform logo-glow">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l9-5-9-5-9 5 9 5z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+            </svg>
+          </div>
+          <span class="text-sm sm:text-base font-black tracking-tight text-slate-900 dark:text-white">UniTutor<span class="text-amberGold-500">.</span></span>
+        </a>
+
+        <span class="text-slate-300 dark:text-slate-700 font-light text-sm shrink-0">|</span>
+
+        <h1 class="text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300 truncate">Student Study Portal</h1>
         <span class="hidden sm:inline-block shrink-0 px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-theme-700 dark:text-theme-300 text-[10px] font-extrabold uppercase">
           Active Session
         </span>

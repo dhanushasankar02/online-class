@@ -151,11 +151,11 @@
     <main class="p-4 sm:p-8 space-y-6 sm:space-y-8 flex-grow overflow-y-auto">
       
       <!-- Top Overview Metrics KPI -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         <div class="bg-white dark:bg-[#0d231e] p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-[#1a3d35] shadow-sm space-y-1.5">
           <div class="text-xs text-slate-400 font-bold">Next 1-on-1 Session</div>
-          <a href="subjects.html?q=CS101" class="text-base sm:text-lg font-black text-slate-900 dark:text-white hover:text-theme-600 dark:hover:text-theme-400 transition block truncate">CS101 - Recursion Drills</a>
-          <div class="text-xs text-theme-600 dark:text-theme-400 font-bold truncate">Today at 4:00 PM • Dr. Aris Thorne</div>
+          <a href="subjects.html?q=CS101" class="text-base sm:text-lg font-black text-slate-900 dark:text-white hover:text-theme-600 dark:hover:text-theme-400 transition block">CS101 - Recursion Drills</a>
+          <div class="text-xs text-theme-600 dark:text-theme-400 font-bold">Today at 4:00 PM • Dr. Aris Thorne</div>
         </div>
 
         <div class="bg-white dark:bg-[#0d231e] p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-[#1a3d35] shadow-sm space-y-1.5">
@@ -172,21 +172,21 @@
       </div>
 
       <!-- Horizontal Responsive Tab Navigation Bar -->
-      <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 border-b border-slate-200 dark:border-[#1a3d35] text-xs font-bold scrollbar-none">
-        <button onclick="switchStudentTab('sessions')" id="top-tab-sessions" type="button" class="top-tab-btn flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl bg-theme-600 text-white shadow-sm shrink-0 transition">
-          <span>📅</span> <span>Sessions</span>
+      <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 border-b border-slate-200 dark:border-[#1a3d35] text-xs font-bold scrollbar-none whitespace-nowrap">
+        <button onclick="switchStudentTab('sessions')" id="top-tab-sessions" type="button" class="top-tab-btn flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl bg-theme-600 text-white shadow-sm shrink-0 whitespace-nowrap transition">
+          <span>📅</span> <span class="whitespace-nowrap">Sessions</span>
         </button>
-        <button onclick="switchStudentTab('vault')" id="top-tab-vault" type="button" class="top-tab-btn flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 transition">
-          <span>📚</span> <span>Notes Vault</span>
+        <button onclick="switchStudentTab('vault')" id="top-tab-vault" type="button" class="top-tab-btn flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 whitespace-nowrap transition">
+          <span>📚</span> <span class="whitespace-nowrap">Notes Vault</span>
         </button>
-        <button onclick="switchStudentTab('tutors')" id="top-tab-tutors" type="button" class="top-tab-btn flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 transition">
-          <span>👨‍🏫</span> <span>Saved Tutors</span>
+        <button onclick="switchStudentTab('tutors')" id="top-tab-tutors" type="button" class="top-tab-btn flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 whitespace-nowrap transition">
+          <span>👨‍🏫</span> <span class="whitespace-nowrap">Saved Tutors</span>
         </button>
-        <button onclick="switchStudentTab('chat')" id="top-tab-chat" type="button" class="top-tab-btn flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 transition">
-          <span>💬</span> <span>Messages</span>
+        <button onclick="switchStudentTab('chat')" id="top-tab-chat" type="button" class="top-tab-btn flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 whitespace-nowrap transition">
+          <span>💬</span> <span class="whitespace-nowrap">Messages</span>
         </button>
-        <button onclick="switchStudentTab('guarantee')" id="top-tab-guarantee" type="button" class="top-tab-btn flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 transition">
-          <span>🛡️</span> <span>Guarantee</span>
+        <button onclick="switchStudentTab('guarantee')" id="top-tab-guarantee" type="button" class="top-tab-btn flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 whitespace-nowrap transition">
+          <span>🛡️</span> <span class="whitespace-nowrap">Guarantee</span>
         </button>
       </div>
 
@@ -199,7 +199,7 @@
             <h2 class="text-base sm:text-lg font-black text-slate-900 dark:text-white">Your Scheduled Tutoring Sessions</h2>
             <p class="text-xs text-slate-500 dark:text-slate-400">Join live classrooms or manage session times.</p>
           </div>
-          <a href="tutors.html" class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2.5 bg-theme-600 hover:bg-theme-700 text-white font-bold text-xs rounded-xl shadow transition">
+          <a href="tutors.html" class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2.5 bg-theme-600 hover:bg-theme-700 text-white font-bold text-xs rounded-xl shadow transition shrink-0 whitespace-nowrap">
             + Book New Session
           </a>
         </div>
@@ -213,7 +213,7 @@
                 <p class="text-slate-500 dark:text-slate-400">Tutor: Dr. Aris Thorne (PhD Oxford) • HD Whiteboard Classroom</p>
               </div>
               <div class="flex gap-2 shrink-0">
-                <button onclick="if(window.showToast) window.showToast('Launching Live Classroom WebRTC...', 'success')" class="w-full sm:w-auto px-4 py-2.5 bg-theme-600 hover:bg-theme-700 text-white font-bold rounded-xl shadow transition">
+                <button onclick="if(window.showToast) window.showToast('Launching Live Classroom WebRTC...', 'success')" class="w-full sm:w-auto px-4 py-2.5 bg-theme-600 hover:bg-theme-700 text-white font-bold rounded-xl shadow transition shrink-0 whitespace-nowrap">
                   Join Virtual Classroom →
                 </button>
               </div>
@@ -226,8 +226,8 @@
                 <p class="text-slate-500 dark:text-slate-400">Tutor: Elena Rostova CFA • Excel Financial Modeling</p>
               </div>
               <div class="flex gap-2 shrink-0">
-                <button onclick="if(window.showToast) window.showToast('Reschedule request sent to tutor.', 'info')" class="w-full sm:w-auto px-3 py-2 bg-slate-100 dark:bg-[#163830] text-slate-700 dark:text-slate-200 font-bold rounded-xl hover:bg-slate-200 dark:hover:bg-[#1d4a40] transition">
-                  Reschedule
+                <button onclick="if(window.showToast) window.showToast('Reschedule request sent to tutor.', 'info')" class="w-full sm:w-auto px-4 py-2.5 bg-slate-100 dark:bg-[#163830] text-slate-700 dark:text-slate-200 font-bold rounded-xl hover:bg-slate-200 dark:hover:bg-[#1d4a40] transition shrink-0 whitespace-nowrap">
+                  Reschedule Session
                 </button>
               </div>
             </div>
@@ -276,27 +276,27 @@
           <p class="text-xs text-slate-500 dark:text-slate-400">Quickly rebook sessions with your favorite instructors.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-          <div class="bg-white dark:bg-[#0d231e] p-4 sm:p-6 rounded-3xl border border-slate-200 dark:border-[#1a3d35] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div class="flex items-center gap-4">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-cover">
-              <div>
-                <h3 class="font-black text-sm sm:text-base text-slate-900 dark:text-white">Dr. Aris Thorne</h3>
-                <p class="text-xs font-bold text-theme-600">PhD Algorithms • Oxford</p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+          <div class="bg-white dark:bg-[#0d231e] p-5 rounded-3xl border border-slate-200 dark:border-[#1a3d35] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <div class="flex items-center gap-4 min-w-0">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-cover shrink-0">
+              <div class="min-w-0">
+                <h3 class="font-black text-sm sm:text-base text-slate-900 dark:text-white truncate">Dr. Aris Thorne</h3>
+                <p class="text-xs font-bold text-theme-600 truncate">PhD Algorithms • Oxford</p>
               </div>
             </div>
-            <a href="tutors.html?q=Aris" class="w-full sm:w-auto text-center px-4 py-2 bg-theme-600 text-white text-xs font-bold rounded-xl shadow shrink-0">Book Extra Session</a>
+            <a href="tutors.html?q=Aris" class="w-full lg:w-auto text-center px-4 py-2.5 bg-theme-600 hover:bg-theme-700 text-white text-xs font-bold rounded-xl shadow shrink-0 whitespace-nowrap">Book Extra Session</a>
           </div>
 
-          <div class="bg-white dark:bg-[#0d231e] p-4 sm:p-6 rounded-3xl border border-slate-200 dark:border-[#1a3d35] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div class="flex items-center gap-4">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150" class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-cover">
-              <div>
-                <h3 class="font-black text-sm sm:text-base text-slate-900 dark:text-white">Elena Rostova, CFA</h3>
-                <p class="text-xs font-bold text-amberGold-500">MSc Finance • LSE</p>
+          <div class="bg-white dark:bg-[#0d231e] p-5 rounded-3xl border border-slate-200 dark:border-[#1a3d35] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <div class="flex items-center gap-4 min-w-0">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150" class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-cover shrink-0">
+              <div class="min-w-0">
+                <h3 class="font-black text-sm sm:text-base text-slate-900 dark:text-white truncate">Elena Rostova, CFA</h3>
+                <p class="text-xs font-bold text-amberGold-500 truncate">MSc Finance • LSE</p>
               </div>
             </div>
-            <a href="tutors.html?q=Elena" class="w-full sm:w-auto text-center px-4 py-2 bg-amberGold-500 text-white text-xs font-bold rounded-xl shadow shrink-0">Book Extra Session</a>
+            <a href="tutors.html?q=Elena" class="w-full lg:w-auto text-center px-4 py-2.5 bg-amberGold-500 hover:bg-amberGold-600 text-white text-xs font-bold rounded-xl shadow shrink-0 whitespace-nowrap">Book Extra Session</a>
           </div>
         </div>
       </div>
@@ -415,12 +415,17 @@
         const topBtn = document.getElementById(`top-tab-${t}`);
         if (topBtn) {
           if (t === tabId) {
-            topBtn.className = "top-tab-btn flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl bg-theme-600 text-white shadow-sm shrink-0 transition font-bold";
+            topBtn.className = "top-tab-btn flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl bg-theme-600 text-white shadow-sm shrink-0 whitespace-nowrap transition font-bold";
           } else {
-            topBtn.className = "top-tab-btn flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 transition font-bold";
+            topBtn.className = "top-tab-btn flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 whitespace-nowrap transition font-bold";
           }
         }
       });
+
+      const activeTopBtn = document.getElementById(`top-tab-${tabId}`);
+      if (activeTopBtn && activeTopBtn.scrollIntoView) {
+        activeTopBtn.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
+      }
 
       if (window.innerWidth < 768) {
         const sidebar = document.getElementById('student-sidebar');

@@ -165,24 +165,24 @@
     <main class="p-4 sm:p-8 space-y-6 sm:space-y-8 flex-grow overflow-y-auto">
 
       <!-- Horizontal Responsive Tab Navigation Bar -->
-      <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 border-b border-slate-200 dark:border-[#1a3d35] text-xs font-bold scrollbar-none">
-        <button onclick="switchAdminTab('overview')" id="top-tab-overview" type="button" class="top-tab-btn flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl bg-theme-600 text-white shadow-sm shrink-0 transition">
-          <span>📊</span> <span>Overview</span>
+      <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 border-b border-slate-200 dark:border-[#1a3d35] text-xs font-bold scrollbar-none whitespace-nowrap">
+        <button onclick="switchAdminTab('overview')" id="top-tab-overview" type="button" class="top-tab-btn flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl bg-theme-600 text-white shadow-sm shrink-0 whitespace-nowrap transition">
+          <span>📊</span> <span class="whitespace-nowrap">Overview</span>
         </button>
-        <button onclick="switchAdminTab('tutors')" id="top-tab-tutors" type="button" class="top-tab-btn flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 transition">
-          <span>🎓</span> <span>Tutor Applications</span>
+        <button onclick="switchAdminTab('tutors')" id="top-tab-tutors" type="button" class="top-tab-btn flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 whitespace-nowrap transition">
+          <span>🎓</span> <span class="whitespace-nowrap">Tutor Applications</span>
         </button>
-        <button onclick="switchAdminTab('modules')" id="top-tab-modules" type="button" class="top-tab-btn flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 transition">
-          <span>📚</span> <span>Modules</span>
+        <button onclick="switchAdminTab('modules')" id="top-tab-modules" type="button" class="top-tab-btn flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 whitespace-nowrap transition">
+          <span>📚</span> <span class="whitespace-nowrap">Modules</span>
         </button>
-        <button onclick="switchAdminTab('escrow')" id="top-tab-escrow" type="button" class="top-tab-btn flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 transition">
-          <span>💳</span> <span>Escrow</span>
+        <button onclick="switchAdminTab('escrow')" id="top-tab-escrow" type="button" class="top-tab-btn flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 whitespace-nowrap transition">
+          <span>💳</span> <span class="whitespace-nowrap">Escrow</span>
         </button>
-        <button onclick="switchAdminTab('students')" id="top-tab-students" type="button" class="top-tab-btn flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 transition">
-          <span>👨‍🎓</span> <span>Students</span>
+        <button onclick="switchAdminTab('students')" id="top-tab-students" type="button" class="top-tab-btn flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 whitespace-nowrap transition">
+          <span>👨‍🎓</span> <span class="whitespace-nowrap">Students</span>
         </button>
-        <button onclick="switchAdminTab('settings')" id="top-tab-settings" type="button" class="top-tab-btn flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 transition">
-          <span>⚙️</span> <span>Settings</span>
+        <button onclick="switchAdminTab('settings')" id="top-tab-settings" type="button" class="top-tab-btn flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 whitespace-nowrap transition">
+          <span>⚙️</span> <span class="whitespace-nowrap">Settings</span>
         </button>
       </div>
 
@@ -231,7 +231,7 @@
           </div>
 
           <div class="overflow-x-auto rounded-2xl border border-slate-200 dark:border-[#1a3d35] p-2">
-            <table class="w-full min-w-[650px] text-left text-xs">
+            <table class="w-full min-w-[580px] text-left text-xs">
               <thead>
                 <tr class="border-b border-slate-200 dark:border-[#1a3d35] text-slate-400 font-black uppercase">
                   <th class="pb-3 px-2">Applicant Name</th>
@@ -243,28 +243,32 @@
               </thead>
               <tbody class="divide-y divide-slate-100 dark:divide-[#1a3d35] font-medium text-slate-800 dark:text-slate-200">
                 <tr>
-                  <td class="py-3 px-2 font-bold flex items-center gap-3">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" class="w-8 h-8 rounded-full object-cover shrink-0">
-                    <span class="truncate">Dr. Katherine Bell</span>
+                  <td class="py-3 px-2 font-bold">
+                    <div class="flex items-center gap-2.5">
+                      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" class="w-8 h-8 rounded-full object-cover shrink-0">
+                      <span class="whitespace-nowrap font-bold">Dr. Katherine Bell</span>
+                    </div>
                   </td>
-                  <td class="py-3 px-2">PhD Algorithms • Oxford</td>
-                  <td class="py-3 px-2">CS101, CS204</td>
-                  <td class="py-3 px-2 font-bold text-theme-600">$55 / hr</td>
-                  <td class="py-3 px-2 text-right space-x-2 shrink-0">
+                  <td class="py-3 px-2 whitespace-nowrap">PhD Algorithms • Oxford</td>
+                  <td class="py-3 px-2 whitespace-nowrap">CS101, CS204</td>
+                  <td class="py-3 px-2 font-bold text-theme-600 whitespace-nowrap">$55 / hr</td>
+                  <td class="py-3 px-2 text-right space-x-2 shrink-0 whitespace-nowrap">
                     <button onclick="approveTutor(this, 'Dr. Katherine Bell')" type="button" class="px-3 py-1.5 bg-theme-600 text-white rounded-lg font-bold hover:bg-theme-700 transition">Approve</button>
                     <button onclick="rejectTutor(this)" type="button" class="px-3 py-1.5 bg-red-500/20 text-red-500 rounded-lg font-bold hover:bg-red-500/30 transition">Reject</button>
                   </td>
                 </tr>
 
                 <tr>
-                  <td class="py-3 px-2 font-bold flex items-center gap-3">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" class="w-8 h-8 rounded-full object-cover shrink-0">
-                    <span class="truncate">Julian Vance, CFA</span>
+                  <td class="py-3 px-2 font-bold">
+                    <div class="flex items-center gap-2.5">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" class="w-8 h-8 rounded-full object-cover shrink-0">
+                      <span class="whitespace-nowrap font-bold">Julian Vance, CFA</span>
+                    </div>
                   </td>
-                  <td class="py-3 px-2">MSc Finance • LSE Alumni</td>
-                  <td class="py-3 px-2">FIN301, FIN402</td>
-                  <td class="py-3 px-2 font-bold text-theme-600">$48 / hr</td>
-                  <td class="py-3 px-2 text-right space-x-2 shrink-0">
+                  <td class="py-3 px-2 whitespace-nowrap">MSc Finance • LSE Alumni</td>
+                  <td class="py-3 px-2 whitespace-nowrap">FIN301, FIN402</td>
+                  <td class="py-3 px-2 font-bold text-theme-600 whitespace-nowrap">$48 / hr</td>
+                  <td class="py-3 px-2 text-right space-x-2 shrink-0 whitespace-nowrap">
                     <button onclick="approveTutor(this, 'Julian Vance')" type="button" class="px-3 py-1.5 bg-theme-600 text-white rounded-lg font-bold hover:bg-theme-700 transition">Approve</button>
                     <button onclick="rejectTutor(this)" type="button" class="px-3 py-1.5 bg-red-500/20 text-red-500 rounded-lg font-bold hover:bg-red-500/30 transition">Reject</button>
                   </td>
@@ -480,12 +484,17 @@
         const topBtn = document.getElementById(`top-tab-${t}`);
         if (topBtn) {
           if (t === tabId) {
-            topBtn.className = "top-tab-btn flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl bg-theme-600 text-white shadow-sm shrink-0 transition font-bold";
+            topBtn.className = "top-tab-btn flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl bg-theme-600 text-white shadow-sm shrink-0 whitespace-nowrap transition font-bold";
           } else {
-            topBtn.className = "top-tab-btn flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 transition font-bold";
+            topBtn.className = "top-tab-btn flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#163830] shrink-0 whitespace-nowrap transition font-bold";
           }
         }
       });
+
+      const activeTopBtn = document.getElementById(`top-tab-${tabId}`);
+      if (activeTopBtn && activeTopBtn.scrollIntoView) {
+        activeTopBtn.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
+      }
 
       if (window.innerWidth < 768) {
         const sidebar = document.getElementById('admin-sidebar');

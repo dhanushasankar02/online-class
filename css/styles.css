@@ -40,7 +40,6 @@ img, svg, video, iframe, canvas {
 /* Text Container Bounds & Word Break Protection */
 p, h1, h2, h3, h4, h5, h6, span, a, label {
   overflow-wrap: break-word;
-  word-break: break-word;
 }
 
 /* Enforce Sticky Navbar Positioning */

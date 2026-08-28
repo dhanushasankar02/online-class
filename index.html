@@ -363,10 +363,10 @@
       </div>
 
       <!-- Modern Bento Grid Layout -->
-      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         
         <!-- Bento Item 1: Engineering (Span 2 cols) -->
-        <a href="tutors.html?subject=Engineering" class="md:col-span-2 group bg-white dark:bg-[#0d231e] p-8 rounded-3xl shadow-xl border border-emerald-100 dark:border-[#1a3d35] hover:border-theme-500 transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col justify-between">
+        <a href="tutors.html?subject=Engineering" class="md:col-span-2 lg:col-span-2 group bg-white dark:bg-[#0d231e] p-8 rounded-3xl shadow-xl border border-emerald-100 dark:border-[#1a3d35] hover:border-theme-500 transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col justify-between">
           <div class="space-y-4 relative z-10">
             <div class="w-14 h-14 rounded-2xl bg-theme-100 dark:bg-theme-900/50 text-theme-600 dark:text-theme-400 flex items-center justify-center font-bold text-2xl">
               💻
@@ -387,7 +387,7 @@
         </a>
 
         <!-- Bento Item 2: Commerce -->
-        <a href="tutors.html?subject=Commerce" class="group bg-white dark:bg-[#0d231e] p-8 rounded-3xl shadow-xl border border-emerald-100 dark:border-[#1a3d35] hover:border-amberGold-500 transition-all hover:-translate-y-1 flex flex-col justify-between">
+        <a href="tutors.html?subject=Commerce" class="md:col-span-1 lg:col-span-1 group bg-white dark:bg-[#0d231e] p-8 rounded-3xl shadow-xl border border-emerald-100 dark:border-[#1a3d35] hover:border-amberGold-500 transition-all hover:-translate-y-1 flex flex-col justify-between">
           <div class="space-y-4">
             <div class="w-14 h-14 rounded-2xl bg-amberGold-500/20 text-amberGold-600 dark:text-amberGold-400 flex items-center justify-center font-bold text-2xl">
               📈
@@ -403,7 +403,7 @@
         </a>
 
         <!-- Bento Item 3: Law -->
-        <a href="tutors.html?subject=Law" class="group bg-white dark:bg-[#0d231e] p-8 rounded-3xl shadow-xl border border-emerald-100 dark:border-[#1a3d35] hover:border-purple-500 transition-all hover:-translate-y-1 flex flex-col justify-between">
+        <a href="tutors.html?subject=Law" class="md:col-span-1 lg:col-span-1 group bg-white dark:bg-[#0d231e] p-8 rounded-3xl shadow-xl border border-emerald-100 dark:border-[#1a3d35] hover:border-purple-500 transition-all hover:-translate-y-1 flex flex-col justify-between">
           <div class="space-y-4">
             <div class="w-14 h-14 rounded-2xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-2xl">
               ⚖️
@@ -418,8 +418,8 @@
           </div>
         </a>
 
-        <!-- Bento Item 4: Science (Span 4 cols full bar) -->
-        <a href="tutors.html?subject=Science" class="md:col-span-3 lg:col-span-4 group bg-white dark:bg-[#0d231e] p-8 rounded-3xl shadow-xl border border-emerald-100 dark:border-[#1a3d35] hover:border-theme-500 transition-all hover:-translate-y-1 flex flex-col md:flex-row items-center justify-between gap-6">
+        <!-- Bento Item 4: Science (Span full width) -->
+        <a href="tutors.html?subject=Science" class="md:col-span-2 lg:col-span-4 group bg-white dark:bg-[#0d231e] p-8 rounded-3xl shadow-xl border border-emerald-100 dark:border-[#1a3d35] hover:border-theme-500 transition-all hover:-translate-y-1 flex flex-col md:flex-row items-center justify-between gap-6">
           <div class="flex items-center gap-5">
             <div class="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-2xl shrink-0">
               🔬
@@ -547,39 +547,45 @@
           <p class="text-slate-400 text-sm font-medium">Join 45,000+ university students who boosted their GPA with 1-on-1 verified tutors.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 text-left">
           
-          <div class="bg-[#0d231e] p-6 rounded-3xl border border-[#1a3d35] space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-amberGold-400">Computer Science</span>
-              <span class="text-xs font-black px-2 py-0.5 bg-emerald-500/20 text-emerald-400 rounded-full">54% → 89% (Grade A)</span>
+          <div class="bg-[#0d231e] p-6 rounded-3xl border border-[#1a3d35] flex flex-col justify-between space-y-4">
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-bold text-amberGold-400">Computer Science</span>
+                <span class="text-[11px] font-black px-2.5 py-1 bg-emerald-500/20 text-emerald-400 rounded-full whitespace-nowrap shrink-0">54% → 89% (Grade A)</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed font-medium">
+                "Dr. Thorne broke down Graph Theory and Heap Data Structures step by step. Passed my retake exam with distinction!"
+              </p>
             </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              "Dr. Thorne broke down Graph Theory and Heap Data Structures step by step. Passed my retake exam with distinction!"
-            </p>
-            <div class="text-[11px] text-slate-400 font-bold">— Julian Vance, Imperial College</div>
+            <div class="text-[11px] text-slate-400 font-bold border-t border-[#1a3d35] pt-3">— Julian Vance, Imperial College</div>
           </div>
 
-          <div class="bg-[#0d231e] p-6 rounded-3xl border border-[#1a3d35] space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-amberGold-400">Corporate Finance</span>
-              <span class="text-xs font-black px-2 py-0.5 bg-emerald-500/20 text-emerald-400 rounded-full">58% → 92% (First Class)</span>
+          <div class="bg-[#0d231e] p-6 rounded-3xl border border-[#1a3d35] flex flex-col justify-between space-y-4">
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-bold text-amberGold-400">Corporate Finance</span>
+                <span class="text-[11px] font-black px-2.5 py-1 bg-emerald-500/20 text-emerald-400 rounded-full whitespace-nowrap shrink-0">58% → 92% (First Class)</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed font-medium">
+                "Elena shared custom Excel financial modeling sheets and DCF valuation guides. Worth every single penny."
+              </p>
             </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              "Elena shared custom Excel financial modeling sheets and DCF valuation guides. Worth every single penny."
-            </p>
-            <div class="text-[11px] text-slate-400 font-bold">— Kavita Rao, London School of Economics</div>
+            <div class="text-[11px] text-slate-400 font-bold border-t border-[#1a3d35] pt-3">— Kavita Rao, London School of Economics</div>
           </div>
 
-          <div class="bg-[#0d231e] p-6 rounded-3xl border border-[#1a3d35] space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-amberGold-400">Constitutional Law</span>
-              <span class="text-xs font-black px-2 py-0.5 bg-emerald-500/20 text-emerald-400 rounded-full">61% → 85% (High Honors)</span>
+          <div class="bg-[#0d231e] p-6 rounded-3xl border border-[#1a3d35] flex flex-col justify-between space-y-4">
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-bold text-amberGold-400">Constitutional Law</span>
+                <span class="text-[11px] font-black px-2.5 py-1 bg-emerald-500/20 text-emerald-400 rounded-full whitespace-nowrap shrink-0">61% → 85% (High Honors)</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed font-medium">
+                "Marcus taught me how to structure legal precedents under timed exam conditions. Solved my exam anxiety."
+              </p>
             </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              "Marcus taught me how to structure legal precedents under timed exam conditions. Solved my exam anxiety."
-            </p>
-            <div class="text-[11px] text-slate-400 font-bold">— Lucas Meyer, Cambridge Law</div>
+            <div class="text-[11px] text-slate-400 font-bold border-t border-[#1a3d35] pt-3">— Lucas Meyer, Cambridge Law</div>
           </div>
 
         </div>

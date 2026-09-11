@@ -40,11 +40,14 @@
 
   <!-- Top Right Sticky Utility Controls (Dark Mode & RTL) -->
   <div class="fixed top-5 right-5 sm:top-6 sm:right-6 flex items-center gap-2 z-[9999]">
-    <button class="action-btn" id="btn-rtl-toggle" onclick="toggleRTL()" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction">
-      <span style="font-size: 11px; font-weight: 700; letter-spacing: -0.5px;">⇄ RTL</span>
+    <button id="btn-rtl-toggle" onclick="toggleRTL()" type="button" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction" class="p-2 bg-white dark:bg-[#163830] rounded-xl text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-[#1a3d35] shadow-sm hover:bg-slate-50 dark:hover:bg-[#1d4a40] transition">
+      <svg class="w-4 h-4 text-theme-600 dark:text-theme-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+      </svg>
     </button>
     <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="p-2 bg-white dark:bg-[#163830] rounded-xl text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-[#1a3d35] shadow-sm hover:bg-slate-50 dark:hover:bg-[#1d4a40] transition">
-      <span class="dark:hidden">🌙</span><span class="hidden dark:inline">☀️</span>
+      <svg class="w-4 h-4 hidden dark:block text-amberGold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      <svg class="w-4 h-4 block dark:hidden text-theme-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
     </button>
   </div>
 

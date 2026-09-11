@@ -120,13 +120,15 @@
           <!-- Right Side Controls -->
           <div class="flex items-center space-x-2 shrink-0">
             
-            <!-- RTL Layout Switcher Button (Desktop) -->
-            <button class="action-btn hidden lg:inline-flex" id="btn-rtl-toggle" onclick="toggleRTL()" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction">
-              <span style="font-size: 11px; font-weight: 700; letter-spacing: -0.5px;">⇄ RTL</span>
+            <!-- RTL Layout Switcher ICON Button (Desktop - Minimal Icon Only) -->
+            <button id="btn-rtl-toggle" onclick="toggleRTL()" type="button" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 dark:hover:bg-[#1d4a40] transition p-2 rounded-xl">
+              <svg class="w-4 h-4 text-theme-600 dark:text-theme-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+              </svg>
             </button>
 
             <!-- Dark Mode Switcher ICON Button (Desktop) -->
-            <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 transition p-2">
+            <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 transition p-2 rounded-xl">
               <svg id="sun-icon" class="w-4 h-4 hidden dark:block text-amberGold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
               </svg>
@@ -137,9 +139,9 @@
 
             <!-- Clean Login Portal Button (Desktop) -->
             <div id="user-auth-area" class="hidden lg:block">
-              <button onclick="openLoginModal()" type="button" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105">
+              <a href="login.html" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105 inline-block">
                 Login Portal
-              </button>
+              </a>
             </div>
 
             <!-- Mobile Hamburger Toggle Icon Button -->
@@ -249,14 +251,15 @@
     <!-- ============================================================== -->
     <!-- SECTION 1: HERO SECTION WITH TRANSPARENT PRICING              -->
     <!-- ============================================================== -->
-    <section class="relative py-16 sm:py-24 lg:py-28 flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden text-center" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1920');">
+    <section class="hero-section relative min-h-[calc(100vh-4rem)] flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden text-center" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1920');">
       <!-- Dark Gradient Overlay -->
       <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-[#061512]/90 to-[#061512]"></div>
 
-      <div class="max-w-5xl mx-auto px-4 relative z-10 py-8 sm:py-16 text-center space-y-6">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 sm:py-20 text-center space-y-6">
         
-        <span class="inline-block text-xs font-black uppercase tracking-widest text-emerald-400">
-          💎 Transparent Academic Billing 2026
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-black uppercase tracking-wider backdrop-blur-md">
+          <svg class="w-3.5 h-3.5 text-amberGold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          Transparent Academic Billing 2026
         </span>
 
         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto">
@@ -465,32 +468,40 @@
         <!-- Centered Topic Header -->
         <div class="text-center max-w-2xl mx-auto space-y-2">
           <span class="text-xs font-black uppercase tracking-widest text-emerald-400">Value Guide</span>
-          <h2 class="text-3xl font-black">1-on-1 vs Small Group Tutoring</h2>
+          <h2 class="text-3xl sm:text-4xl font-black text-white">1-on-1 vs Small Group Tutoring</h2>
           <p class="text-slate-400 text-sm font-medium">Split costs with classmates or choose private custom coaching.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           
-          <div class="p-8 bg-slate-900 rounded-3xl border border-slate-800 space-y-4">
-            <div class="flex justify-between items-center">
-              <h3 class="font-black text-xl text-white">Private 1-on-1 Tutoring</h3>
-              <span class="text-amberGold-400 font-bold text-sm">$45 / hr</span>
+          <div class="p-8 bg-slate-900 rounded-3xl border border-slate-800 flex flex-col justify-between h-full space-y-6">
+            <div class="space-y-4">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
+                <h3 class="font-black text-xl text-white">Private 1-on-1 Tutoring</h3>
+                <span class="text-amberGold-400 font-bold text-sm bg-amberGold-500/10 px-3 py-1.5 rounded-full border border-amberGold-500/20 shrink-0 w-fit">$45 / hr</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed font-medium">
+                100% customized focus on your specific university syllabus, weak topics, and assignment code.
+              </p>
             </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              100% customized focus on your specific university syllabus, weak topics, and assignment code.
-            </p>
-            <div class="text-[11px] font-bold text-emerald-400">Best for: Fast Grade Transformations</div>
+            <div class="pt-2">
+              <span class="inline-block text-xs font-extrabold text-emerald-400 bg-emerald-500/10 px-3.5 py-1.5 rounded-lg border border-emerald-500/20">Best for: Fast Grade Transformations</span>
+            </div>
           </div>
 
-          <div class="p-8 bg-slate-900 rounded-3xl border border-slate-800 space-y-4">
-            <div class="flex justify-between items-center">
-              <h3 class="font-black text-xl text-white">Small Group Study Bootcamps</h3>
-              <span class="text-emerald-400 font-bold text-sm">$20 / hr per student</span>
+          <div class="p-8 bg-slate-900 rounded-3xl border border-slate-800 flex flex-col justify-between h-full space-y-6">
+            <div class="space-y-4">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
+                <h3 class="font-black text-xl text-white">Small Group Study Bootcamps</h3>
+                <span class="text-emerald-400 font-bold text-sm bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/20 shrink-0 w-fit">$20 / hr per student</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed font-medium">
+                Form a study group of 3-4 classmates from your same module to split costs and solve past papers together.
+              </p>
             </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Form a study group of 3-4 classmates from your same module to split costs and solve past papers together.
-            </p>
-            <div class="text-[11px] font-bold text-amberGold-400">Best for: Collaborative Group Revision</div>
+            <div class="pt-2">
+              <span class="inline-block text-xs font-extrabold text-amberGold-400 bg-amberGold-500/10 px-3.5 py-1.5 rounded-lg border border-amberGold-500/20">Best for: Collaborative Group Revision</span>
+            </div>
           </div>
 
         </div>

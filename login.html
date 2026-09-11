@@ -40,11 +40,14 @@
 
   <!-- Top Right Sticky Utility Controls (Dark Mode & RTL) -->
   <div class="fixed top-5 right-5 sm:top-6 sm:right-6 flex items-center gap-2 z-[9999]">
-    <button class="action-btn" id="btn-rtl-toggle" onclick="toggleRTL()" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction">
-      <span style="font-size: 11px; font-weight: 700; letter-spacing: -0.5px;">⇄ RTL</span>
+    <button id="btn-rtl-toggle" onclick="toggleRTL()" type="button" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction" class="p-2 bg-white dark:bg-[#163830] rounded-xl text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-[#1a3d35] shadow-sm hover:bg-slate-50 dark:hover:bg-[#1d4a40] transition">
+      <svg class="w-4 h-4 text-theme-600 dark:text-theme-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+      </svg>
     </button>
     <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="p-2 bg-white dark:bg-[#163830] rounded-xl text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-[#1a3d35] shadow-sm hover:bg-slate-50 dark:hover:bg-[#1d4a40] transition">
-      <span class="dark:hidden">🌙</span><span class="hidden dark:inline">☀️</span>
+      <svg class="w-4 h-4 hidden dark:block text-amberGold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      <svg class="w-4 h-4 block dark:hidden text-theme-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
     </button>
   </div>
 
@@ -68,15 +71,18 @@
         </div>
 
         <!-- Role Quick Switcher Pills -->
-        <div class="p-1 bg-slate-100 dark:bg-[#061512] rounded-2xl flex text-xs font-extrabold">
-          <button onclick="selectLoginPageRole('Student')" id="page-role-student" class="flex-1 py-2.5 rounded-xl bg-white dark:bg-theme-600 text-theme-600 dark:text-white shadow-sm transition">
-            🎓 Student
+        <div class="p-1 bg-slate-100 dark:bg-[#061512] rounded-2xl flex text-xs font-extrabold gap-1">
+          <button onclick="selectLoginPageRole('Student')" id="page-role-student" class="flex-1 py-2.5 rounded-xl bg-white dark:bg-theme-600 text-theme-600 dark:text-white shadow-sm transition flex items-center justify-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+            Student
           </button>
-          <button onclick="selectLoginPageRole('Tutor')" id="page-role-tutor" class="flex-1 py-2.5 rounded-xl text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition">
-            👨‍🏫 Tutor
+          <button onclick="selectLoginPageRole('Tutor')" id="page-role-tutor" class="flex-1 py-2.5 rounded-xl text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition flex items-center justify-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+            Tutor
           </button>
-          <button onclick="selectLoginPageRole('Admin')" id="page-role-admin" class="flex-1 py-2.5 rounded-xl text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition">
-            🛡️ Admin
+          <button onclick="selectLoginPageRole('Admin')" id="page-role-admin" class="flex-1 py-2.5 rounded-xl text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition flex items-center justify-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            Admin
           </button>
         </div>
 
@@ -112,11 +118,24 @@
           </button>
         </form>
 
+        <!-- Additional Sign In Options: University Institutional SSO & Passkey -->
+        <div class="space-y-2 pt-1">
+          <button type="button" onclick="if(window.showToast) window.showToast('Redirecting to University Institutional SSO (Shibboleth)...', 'info')" class="w-full py-2.5 px-4 rounded-xl border border-emerald-300 dark:border-emerald-800/60 bg-emerald-50/80 dark:bg-[#163830] hover:bg-emerald-100 dark:hover:bg-[#1d4a40] transition flex items-center justify-center gap-2 text-xs font-bold text-theme-700 dark:text-emerald-300 shadow-xs">
+            <svg class="w-4 h-4 text-theme-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+            <span>Sign in with University SSO (Shibboleth)</span>
+          </button>
+
+          <button type="button" onclick="if(window.showToast) window.showToast('Authenticating with Passkey / Biometrics...', 'info')" class="w-full py-2.5 px-4 rounded-xl border border-slate-200 dark:border-[#1a3d35] bg-slate-50 dark:bg-[#061512] hover:bg-slate-100 dark:hover:bg-[#163830] transition flex items-center justify-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-200">
+            <svg class="w-4 h-4 text-slate-600 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+            <span>Sign in with Passkey / Face ID</span>
+          </button>
+        </div>
+
         <!-- Social SSO Divider -->
-        <div class="relative flex items-center justify-center my-4">
+        <div class="relative flex items-center justify-center my-3">
           <div class="border-t border-emerald-100 dark:border-[#1a3d35] w-full"></div>
           <span class="bg-white dark:bg-[#0d231e] px-3 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider shrink-0">
-            or continue with
+            or continue with social
           </span>
           <div class="border-t border-emerald-100 dark:border-[#1a3d35] w-full"></div>
         </div>

@@ -13,6 +13,16 @@
   --dark-muted: #86efac;
 }
 
+/* Consistent Hero Section Layout & Height Across All Pages */
+.hero-section {
+  position: relative;
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
 /* Global Reset & Box Sizing */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -230,7 +240,7 @@ html[dir="rtl"] #mobile-menu.open #mobile-menu-container {
 /* Mobile Breakpoint: 320px - 479px (Extra Small Screens) */
 @media (min-width: 320px) {
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .one-line-nav {
@@ -241,7 +251,7 @@ html[dir="rtl"] #mobile-menu.open #mobile-menu-container {
 /* Mobile Breakpoint: 480px - 767px (Small Screens & Mobile Landscape) */
 @media (min-width: 480px) {
   html {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 
@@ -259,7 +269,7 @@ html[dir="rtl"] #mobile-menu.open #mobile-menu-container {
 /* Desktop Breakpoint: 1024px+ */
 @media (min-width: 1024px) {
   html {
-    font-size: 16px;
+    font-size: 16.5px;
   }
 }
 

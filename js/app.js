@@ -228,8 +228,7 @@ function initMobileMenuBehavior() {
 }
 
 window.openLoginModal = function () {
-  const modal = document.getElementById('login-modal');
-  if (modal) modal.classList.remove('hidden');
+  window.location.href = 'login.html';
 };
 
 window.closeLoginModal = function () {
@@ -341,9 +340,9 @@ function updateUserAuthStateUI() {
   }
 
   userArea.innerHTML = `
-    <button onclick="openLoginModal()" type="button" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105 inline-block">
+    <a href="login.html" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105 inline-block">
       Login Portal
-    </button>
+    </a>
   `;
 }
 

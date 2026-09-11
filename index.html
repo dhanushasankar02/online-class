@@ -120,13 +120,15 @@
           <!-- Right Side Controls -->
           <div class="flex items-center space-x-2 shrink-0">
             
-            <!-- RTL Layout Switcher Button (Desktop) -->
-            <button class="action-btn hidden lg:inline-flex" id="btn-rtl-toggle" onclick="toggleRTL()" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction">
-              <span style="font-size: 11px; font-weight: 700; letter-spacing: -0.5px;">⇄ RTL</span>
+            <!-- RTL Layout Switcher ICON Button (Desktop - Minimal Icon Only) -->
+            <button id="btn-rtl-toggle" onclick="toggleRTL()" type="button" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 dark:hover:bg-[#1d4a40] transition p-2 rounded-xl">
+              <svg class="w-4 h-4 text-theme-600 dark:text-theme-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+              </svg>
             </button>
 
             <!-- Dark Mode Switcher ICON Button (Desktop) -->
-            <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 transition p-2">
+            <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 transition p-2 rounded-xl">
               <svg id="sun-icon" class="w-4 h-4 hidden dark:block text-amberGold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
               </svg>
@@ -137,9 +139,9 @@
 
             <!-- Clean Login Portal Button (Desktop) -->
             <div id="user-auth-area" class="hidden lg:block">
-              <button onclick="openLoginModal()" type="button" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105">
-                Login
-              </button>
+              <a href="login.html" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105 inline-block">
+                Login Portal
+              </a>
             </div>
 
             <!-- Mobile Hamburger Toggle Icon Button -->
@@ -249,11 +251,11 @@
     <!-- ============================================================== -->
     <!-- SECTION 1: FULL SCREEN HERO WITH GLASSMORPHISM & BG IMAGE      -->
     <!-- ============================================================== -->
-    <section class="relative min-h-[calc(100vh-4rem)] flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1920');">
+    <section class="hero-section relative min-h-[calc(100vh-4rem)] flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1920');">
       <!-- Dark Gradient Overlay for High Contrast -->
       <div class="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-[#061512]/90 to-[#061512]"></div>
 
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 text-center space-y-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 sm:py-20 text-center space-y-8">
         
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-black uppercase tracking-wider backdrop-blur-md shadow-lg">
           <span class="w-2.5 h-2.5 rounded-full bg-amberGold-400 animate-pulse"></span>
@@ -268,25 +270,25 @@
           1-on-1 online tutoring for university undergraduates and postgraduates across Engineering, Commerce, Law, and Science disciplines.
         </p>
 
-        <!-- Glassmorphism Search & Filter Bar -->
-        <div class="max-w-3xl mx-auto bg-white/95 dark:bg-[#0d231e]/95 p-3 sm:p-4 rounded-3xl shadow-2xl border border-white/20 dark:border-[#1a3d35] space-y-3 sm:space-y-0 sm:flex sm:items-center sm:gap-3 backdrop-blur-md">
+        <!-- High-Contrast Search & Filter Bar -->
+        <div class="max-w-3xl mx-auto bg-white dark:bg-[#0d231e] p-3.5 sm:p-4 rounded-3xl shadow-2xl border-2 border-emerald-500/40 dark:border-[#1a3d35] space-y-3 sm:space-y-0 sm:flex sm:items-center sm:gap-3 backdrop-blur-md">
           
-          <div class="flex-1 flex items-center gap-2 px-4 py-3 bg-slate-100 dark:bg-[#061512] rounded-2xl">
-            <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-            <input type="text" id="hero-search-query" placeholder="Course code e.g. CS101, Calculus, Finance..." class="bg-transparent text-sm font-semibold w-full focus:outline-none dark:text-white placeholder:text-slate-400">
+          <div class="flex-1 flex items-center gap-2.5 px-4 py-3 bg-slate-50 dark:bg-[#061512] border-2 border-slate-300 dark:border-[#1a3d35] focus-within:border-theme-600 dark:focus-within:border-theme-400 focus-within:ring-2 focus-within:ring-theme-500/20 rounded-2xl transition-all shadow-sm">
+            <svg class="w-5 h-5 text-slate-500 dark:text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <input type="text" id="hero-search-query" placeholder="Course code e.g. CS101, Calculus, Finance..." class="bg-transparent text-sm font-extrabold w-full focus:outline-none text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400">
           </div>
 
-          <select id="hero-search-subject" class="px-4 py-3 bg-slate-100 dark:bg-[#061512] rounded-2xl text-sm font-bold text-slate-700 dark:text-slate-200 border-0 cursor-pointer">
-            <option value="">All Disciplines</option>
-            <option value="Engineering">Engineering & CS</option>
-            <option value="Commerce">Commerce & Finance</option>
-            <option value="Law">Law & Moot Court</option>
-            <option value="Science">Science & Calculus</option>
+          <select id="hero-search-subject" class="px-4 py-3 bg-slate-50 dark:bg-[#061512] border-2 border-slate-300 dark:border-[#1a3d35] focus:border-theme-600 dark:focus:border-theme-400 rounded-2xl text-sm font-extrabold text-slate-900 dark:text-slate-100 cursor-pointer transition-all shadow-sm focus:outline-none">
+            <option value="" class="text-slate-900 bg-white dark:bg-[#0d231e] dark:text-white">All Disciplines</option>
+            <option value="Engineering" class="text-slate-900 bg-white dark:bg-[#0d231e] dark:text-white">Engineering & CS</option>
+            <option value="Commerce" class="text-slate-900 bg-white dark:bg-[#0d231e] dark:text-white">Commerce & Finance</option>
+            <option value="Law" class="text-slate-900 bg-white dark:bg-[#0d231e] dark:text-white">Law & Moot Court</option>
+            <option value="Science" class="text-slate-900 bg-white dark:bg-[#0d231e] dark:text-white">Science & Calculus</option>
           </select>
 
-          <button onclick="handleHeroSearch()" type="button" class="w-full sm:w-auto px-7 py-3.5 bg-theme-600 hover:bg-theme-700 text-white font-black rounded-2xl shadow-lg shadow-theme-600/30 transition hover:scale-105 flex items-center justify-center gap-2">
+          <button onclick="handleHeroSearch()" type="button" class="w-full sm:w-auto px-7 py-3.5 bg-theme-600 hover:bg-theme-700 text-white font-black text-sm rounded-2xl shadow-lg shadow-theme-600/30 transition hover:scale-105 flex items-center justify-center gap-2 shrink-0">
             <span>Find Tutor</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </button>
 
         </div>
@@ -368,12 +370,12 @@
         <!-- Bento Item 1: Engineering (Span 2 cols) -->
         <a href="tutors.html?subject=Engineering" class="md:col-span-2 lg:col-span-2 group bg-white dark:bg-[#0d231e] p-8 rounded-3xl shadow-xl border border-emerald-100 dark:border-[#1a3d35] hover:border-theme-500 transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col justify-between">
           <div class="space-y-4 relative z-10">
-            <div class="w-14 h-14 rounded-2xl bg-theme-100 dark:bg-theme-900/50 text-theme-600 dark:text-theme-400 flex items-center justify-center font-bold text-2xl">
-              💻
+            <div class="w-14 h-14 rounded-2xl bg-theme-100 dark:bg-theme-900/50 text-theme-600 dark:text-theme-400 flex items-center justify-center font-bold">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
             </div>
             <h3 class="text-2xl font-black text-slate-900 dark:text-white">Engineering & Computer Science</h3>
             <p class="text-xs text-slate-500 dark:text-slate-400 max-w-md leading-relaxed">
-              Master Data Structures, Algorithms, Python, Deep Learning, Electrical Circuits, and Systems Architecture with PhD researchers.
+              Master Data Structures, Algorithms, Python, Deep Learning, Electrical Circuits, and Systems Architecture with verified PhD researchers.
             </p>
             <div class="flex flex-wrap gap-2 pt-2">
               <span class="px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-[#163830] text-[11px] font-extrabold text-theme-700 dark:text-theme-300">C++ / Python</span>
@@ -389,12 +391,12 @@
         <!-- Bento Item 2: Commerce -->
         <a href="tutors.html?subject=Commerce" class="md:col-span-1 lg:col-span-1 group bg-white dark:bg-[#0d231e] p-8 rounded-3xl shadow-xl border border-emerald-100 dark:border-[#1a3d35] hover:border-amberGold-500 transition-all hover:-translate-y-1 flex flex-col justify-between">
           <div class="space-y-4">
-            <div class="w-14 h-14 rounded-2xl bg-amberGold-500/20 text-amberGold-600 dark:text-amberGold-400 flex items-center justify-center font-bold text-2xl">
-              📈
+            <div class="w-14 h-14 rounded-2xl bg-amberGold-500/20 text-amberGold-600 dark:text-amberGold-400 flex items-center justify-center font-bold">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18"/></svg>
             </div>
             <h3 class="text-xl font-bold text-slate-900 dark:text-white">Commerce & Finance</h3>
             <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Corporate Valuation, DCF Models, IFRS Accounting, Econometrics, and Stata.
+              Corporate Valuation, DCF Models, IFRS Accounting, Econometrics, and Financial Engineering.
             </p>
           </div>
           <div class="pt-6 font-extrabold text-xs text-amberGold-600 dark:text-amberGold-400 inline-flex items-center gap-1 group-hover:gap-2 transition-all">
@@ -405,12 +407,12 @@
         <!-- Bento Item 3: Law -->
         <a href="tutors.html?subject=Law" class="md:col-span-1 lg:col-span-1 group bg-white dark:bg-[#0d231e] p-8 rounded-3xl shadow-xl border border-emerald-100 dark:border-[#1a3d35] hover:border-purple-500 transition-all hover:-translate-y-1 flex flex-col justify-between">
           <div class="space-y-4">
-            <div class="w-14 h-14 rounded-2xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-2xl">
-              ⚖️
+            <div class="w-14 h-14 rounded-2xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l9-3 9 3v12l-9 3-9-3V6z"/></svg>
             </div>
             <h3 class="text-xl font-bold text-slate-900 dark:text-white">Law & Moot Court</h3>
             <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Constitutional Rights, Corporate Torts, OSCOLA Citation, Moot Court.
+              Constitutional Rights, Corporate Torts, OSCOLA Citation, Jurisprudence, and Case Briefs.
             </p>
           </div>
           <div class="pt-6 font-extrabold text-xs text-purple-600 dark:text-purple-400 inline-flex items-center gap-1 group-hover:gap-2 transition-all">
@@ -421,8 +423,8 @@
         <!-- Bento Item 4: Science (Span full width) -->
         <a href="tutors.html?subject=Science" class="md:col-span-2 lg:col-span-4 group bg-white dark:bg-[#0d231e] p-8 rounded-3xl shadow-xl border border-emerald-100 dark:border-[#1a3d35] hover:border-theme-500 transition-all hover:-translate-y-1 flex flex-col md:flex-row items-center justify-between gap-6">
           <div class="flex items-center gap-5">
-            <div class="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-2xl shrink-0">
-              🔬
+            <div class="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold shrink-0">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.6 15.12a2 2 0 00-1.183.18L2 16.5m0 0l1.183 1.183a2 2 0 001.183.18l2.387-.477a6 6 0 013.86.517l.318.158a6 6 0 003.86.517l2.387-.477a2 2 0 001.022-.547L19.428 15.428z"/></svg>
             </div>
             <div>
               <h3 class="text-xl font-bold text-slate-900 dark:text-white">Science & Applied Mathematics Faculty</h3>
@@ -521,10 +523,10 @@
             </div>
 
             <div class="flex items-center justify-between text-[11px] text-slate-400 px-2 pt-1">
-              <span>🎤 Mute</span>
-              <span>📹 Video HD</span>
-              <span>🖥️ Share Screen</span>
-              <span class="text-emerald-400 font-bold">📄 Auto PDF Export</span>
+              <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg> Mute</span>
+              <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg> Video HD</span>
+              <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Share Screen</span>
+              <span class="text-emerald-400 font-bold flex items-center gap-1"><svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg> Auto PDF Export</span>
             </div>
           </div>
         </div>

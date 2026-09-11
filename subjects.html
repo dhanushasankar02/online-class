@@ -120,13 +120,15 @@
           <!-- Right Side Controls -->
           <div class="flex items-center space-x-2 shrink-0">
             
-            <!-- RTL Layout Switcher Button (Desktop) -->
-            <button class="action-btn hidden lg:inline-flex" id="btn-rtl-toggle" onclick="toggleRTL()" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction">
-              <span style="font-size: 11px; font-weight: 700; letter-spacing: -0.5px;">⇄ RTL</span>
+            <!-- RTL Layout Switcher ICON Button (Desktop - Minimal Icon Only) -->
+            <button id="btn-rtl-toggle" onclick="toggleRTL()" type="button" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 dark:hover:bg-[#1d4a40] transition p-2 rounded-xl">
+              <svg class="w-4 h-4 text-theme-600 dark:text-theme-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+              </svg>
             </button>
 
             <!-- Dark Mode Switcher ICON Button (Desktop) -->
-            <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 transition p-2">
+            <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 transition p-2 rounded-xl">
               <svg id="sun-icon" class="w-4 h-4 hidden dark:block text-amberGold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
               </svg>
@@ -137,9 +139,9 @@
 
             <!-- Clean Login Portal Button (Desktop) -->
             <div id="user-auth-area" class="hidden lg:block">
-              <button onclick="openLoginModal()" type="button" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105">
+              <a href="login.html" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105 inline-block">
                 Login Portal
-              </button>
+              </a>
             </div>
 
             <!-- Mobile Hamburger Toggle Icon Button -->
@@ -249,13 +251,14 @@
     <!-- ============================================================== -->
     <!-- SECTION 1: FULL SCREEN BACKGROUND IMAGE HERO (CENTERED TOPIC)  -->
     <!-- ============================================================== -->
-    <section class="relative py-16 sm:py-24 lg:py-28 flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden text-center" style="background-image: url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&q=80&w=1920');">
+    <section class="hero-section relative min-h-[calc(100vh-4rem)] flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden text-center" style="background-image: url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&q=80&w=1920');">
       <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-[#061512]/90 to-[#061512]"></div>
 
-      <div class="max-w-5xl mx-auto px-4 relative z-10 py-8 sm:py-16 text-center space-y-6">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 sm:py-20 text-center space-y-6">
         
-        <span class="inline-block text-xs font-black uppercase tracking-widest text-emerald-400">
-          📚 Official Academic Directory 2026
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-black uppercase tracking-wider backdrop-blur-md">
+          <svg class="w-3.5 h-3.5 text-amberGold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          Official Academic Directory 2026
         </span>
 
         <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto">
@@ -506,19 +509,19 @@
       const filtered = facFilter === 'All' ? ALL_SUBJECT_DATA : ALL_SUBJECT_DATA.filter(s => s.faculty === facFilter);
 
       grid.innerHTML = filtered.map(item => `
-        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] space-y-4 hover:border-theme-500 transition flex flex-col justify-between">
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] flex flex-col justify-between h-full min-h-[220px] space-y-4 hover:border-theme-500 transition-all">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-[#163830] text-theme-700 dark:text-theme-300 text-[10px] font-black uppercase">${item.code}</span>
-              <span class="text-xs font-bold text-amberGold-500">★ ${item.rating}</span>
+              <span class="px-3 py-1 rounded-lg bg-emerald-50 dark:bg-[#163830] text-theme-700 dark:text-theme-300 text-xs font-black uppercase tracking-wider">${item.code}</span>
+              <span class="text-sm font-bold text-amberGold-500">★ ${item.rating}</span>
             </div>
-            <h3 class="font-black text-base text-slate-900 dark:text-white">${item.title}</h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Faculty of ${item.faculty} • ${item.level}</p>
+            <h3 class="font-black text-lg text-slate-900 dark:text-white leading-snug">${item.title}</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 font-medium">Faculty of ${item.faculty} • ${item.level}</p>
           </div>
 
-          <div class="pt-4 border-t border-emerald-100 dark:border-[#1a3d35] flex items-center justify-between">
-            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">${item.tutors} Verified Tutors</span>
-            <a href="tutors.html?q=${encodeURIComponent(item.code)}" class="px-4 py-2 bg-theme-600 hover:bg-theme-700 text-white font-extrabold text-xs rounded-xl shadow transition">
+          <div class="pt-4 border-t border-emerald-100 dark:border-[#1a3d35] flex items-center justify-between mt-auto">
+            <span class="text-xs font-bold text-slate-600 dark:text-slate-300">${item.tutors} Verified Tutors</span>
+            <a href="tutors.html?q=${encodeURIComponent(item.code)}" class="px-4 py-2 bg-theme-600 hover:bg-theme-700 text-white font-black text-xs rounded-xl shadow transition">
               Browse Tutors →
             </a>
           </div>
@@ -536,19 +539,19 @@
       );
 
       grid.innerHTML = filtered.map(item => `
-        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] space-y-4 hover:border-theme-500 transition flex flex-col justify-between">
+        <div class="bg-white dark:bg-[#0d231e] rounded-3xl p-6 shadow-xl border border-emerald-100 dark:border-[#1a3d35] flex flex-col justify-between h-full min-h-[220px] space-y-4 hover:border-theme-500 transition-all">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-[#163830] text-theme-700 dark:text-theme-300 text-[10px] font-black uppercase">${item.code}</span>
-              <span class="text-xs font-bold text-amberGold-500">★ ${item.rating}</span>
+              <span class="px-3 py-1 rounded-lg bg-emerald-50 dark:bg-[#163830] text-theme-700 dark:text-theme-300 text-xs font-black uppercase tracking-wider">${item.code}</span>
+              <span class="text-sm font-bold text-amberGold-500">★ ${item.rating}</span>
             </div>
-            <h3 class="font-black text-base text-slate-900 dark:text-white">${item.title}</h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Faculty of ${item.faculty} • ${item.level}</p>
+            <h3 class="font-black text-lg text-slate-900 dark:text-white leading-snug">${item.title}</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 font-medium">Faculty of ${item.faculty} • ${item.level}</p>
           </div>
 
-          <div class="pt-4 border-t border-emerald-100 dark:border-[#1a3d35] flex items-center justify-between">
-            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">${item.tutors} Verified Tutors</span>
-            <a href="tutors.html?q=${encodeURIComponent(item.code)}" class="px-4 py-2 bg-theme-600 hover:bg-theme-700 text-white font-extrabold text-xs rounded-xl shadow transition">
+          <div class="pt-4 border-t border-emerald-100 dark:border-[#1a3d35] flex items-center justify-between mt-auto">
+            <span class="text-xs font-bold text-slate-600 dark:text-slate-300">${item.tutors} Verified Tutors</span>
+            <a href="tutors.html?q=${encodeURIComponent(item.code)}" class="px-4 py-2 bg-theme-600 hover:bg-theme-700 text-white font-black text-xs rounded-xl shadow transition">
               Browse Tutors →
             </a>
           </div>
@@ -583,14 +586,16 @@
       const items = tagFilter === 'All' ? ALL_SUBJECT_DATA : ALL_SUBJECT_DATA.filter(s => s.tags.includes(tagFilter));
 
       grid.innerHTML = items.map(item => `
-        <div class="bg-white dark:bg-[#0d231e] rounded-2xl p-5 shadow-sm border border-emerald-100 dark:border-[#1a3d35] space-y-3 hover:border-purple-500 transition">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-black text-theme-600 dark:text-theme-400 font-mono">${item.code}</span>
-            <span class="text-[10px] text-slate-400 font-bold">${item.faculty}</span>
+        <div class="bg-white dark:bg-[#0d231e] rounded-2xl p-6 shadow-sm border border-emerald-100 dark:border-[#1a3d35] flex flex-col justify-between h-full min-h-[190px] space-y-4 hover:border-purple-500 hover:shadow-md transition-all">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-black text-theme-600 dark:text-theme-400 font-mono uppercase tracking-wider px-2.5 py-1 rounded-md bg-theme-50 dark:bg-[#163830] border border-emerald-100 dark:border-[#1a3d35]">${item.code}</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400 font-extrabold">${item.faculty}</span>
+            </div>
+            <h4 class="font-extrabold text-base text-slate-900 dark:text-white leading-snug">${item.title}</h4>
           </div>
-          <h4 class="font-bold text-sm text-slate-900 dark:text-white">${item.title}</h4>
-          <div class="flex flex-wrap gap-1">
-            ${item.tags.map(t => `<span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-[#163830] text-[9px] font-bold text-theme-700 dark:text-theme-300">${t}</span>`).join('')}
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-emerald-100/60 dark:border-[#1a3d35]/60 mt-auto">
+            ${item.tags.map(t => `<span class="px-2.5 py-1 rounded-lg bg-emerald-50/80 dark:bg-[#163830] text-xs font-bold text-theme-700 dark:text-theme-300 border border-emerald-100 dark:border-[#1a3d35]">${t}</span>`).join('')}
           </div>
         </div>
       `).join('');

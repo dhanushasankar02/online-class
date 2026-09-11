@@ -120,13 +120,15 @@
           <!-- Right Side Controls -->
           <div class="flex items-center space-x-2 shrink-0">
             
-            <!-- RTL Layout Switcher Button (Desktop) -->
-            <button class="action-btn hidden lg:inline-flex" id="btn-rtl-toggle" onclick="toggleRTL()" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction">
-              <span style="font-size: 11px; font-weight: 700; letter-spacing: -0.5px;">⇄ RTL</span>
+            <!-- RTL Layout Switcher ICON Button (Desktop - Minimal Icon Only) -->
+            <button id="btn-rtl-toggle" onclick="toggleRTL()" type="button" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 dark:hover:bg-[#1d4a40] transition p-2 rounded-xl">
+              <svg class="w-4 h-4 text-theme-600 dark:text-theme-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+              </svg>
             </button>
 
             <!-- Dark Mode Switcher ICON Button (Desktop) -->
-            <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 transition p-2">
+            <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 transition p-2 rounded-xl">
               <svg id="sun-icon" class="w-4 h-4 hidden dark:block text-amberGold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
               </svg>
@@ -137,9 +139,9 @@
 
             <!-- Clean Login Portal Button (Desktop) -->
             <div id="user-auth-area" class="hidden lg:block">
-              <button onclick="openLoginModal()" type="button" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105">
+              <a href="login.html" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105 inline-block">
                 Login Portal
-              </button>
+              </a>
             </div>
 
             <!-- Mobile Hamburger Toggle Icon Button -->
@@ -249,11 +251,12 @@
     <!-- ============================================================== -->
     <!-- SECTION 1: CLEAN MINIMAL HERO                                  -->
     <!-- ============================================================== -->
-    <section class="py-20 bg-gradient-to-b from-slate-900 to-[#061512] text-white text-center border-b border-emerald-900/30">
-      <div class="max-w-4xl mx-auto px-4 space-y-6">
+    <section class="hero-section relative min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-b from-slate-900 via-[#061512] to-[#061512] text-white text-center border-b border-emerald-900/30 overflow-hidden">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 sm:py-20 text-center space-y-6">
         
-        <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wider border border-emerald-500/30">
-          ⚡ University Exam Revision Hub
+        <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider border border-emerald-500/30 backdrop-blur-md">
+          <svg class="w-3.5 h-3.5 text-amberGold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          University Exam Revision & Past-Paper Hub
         </span>
 
         <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight">
@@ -263,23 +266,32 @@
           </span>
         </h1>
 
-        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-medium">
-          Focused past-paper drills and marking scheme solutions for midterms and finals.
+        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-medium leading-relaxed">
+          Focused past-paper drills, marking scheme solutions, and targeted revision sessions tailored to your university degree module.
         </p>
 
-        <!-- Clean Search Bar -->
-        <div class="max-w-xl mx-auto bg-white/10 p-2 rounded-2xl border border-white/20 backdrop-blur-md flex items-center gap-2">
-          <input type="text" id="hero2-clean-query" placeholder="Enter course code e.g. CS101, Calculus..." class="w-full bg-transparent px-4 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none font-semibold">
-          <button onclick="handleCleanSearch()" type="button" class="px-6 py-2.5 bg-theme-600 hover:bg-theme-700 text-white text-xs font-bold rounded-xl shadow transition shrink-0">
+        <!-- High-Contrast Search Bar -->
+        <div class="max-w-xl mx-auto bg-slate-900/90 dark:bg-[#0d231e] p-2.5 rounded-2xl border-2 border-emerald-500/40 dark:border-[#1a3d35] backdrop-blur-md flex items-center gap-2 shadow-xl">
+          <input type="text" id="hero2-clean-query" placeholder="Enter course code e.g. CS101, Calculus, Finance..." class="w-full bg-slate-950 dark:bg-[#061512] px-4 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none font-bold rounded-xl border border-slate-700 dark:border-[#1a3d35]">
+          <button onclick="handleCleanSearch()" type="button" class="px-6 py-2.5 bg-theme-600 hover:bg-theme-700 text-white text-xs font-black rounded-xl shadow-md transition shrink-0">
             Find Tutor
           </button>
         </div>
 
-        <!-- Clean Stats Row -->
-        <div class="pt-6 flex flex-wrap justify-center gap-8 text-xs font-extrabold text-slate-300">
-          <span>✓ 99.2% Exam Pass Rate</span>
-          <span>✓ 1,200+ Verified PhD Tutors</span>
-          <span>✓ &lt; 15m Response Time</span>
+        <!-- Clean Professional Stats Row with SVG icons -->
+        <div class="pt-6 flex flex-wrap justify-center gap-6 sm:gap-8 text-xs font-extrabold text-slate-300">
+          <span class="flex items-center gap-1.5 bg-black/40 px-3.5 py-1.5 rounded-full border border-white/10">
+            <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            99.2% Exam Pass Rate
+          </span>
+          <span class="flex items-center gap-1.5 bg-black/40 px-3.5 py-1.5 rounded-full border border-white/10">
+            <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            1,200+ Verified PhD Tutors
+          </span>
+          <span class="flex items-center gap-1.5 bg-black/40 px-3.5 py-1.5 rounded-full border border-white/10">
+            <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            &lt; 15m Response Time
+          </span>
         </div>
 
       </div>
@@ -289,36 +301,44 @@
     <!-- ============================================================== -->
     <!-- SECTION 2: 4-STEP REVISION PLAN (MINIMAL GRID)                -->
     <!-- ============================================================== -->
-    <section class="py-16 max-w-6xl mx-auto px-4">
-      <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
-        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">4-Step Exam Revision System</h2>
-        <p class="text-slate-500 dark:text-slate-400 text-xs">Simple methodology engineered for fast grade boosts.</p>
+    <section class="py-20 max-w-6xl mx-auto px-4">
+      <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">4-Step Exam Revision System</h2>
+        <p class="text-base sm:text-lg font-medium text-slate-600 dark:text-slate-300 leading-relaxed">Simple methodology engineered for fast grade boosts and exam confidence.</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         
-        <div class="bg-white dark:bg-[#0d231e] p-6 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-2">
-          <span class="text-xs font-black text-theme-600 dark:text-theme-400">Step 01</span>
-          <h3 class="font-extrabold text-base text-slate-900 dark:text-white">Paper Audit</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Identify syllabus gaps in under 30 mins.</p>
+        <div class="bg-white dark:bg-[#0d231e] p-7 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3 flex flex-col justify-between hover:border-theme-500 transition-all">
+          <div class="space-y-2">
+            <span class="text-xs font-black uppercase tracking-wider text-theme-600 dark:text-theme-400">Step 01</span>
+            <h3 class="font-extrabold text-xl text-slate-900 dark:text-white">Paper Audit</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 font-medium leading-relaxed">Identify syllabus gaps and targeted weak points in under 30 minutes.</p>
+          </div>
         </div>
 
-        <div class="bg-white dark:bg-[#0d231e] p-6 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-2">
-          <span class="text-xs font-black text-amberGold-500">Step 02</span>
-          <h3 class="font-extrabold text-base text-slate-900 dark:text-white">Marking Schemes</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Master exact examiner key points.</p>
+        <div class="bg-white dark:bg-[#0d231e] p-7 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3 flex flex-col justify-between hover:border-amberGold-500 transition-all">
+          <div class="space-y-2">
+            <span class="text-xs font-black uppercase tracking-wider text-amberGold-500">Step 02</span>
+            <h3 class="font-extrabold text-xl text-slate-900 dark:text-white">Marking Schemes</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 font-medium leading-relaxed">Master exact examiner key points and rubric scoring criteria.</p>
+          </div>
         </div>
 
-        <div class="bg-white dark:bg-[#0d231e] p-6 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-2">
-          <span class="text-xs font-black text-purple-500">Step 03</span>
-          <h3 class="font-extrabold text-base text-slate-900 dark:text-white">Timed Mocks</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Practice under real timed conditions.</p>
+        <div class="bg-white dark:bg-[#0d231e] p-7 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3 flex flex-col justify-between hover:border-purple-500 transition-all">
+          <div class="space-y-2">
+            <span class="text-xs font-black uppercase tracking-wider text-purple-500">Step 03</span>
+            <h3 class="font-extrabold text-xl text-slate-900 dark:text-white">Timed Mocks</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 font-medium leading-relaxed">Practice under real timed conditions with instant tutor feedback.</p>
+          </div>
         </div>
 
-        <div class="bg-white dark:bg-[#0d231e] p-6 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-2">
-          <span class="text-xs font-black text-emerald-500">Step 04</span>
-          <h3 class="font-extrabold text-base text-slate-900 dark:text-white">Notes PDF</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Download 2-page summary cheat-sheets.</p>
+        <div class="bg-white dark:bg-[#0d231e] p-7 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3 flex flex-col justify-between hover:border-emerald-500 transition-all">
+          <div class="space-y-2">
+            <span class="text-xs font-black uppercase tracking-wider text-emerald-500">Step 04</span>
+            <h3 class="font-extrabold text-xl text-slate-900 dark:text-white">Notes PDF</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 font-medium leading-relaxed">Download concise 2-page summary cheat-sheets and key formula sheets.</p>
+          </div>
         </div>
 
       </div>
@@ -328,47 +348,47 @@
     <!-- ============================================================== -->
     <!-- SECTION 3: CLEAN GRADE IMPROVEMENT ESTIMATOR                   -->
     <!-- ============================================================== -->
-    <section class="py-16 bg-emerald-50/50 dark:bg-[#081b17]">
+    <section class="py-20 bg-emerald-50/50 dark:bg-[#081b17]">
       <div class="max-w-4xl mx-auto px-4">
-        <div class="bg-white dark:bg-[#0d231e] p-8 rounded-3xl border border-emerald-100 dark:border-[#1a3d35] shadow-lg space-y-6">
+        <div class="bg-white dark:bg-[#0d231e] p-8 sm:p-10 rounded-3xl border border-emerald-100 dark:border-[#1a3d35] shadow-lg space-y-6">
           
-          <div class="text-center max-w-lg mx-auto space-y-1">
-            <h2 class="text-2xl font-black text-slate-900 dark:text-white">Grade Improvement Estimator</h2>
-            <p class="text-xs text-slate-500 dark:text-slate-400">See your recommended revision hours.</p>
+          <div class="text-center max-w-lg mx-auto space-y-2">
+            <h2 class="text-3xl font-black text-slate-900 dark:text-white">Grade Improvement Estimator</h2>
+            <p class="text-sm font-medium text-slate-600 dark:text-slate-300">See your recommended revision hours and target score lift.</p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
             <div class="space-y-4">
               <div>
-                <div class="flex justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                <div class="flex justify-between text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">
                   <span>Current Grade:</span>
-                  <span id="clean-calc-cur" class="text-theme-600 dark:text-theme-400 font-bold">50%</span>
+                  <span id="clean-calc-cur" class="text-theme-600 dark:text-theme-400 font-extrabold text-base">50%</span>
                 </div>
                 <input type="range" id="clean-slider-cur" min="30" max="75" value="50" oninput="runCleanCalc()" class="w-full accent-theme-600">
               </div>
 
               <div>
-                <div class="flex justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                <div class="flex justify-between text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">
                   <span>Target Grade:</span>
-                  <span id="clean-calc-tar" class="text-amberGold-500 font-bold">85%</span>
+                  <span id="clean-calc-tar" class="text-amberGold-500 font-extrabold text-base">85%</span>
                 </div>
                 <input type="range" id="clean-slider-tar" min="60" max="98" value="85" oninput="runCleanCalc()" class="w-full accent-amberGold-500">
               </div>
             </div>
 
-            <div class="bg-slate-900 text-white p-6 rounded-2xl text-center space-y-3">
-              <div class="text-xs text-slate-400 font-medium">Recommended Prep Plan</div>
+            <div class="bg-slate-900 text-white p-6 sm:p-8 rounded-2xl text-center space-y-4 shadow-xl">
+              <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Recommended Prep Plan</div>
               <div class="flex justify-center gap-6">
                 <div>
-                  <div id="clean-res-hours" class="text-3xl font-black text-amberGold-400">7 Hours</div>
-                  <div class="text-[10px] text-slate-400">Revision Time</div>
+                  <div id="clean-res-hours" class="text-3xl sm:text-4xl font-black text-amberGold-400">7 Hours</div>
+                  <div class="text-xs text-slate-300 font-bold mt-1">Revision Time</div>
                 </div>
                 <div>
-                  <div id="clean-res-lift" class="text-3xl font-black text-emerald-400">+35%</div>
-                  <div class="text-[10px] text-slate-400">Predicted Score Lift</div>
+                  <div id="clean-res-lift" class="text-3xl sm:text-4xl font-black text-emerald-400">+35%</div>
+                  <div class="text-xs text-slate-300 font-bold mt-1">Predicted Score Lift</div>
                 </div>
               </div>
-              <a href="tutors.html" class="block w-full py-2.5 bg-theme-600 hover:bg-theme-700 text-white text-xs font-bold rounded-xl transition">
+              <a href="tutors.html" class="block w-full py-3 bg-theme-600 hover:bg-theme-700 text-white text-xs font-black uppercase tracking-wider rounded-xl transition shadow">
                 Browse Tutors →
               </a>
             </div>
@@ -382,43 +402,51 @@
     <!-- ============================================================== -->
     <!-- SECTION 4: EXAM PAPER REPOSITORY (CLEAN CARDS)                 -->
     <!-- ============================================================== -->
-    <section class="py-16 max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between mb-8">
+    <section class="py-20 max-w-6xl mx-auto px-4">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
         <div>
-          <h2 class="text-2xl font-black text-slate-900 dark:text-white">Solved Past Paper Guides</h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Step-by-step solutions for top modules.</p>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">Solved Past Paper Guides</h2>
+          <p class="text-base font-medium text-slate-600 dark:text-slate-300 mt-1">Step-by-step exam marking scheme solutions for top university modules.</p>
         </div>
-        <a href="subjects.html" class="text-xs font-bold text-theme-600 dark:text-theme-400 hover:underline">View All →</a>
+        <a href="subjects.html" class="text-sm font-extrabold text-theme-600 dark:text-theme-400 hover:underline shrink-0">View All Directory →</a>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         
-        <div class="bg-white dark:bg-[#0d231e] p-5 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3">
-          <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-emerald-50 dark:bg-[#163830] text-theme-600 dark:text-theme-400">Engineering</span>
-          <h3 class="font-bold text-sm text-slate-900 dark:text-white">CS101 Algorithms Paper</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Full recursion & memory solutions.</p>
-          <a href="tutors.html?q=CS101" class="block text-xs font-bold text-theme-600 dark:text-theme-400 pt-2">Get Prep →</a>
+        <div class="bg-white dark:bg-[#0d231e] p-6 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-xs font-extrabold px-2.5 py-1 rounded bg-emerald-50 dark:bg-[#163830] text-theme-600 dark:text-theme-400 uppercase">Engineering</span>
+            <h3 class="font-extrabold text-lg text-slate-900 dark:text-white leading-snug">CS101 Algorithms Paper</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 font-medium">Full recursion, big-O, & memory management solutions.</p>
+          </div>
+          <a href="tutors.html?q=CS101" class="block text-xs font-extrabold text-theme-600 dark:text-theme-400 pt-2 border-t border-emerald-100 dark:border-[#1a3d35]">Get Prep →</a>
         </div>
 
-        <div class="bg-white dark:bg-[#0d231e] p-5 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3">
-          <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-amberGold-500/10 text-amberGold-600 dark:text-amberGold-400">Commerce</span>
-          <h3 class="font-bold text-sm text-slate-900 dark:text-white">FIN301 Corporate DCF</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Excel model & valuation breakdown.</p>
-          <a href="tutors.html?q=Finance" class="block text-xs font-bold text-amberGold-600 dark:text-amberGold-400 pt-2">Get Prep →</a>
+        <div class="bg-white dark:bg-[#0d231e] p-6 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-xs font-extrabold px-2.5 py-1 rounded bg-amberGold-500/10 text-amberGold-600 dark:text-amberGold-400 uppercase">Commerce</span>
+            <h3 class="font-extrabold text-lg text-slate-900 dark:text-white leading-snug">FIN301 Corporate DCF</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 font-medium">Excel financial modeling & valuation breakdown.</p>
+          </div>
+          <a href="tutors.html?q=Finance" class="block text-xs font-extrabold text-amberGold-600 dark:text-amberGold-400 pt-2 border-t border-emerald-100 dark:border-[#1a3d35]">Get Prep →</a>
         </div>
 
-        <div class="bg-white dark:bg-[#0d231e] p-5 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3">
-          <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400">Law</span>
-          <h3 class="font-bold text-sm text-slate-900 dark:text-white">LAW202 Tort Law Precedents</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400">OSCOLA citation & essay structure.</p>
-          <a href="tutors.html?q=Law" class="block text-xs font-bold text-purple-600 dark:text-purple-400 pt-2">Get Prep →</a>
+        <div class="bg-white dark:bg-[#0d231e] p-6 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-xs font-extrabold px-2.5 py-1 rounded bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 uppercase">Law</span>
+            <h3 class="font-extrabold text-lg text-slate-900 dark:text-white leading-snug">LAW202 Tort Law Precedents</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 font-medium">OSCOLA citation & structured essay templates.</p>
+          </div>
+          <a href="tutors.html?q=Law" class="block text-xs font-extrabold text-purple-600 dark:text-purple-400 pt-2 border-t border-emerald-100 dark:border-[#1a3d35]">Get Prep →</a>
         </div>
 
-        <div class="bg-white dark:bg-[#0d231e] p-5 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3">
-          <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-emerald-50 dark:bg-[#163830] text-theme-600 dark:text-theme-400">Science</span>
-          <h3 class="font-bold text-sm text-slate-900 dark:text-white">MATH201 Multivariable Calculus</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Green's & Stokes' Theorem proofs.</p>
-          <a href="tutors.html?q=Calculus" class="block text-xs font-bold text-theme-600 dark:text-theme-400 pt-2">Get Prep →</a>
+        <div class="bg-white dark:bg-[#0d231e] p-6 rounded-2xl border border-emerald-100 dark:border-[#1a3d35] shadow-sm space-y-3 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-xs font-extrabold px-2.5 py-1 rounded bg-emerald-50 dark:bg-[#163830] text-theme-600 dark:text-theme-400 uppercase">Science</span>
+            <h3 class="font-extrabold text-lg text-slate-900 dark:text-white leading-snug">MATH201 Calculus</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 font-medium">Green's & Stokes' Theorem proofs & solutions.</p>
+          </div>
+          <a href="tutors.html?q=Calculus" class="block text-xs font-extrabold text-theme-600 dark:text-theme-400 pt-2 border-t border-emerald-100 dark:border-[#1a3d35]">Get Prep →</a>
         </div>
 
       </div>
@@ -428,11 +456,11 @@
     <!-- ============================================================== -->
     <!-- SECTION 5: ONLINE TUTORS GRID (MINIMALIST)                     -->
     <!-- ============================================================== -->
-    <section class="py-16 bg-emerald-50/50 dark:bg-[#081b17]">
+    <section class="py-20 bg-emerald-50/50 dark:bg-[#081b17]">
       <div class="max-w-6xl mx-auto px-4">
-        <div class="text-center max-w-lg mx-auto mb-10 space-y-1">
-          <h2 class="text-2xl font-black text-slate-900 dark:text-white">Available Tutors Online</h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Ready for instant 1-on-1 exam sessions.</p>
+        <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">Available Tutors Online</h2>
+          <p class="text-base font-medium text-slate-600 dark:text-slate-300">Ready for instant 1-on-1 exam prep sessions.</p>
         </div>
 
         <div id="clean-tutors-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -445,42 +473,42 @@
     <!-- ============================================================== -->
     <!-- SECTION 6: FREQUENTLY ASKED REVISION QUESTIONS (INTERACTIVE)    -->
     <!-- ============================================================== -->
-    <section class="py-16 max-w-4xl mx-auto px-4">
-      <div class="text-center max-w-lg mx-auto mb-10 space-y-1">
-        <h2 class="text-2xl font-black text-slate-900 dark:text-white">Exam Revision FAQ</h2>
-        <p class="text-xs text-slate-500 dark:text-slate-400">Everything you need to know about emergency 1-on-1 prep.</p>
+    <section class="py-20 max-w-4xl mx-auto px-4">
+      <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">Exam Revision FAQ</h2>
+        <p class="text-base font-medium text-slate-600 dark:text-slate-300">Everything you need to know about emergency 1-on-1 exam preparation.</p>
       </div>
 
-      <div class="space-y-3">
+      <div class="space-y-4">
         <!-- FAQ 1 -->
-        <div class="bg-white dark:bg-[#0d231e] rounded-2xl border border-emerald-100 dark:border-[#1a3d35] overflow-hidden">
-          <button onclick="toggleFaq(1)" type="button" class="w-full px-6 py-4 text-left flex items-center justify-between text-xs font-black text-slate-900 dark:text-white">
+        <div class="bg-white dark:bg-[#0d231e] rounded-2xl border border-emerald-100 dark:border-[#1a3d35] overflow-hidden shadow-xs">
+          <button onclick="toggleFaq(1)" type="button" class="w-full px-6 py-4.5 text-left flex items-center justify-between text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">
             <span>How fast can I get matched with a tutor if my exam is tomorrow?</span>
-            <span id="faq-icon-1" class="text-theme-600 dark:text-theme-400 text-base font-bold">+</span>
+            <span id="faq-icon-1" class="text-theme-600 dark:text-theme-400 text-lg font-bold">+</span>
           </button>
-          <div id="faq-ans-1" class="hidden px-6 pb-4 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+          <div id="faq-ans-1" class="hidden px-6 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
             Our speed dispatch matcher connects you with verified online tutors within 15 minutes, 24/7. You can start a live video session immediately.
           </div>
         </div>
 
         <!-- FAQ 2 -->
-        <div class="bg-white dark:bg-[#0d231e] rounded-2xl border border-emerald-100 dark:border-[#1a3d35] overflow-hidden">
-          <button onclick="toggleFaq(2)" type="button" class="w-full px-6 py-4 text-left flex items-center justify-between text-xs font-black text-slate-900 dark:text-white">
+        <div class="bg-white dark:bg-[#0d231e] rounded-2xl border border-emerald-100 dark:border-[#1a3d35] overflow-hidden shadow-xs">
+          <button onclick="toggleFaq(2)" type="button" class="w-full px-6 py-4.5 text-left flex items-center justify-between text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">
             <span>Do tutors cover exact university marking schemes and past papers?</span>
-            <span id="faq-icon-2" class="text-theme-600 dark:text-theme-400 text-base font-bold">+</span>
+            <span id="faq-icon-2" class="text-theme-600 dark:text-theme-400 text-lg font-bold">+</span>
           </button>
-          <div id="faq-ans-2" class="hidden px-6 pb-4 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+          <div id="faq-ans-2" class="hidden px-6 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
             Yes. All tutors are degree verified rankers or PhD researchers who break down past exam papers step-by-step to show exactly where examiners grant full marks.
           </div>
         </div>
 
         <!-- FAQ 3 -->
-        <div class="bg-white dark:bg-[#0d231e] rounded-2xl border border-emerald-100 dark:border-[#1a3d35] overflow-hidden">
-          <button onclick="toggleFaq(3)" type="button" class="w-full px-6 py-4 text-left flex items-center justify-between text-xs font-black text-slate-900 dark:text-white">
+        <div class="bg-white dark:bg-[#0d231e] rounded-2xl border border-emerald-100 dark:border-[#1a3d35] overflow-hidden shadow-xs">
+          <button onclick="toggleFaq(3)" type="button" class="w-full px-6 py-4.5 text-left flex items-center justify-between text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">
             <span>How does the 99.2% Exam Pass Guarantee work?</span>
-            <span id="faq-icon-3" class="text-theme-600 dark:text-theme-400 text-base font-bold">+</span>
+            <span id="faq-icon-3" class="text-theme-600 dark:text-theme-400 text-lg font-bold">+</span>
           </button>
-          <div id="faq-ans-3" class="hidden px-6 pb-4 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+          <div id="faq-ans-3" class="hidden px-6 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
             If you complete 5+ hours of tutoring and do not pass your university exam, we provide a 100% money-back refund or free retake tutoring credits.
           </div>
         </div>

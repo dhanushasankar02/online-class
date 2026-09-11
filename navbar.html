@@ -250,13 +250,15 @@
         <!-- Right Side Controls -->
         <div class="flex items-center space-x-2 shrink-0">
           
-          <!-- RTL Layout Switcher Button (Desktop) -->
-          <button class="action-btn hidden lg:inline-flex" id="btn-rtl-toggle" onclick="toggleRTL()" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction">
-            <span style="font-size: 11px; font-weight: 700; letter-spacing: -0.5px;">⇄ RTL</span>
+          <!-- RTL Layout Switcher ICON Button (Desktop - Minimal Icon Only) -->
+          <button id="btn-rtl-toggle" onclick="toggleRTL()" type="button" aria-label="Toggle LTR/RTL Layout" title="Switch layout direction" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 dark:hover:bg-[#1d4a40] transition p-2 rounded-xl">
+            <svg class="w-4 h-4 text-theme-600 dark:text-theme-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+            </svg>
           </button>
 
           <!-- Dark Mode Switcher ICON Button (Desktop) -->
-          <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 transition p-2">
+          <button id="dark-mode-btn" onclick="toggleDarkMode()" type="button" title="Toggle Light / Dark Mode" class="utility-icon-btn hidden lg:inline-flex text-slate-700 dark:text-slate-300 bg-emerald-50 dark:bg-[#163830] border border-emerald-200 dark:border-[#1a3d35] hover:bg-emerald-100 transition p-2 rounded-xl">
             <svg id="sun-icon" class="w-4 h-4 hidden dark:block text-amberGold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
             </svg>
@@ -390,9 +392,9 @@
     </p>
 
     <div class="flex flex-wrap justify-center gap-4 pt-4">
-      <button onclick="openLoginModal()" class="px-6 py-2.5 bg-theme-600 hover:bg-theme-700 text-white font-extrabold text-xs rounded-xl shadow transition">
-        Open Login Portal Modal
-      </button>
+      <a href="login.html" class="px-6 py-2.5 bg-theme-600 hover:bg-theme-700 text-white font-extrabold text-xs rounded-xl shadow transition inline-block">
+        Login Portal →
+      </a>
       <button onclick="toggleDarkMode()" class="px-6 py-2.5 bg-emerald-100 dark:bg-[#163830] text-theme-800 dark:text-emerald-200 font-bold text-xs rounded-xl transition">
         Toggle Dark Mode
       </button>
@@ -532,7 +534,7 @@
           <ul class="space-y-2 text-xs text-slate-400">
             <li><a href="user-dashboard.html" class="hover:text-theme-400 font-bold transition">User Dashboard</a></li>
             <li><a href="admin-dashboard.html" class="hover:text-amberGold-400 font-bold transition">Admin Dashboard</a></li>
-            <li><a href="#" onclick="openLoginModal(); return false;" class="hover:text-theme-400 transition">Student Login Portal</a></li>
+            <li><a href="login.html" class="hover:text-theme-400 font-bold transition">Login Portal</a></li>
           </ul>
         </div>
 
@@ -705,8 +707,7 @@
     }
 
     function openLoginModal() {
-      const modal = document.getElementById('login-modal');
-      if (modal) modal.classList.remove('hidden');
+      window.location.href = 'login.html';
     }
 
     function closeLoginModal() {
@@ -808,9 +809,9 @@
       }
 
       container.innerHTML = `
-        <button onclick="openLoginModal()" type="button" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105">
+        <a href="login.html" class="px-4 py-2 text-xs font-black text-white bg-gradient-to-r from-theme-600 to-amberGold-600 hover:from-theme-700 hover:to-amberGold-700 rounded-xl shadow-md shadow-theme-600/20 transition hover:scale-105 inline-block">
           Login Portal
-        </button>
+        </a>
       `;
     }
 

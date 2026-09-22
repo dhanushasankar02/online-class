@@ -114,7 +114,6 @@ window.toggleMobileSubmenu = function(submenuId, btn) {
 window.toggleDarkMode = function () {
   const isDark = document.documentElement.classList.toggle('dark');
   localStorage.setItem('unitutor_theme', isDark ? 'dark' : 'light');
-  showToast(`Switched to ${isDark ? 'Dark' : 'Light'} Mode`, 'info');
 };
 
 window.toggleRTL = function () {
